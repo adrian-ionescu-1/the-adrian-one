@@ -232,5 +232,96 @@
       "primary": "Apel pe WhatsApp",
       "secondary": "Trimite un email"
     }
+  },
+  "portfolioPage": {
+    "hero": {
+      "badge": "Portofoliu",
+      "heading": "Proiecte care",
+      "headingAccent": "livrează rezultate",
+      "subheading": "O selecție curată de produse reale construite pentru clienți reali — cu rezultate măsurabile.",
+      "stat1Value": "15+", "stat1Label": "Proiecte finalizate",
+      "stat2Value": "5", "stat2Label": "Industrii deservite",
+      "stat3Value": "4", "stat3Label": "Țări atinse"
+    },
+    "grid": {
+      "badge": "Lucrări",
+      "heading": "Proiecte selectate",
+      "subheading": "Fiecare proiect începe cu o problemă. Iată cum le-am rezolvat.",
+      "featuredBadge": "Prezentat",
+      "challenge": "Provocarea",
+      "techUsed": "Stack tehnologic",
+      "viewLive": "Vezi live",
+      "filterAll": "Toate",
+      "filterWebapp": "Web Apps",
+      "filterEcommerce": "E-commerce",
+      "filterLanding": "Landing Pages",
+      "filterApi": "API-uri",
+      "otherHeading": "Mai multe proiecte"
+    },
+    "stats": {
+      "badge": "Rezultate",
+      "heading": "Rezultate care contează",
+      "subheading": "Cifre reale din proiecte reale — nu medii de marketing.",
+      "s1Value": "40%",
+      "s1Label": "Creștere medie conversii",
+      "s1Desc": "Peste proiecte e-commerce și landing page după lansare",
+      "s2Value": "98",
+      "s2Label": "Scor mediu Lighthouse",
+      "s2Desc": "Performanță, accesibilitate și bune practici combinate",
+      "s3Value": "3×",
+      "s3Label": "Îmbunătățire medie timp de încărcare",
+      "s3Desc": "După audituri de performanță și optimizare țintită",
+      "s4Value": "100%",
+      "s4Label": "Livrare la timp",
+      "s4Desc": "Fiecare proiect livrat la sau înainte de termenul agreat"
+    },
+    "cta": {
+      "heading": "Proiectul tău ar putea fi următorul",
+      "subheading": "Să discutăm despre ce construiești și cum te pot ajuta să ai succes.",
+      "primary": "Începe o conversație",
+      "secondary": "Vezi serviciile"
+    },
+    "projects": {
+      "techstart": {
+        "title": "TechStart Platform",
+        "tagline": "Platformă SaaS multi-tenant",
+        "description": "Platformă full-stack de management de proiecte și analitics construită pentru un startup românesc. Colaborare în timp real, dashboard personalizat de raportare și workspace-uri de echipă — de la 0 la producție în 8 săptămâni.",
+        "challenge": "Proiectarea unei arhitecturi multi-tenant care suportă 50+ echipe izolate cu actualizări în timp real și un timp de încărcare al dashboard-ului sub 200ms la sarcină concurentă.",
+        "metric": "2 săpt. înainte de termen",
+        "m1Label": "Timp de lansare",
+        "m2Label": "SLA uptime",
+        "m3Label": "Echipe active"
+      },
+      "nordshop": {
+        "title": "NordShop",
+        "tagline": "Platformă e-commerce nordică",
+        "description": "Magazin online cu conversie ridicată pentru piața nordică — integrare Stripe personalizată, filtrare avansată a produselor, multi-valută și un checkout mobile-first care a crescut conversiile cu 40%.",
+        "metric": "+40% conversii"
+      },
+      "buildflow": {
+        "title": "BuildFlow Dashboard",
+        "tagline": "Management de proiecte SaaS",
+        "description": "Dashboard de management de proiecte cu actualizări în timp real, workspace-uri de echipă, diagrame Gantt și analitics avansate — construit pentru un startup B2B SaaS german.",
+        "metric": "10k+ utilizatori activi"
+      },
+      "medconnect": {
+        "title": "MedConnect API",
+        "tagline": "Sistem backend în sănătate",
+        "description": "API REST conform HIPAA pentru un furnizor de servicii medicale — dosare de pacienți, programare consultații, notificări în timp real și integrări securizate cu terți.",
+        "metric": "SLA uptime 99.9%"
+      },
+      "greenmarket": {
+        "title": "GreenMarket",
+        "tagline": "Marketplace produse sustenabile",
+        "description": "Marketplace B2C + B2B de produse sustenabile cu Sanity CMS, configurator personalizat de produse, niveluri de prețuri en-gros și un scor Lighthouse de 98.",
+        "metric": "Scor Lighthouse 98"
+      },
+      "lumina": {
+        "title": "Lumina Agency",
+        "tagline": "Website agenție creativă",
+        "description": "Website de agenție de calitate premium cu animații scroll-driven, fundaluri video, suport multilingv și un LCP sub 1s pe mobil.",
+        "metric": "<1s LCP pe mobil"
+      }
+    }
   }
 }
