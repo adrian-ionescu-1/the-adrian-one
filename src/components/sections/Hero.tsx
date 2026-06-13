@@ -40,16 +40,12 @@ export function Hero() {
       />
 
       {/* Pulsing glow orb */}
-      <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      <motion.div
+        animate={{ opacity: [0.08, 0.18, 0.08] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', repeatType: 'loop' }}
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(640px,100vw)] h-90 rounded-full bg-primary blur-[130px]"
         aria-hidden
-      >
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.18, 0.08] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', repeatType: 'loop' }}
-          className="w-160 h-90 rounded-full bg-primary blur-[130px]"
-        />
-      </div>
+      />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-4xl">

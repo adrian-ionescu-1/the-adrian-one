@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Acasă",
     "services": "Servicii",
     "portfolio": "Portofoliu",
     "partners": "Parteneri",
@@ -14,6 +15,11 @@
       "heading": "Gata să construiești ceva măreț?",
       "subheading": "Transformăm ideea ta într-un produs web rapid și modern.",
       "button": "Începe un proiect"
+    },
+    "ctaAlt": {
+      "heading": "Nu ești sigur de ce ai nevoie?",
+      "subheading": "Explorează toate serviciile și descoperă exact ce putem construi împreună.",
+      "button": "Vezi serviciile"
     },
     "sections": {
       "links": "Navigare rapidă",
@@ -460,6 +466,81 @@
         "description": "Website de agenție de calitate premium cu animații scroll-driven, fundaluri video, suport multilingv și un LCP sub 1s pe mobil.",
         "metric": "<1s LCP pe mobil"
       }
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "badge": "Ia legătura",
+      "heading": "Să construim ceva",
+      "headingAccent": "grozav împreună",
+      "subheading": "Spune-mi despre proiectul tău și îți răspund în 24 de ore cu o evaluare clară și onestă.",
+      "info1Label": "Timp de răspuns",
+      "info1Value": "În 24 de ore",
+      "info2Label": "Locație",
+      "info2Value": "România (UTC+3)",
+      "info3Label": "Disponibilitate",
+      "info3Value": "Deschis la proiecte",
+      "info4Label": "Contact preferat",
+      "info4Value": "WhatsApp sau email"
+    },
+    "form": {
+      "sectionBadge": "Formular de contact",
+      "heading": "Trimite un mesaj",
+      "subheading": "Completează formularul și îți răspund în 24 de ore pentru a programa un apel gratuit de 30 de minute.",
+      "nameLabel": "Nume complet",
+      "namePlaceholder": "Ion Popescu",
+      "emailLabel": "Adresă de email",
+      "emailPlaceholder": "ion@companie.ro",
+      "phoneLabel": "Număr de telefon",
+      "phonePlaceholder": "+40 712 345 678 (opțional)",
+      "companyLabel": "Companie",
+      "companyPlaceholder": "Compania ta (opțional)",
+      "budgetLabel": "Buget proiect",
+      "budgetPlaceholder": "Selectează un interval de buget",
+      "budget1": "Sub €1.000",
+      "budget2": "€1.000 – €3.000",
+      "budget3": "€3.000 – €8.000",
+      "budget4": "€8.000 – €20.000",
+      "budget5": "€20.000+",
+      "typeLabel": "Tipul proiectului",
+      "typeWebapp": "Aplicație Web",
+      "typeEcommerce": "E-commerce",
+      "typeLanding": "Landing Page",
+      "typeApi": "API / Backend",
+      "typeDesign": "UI/UX Design",
+      "typeOther": "Altele",
+      "messageLabel": "Spune-mi despre proiectul tău",
+      "messagePlaceholder": "Ce construiești? Ce problemă rezolvă? Ai cerințe tehnice specifice sau un termen limită?",
+      "submit": "Trimite mesajul",
+      "submitting": "Se trimite...",
+      "errorBanner": "Ceva nu a funcționat. Te rog încearcă din nou sau contactează-mă direct pe WhatsApp.",
+      "successTitle": "Mesaj primit!",
+      "successDesc": "Mulțumesc că ai luat legătura — îți răspund în 24 de ore pentru a programa apelul de descoperire.",
+      "successBack": "Trimite un alt mesaj",
+      "nameError": "Te rog introdu numele tău (minimum 2 caractere)",
+      "emailError": "Te rog introdu o adresă de email validă",
+      "budgetError": "Te rog selectează un interval de buget",
+      "typeError": "Te rog selectează tipul proiectului",
+      "messageError": "Te rog descrie proiectul tău (minimum 20 de caractere)"
+    },
+    "info": {
+      "altBadge": "Contact direct",
+      "altHeading": "Sau contactează-mă direct",
+      "whatsappLabel": "WhatsApp",
+      "whatsappDesc": "Răspuns cel mai rapid — de obicei în câteva ore",
+      "emailLabel": "Email",
+      "emailDesc": "Pentru brief-uri lungi, atașamente sau propuneri formale",
+      "phoneLabel": "Telefon",
+      "phoneDesc": "Sună direct — Lun–Vin, 9:00–18:00 (EET)",
+      "linkedinLabel": "LinkedIn",
+      "linkedinDesc": "Conectează-te sau trimite un mesaj profesional",
+      "nextHeading": "Ce urmează?",
+      "next1Title": "Citesc mesajul tău",
+      "next1Desc": "Fiecare solicitare este citită personal. Evaluez potrivirea proiectului și răspund sincer — fără răspunsuri automate.",
+      "next2Title": "Apel de descoperire gratuit",
+      "next2Desc": "Programăm un apel gratuit de 30 de minute pentru a ne alinia pe scop, obiective și termen. Fără angajament.",
+      "next3Title": "Propunere detaliată",
+      "next3Desc": "Primești o propunere clară și itemizată cu termenul de livrare și prețul — fără ghiceli, fără costuri ascunse."
     }
   }
 }

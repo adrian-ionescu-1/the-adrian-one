@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, startTransition } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
@@ -11,11 +11,17 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
+  { key: 'home', href: '/' },
   { key: 'services', href: '/services' },
   { key: 'portfolio', href: '/portfolio' },
   { key: 'partners', href: '/partners' },
   { key: 'about', href: '/about' },
 ] as const;
+
+function isActive(href: string, pathname: string) {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function Navbar() {
   const t = useTranslations('nav');
@@ -36,7 +42,7 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    setMobileOpen(false);
+    startTransition(() => setMobileOpen(false));
   }, [pathname]);
 
   const hasBg = scrolled || mobileOpen;
@@ -104,26 +110,30 @@ export function Navbar() {
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-0.5">
           {NAV_LINKS.map(({ key, href }) => {
-            const active = pathname === href || pathname.startsWith(`${href}/`);
+            const active = isActive(href, pathname);
             return (
               <li key={key}>
                 <Link
                   href={href}
-                  className={`relative px-3.5 py-2 text-base font-medium rounded-lg transition-colors duration-200 group ${
-                    active
-                      ? 'text-foreground'
-                      : 'text-muted-foreground hover:text-foreground'
+                  className={`relative px-3.5 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
+                    active ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
-                  {t(key)}
-                  {/* Animated underline indicator */}
+                  {/* Active pill background */}
                   <span
-                    className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 h-0.5 rounded-full transition-all duration-300 ease-out ${
+                    className={`absolute inset-0 rounded-lg border transition-all duration-300 ${
                       active
-                        ? 'w-[55%] bg-primary opacity-100'
-                        : 'w-0 opacity-0 bg-primary/60 group-hover:w-[55%] group-hover:opacity-100'
+                        ? 'bg-primary/10 border-primary/20 opacity-100'
+                        : 'bg-transparent border-transparent opacity-0'
                     }`}
                   />
+                  {/* Active underline dot */}
+                  <span
+                    className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary transition-all duration-300 ${
+                      active ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                    }`}
+                  />
+                  <span className="relative">{t(key)}</span>
                 </Link>
               </li>
             );
@@ -175,22 +185,34 @@ export function Navbar() {
             className="md:hidden overflow-hidden border-t border-border/50"
           >
             <ul className="flex flex-col px-4 py-3 gap-1">
-              {NAV_LINKS.map(({ key, href }, i) => (
-                <motion.li
-                  key={key}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 + 0.05, duration: 0.2 }}
-                >
-                  <Link
-                    href={href}
-                    className="block px-3 py-2.5 text-base font-medium text-muted-foreground rounded-lg transition-colors hover:text-foreground hover:bg-accent"
-                    onClick={() => setMobileOpen(false)}
+              {NAV_LINKS.map(({ key, href }, i) => {
+                const active = isActive(href, pathname);
+                return (
+                  <motion.li
+                    key={key}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 + 0.05, duration: 0.2 }}
                   >
-                    {t(key)}
-                  </Link>
-                </motion.li>
-              ))}
+                    <Link
+                      href={href}
+                      className={`relative block pl-6 pr-3 py-2.5 text-base font-medium rounded-lg transition-colors ${
+                        active
+                          ? 'text-primary bg-primary/10 border border-primary/20 font-semibold'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      <span
+                        className={`absolute left-2.5 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-primary transition-all duration-300 ${
+                          active ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                        }`}
+                      />
+                      {t(key)}
+                    </Link>
+                  </motion.li>
+                );
+              })}
               <motion.li
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}

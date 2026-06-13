@@ -104,7 +104,7 @@ export function AboutHero() {
             {/* CTAs */}
             <motion.div {...fadeUp(0.28)} className="flex flex-wrap gap-3">
               <a
-                href="https://wa.me/400736556174"
+                href="https://wa.me/40736556174"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-base shadow-md shadow-primary/25 transition-all duration-200 hover:shadow-glow hover:-translate-y-px active:translate-y-0"

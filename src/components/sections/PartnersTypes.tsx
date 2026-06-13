@@ -154,7 +154,7 @@ export function PartnersTypes() {
                 {/* CTA */}
                 <div className="mt-auto pt-2">
                   <a
-                    href="https://wa.me/400736556174"
+                    href="https://wa.me/40736556174"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`group/btn inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl border font-semibold text-sm transition-all duration-200 ${
