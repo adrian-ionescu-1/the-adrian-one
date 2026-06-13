@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, startTransition } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ExternalLink } from 'lucide-react';
@@ -119,7 +120,7 @@ export function About() {
                 {/* Avatar — imagine sau fallback initiale */}
                 <div className="relative shrink-0 w-16 h-16">
                   {!imgErr ? (
-                    <img
+                    <Image
                       src="/images/avatar_adrian.jpg"
                       alt="Adrian Ionescu"
                       width={64}
