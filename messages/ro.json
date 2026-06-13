@@ -115,5 +115,122 @@
     "skill4": "PostgreSQL",
     "skill5": "Design UI/UX",
     "skill6": "DevOps & CI/CD"
+  },
+  "servicesPage": {
+    "hero": {
+      "badge": "Ce construiesc",
+      "heading": "Dezvoltare web premium",
+      "headingAccent": "pentru afaceri ambițioase",
+      "subheading": "Produse digitale end-to-end — de la design la deployment. Rapide, scalabile și construite să dureze.",
+      "stat1Value": "15+", "stat1Label": "Proiecte livrate",
+      "stat2Value": "5+", "stat2Label": "Ani experiență",
+      "stat3Value": "4săpt", "stat3Label": "Livrare medie"
+    },
+    "detail": {
+      "badge": "Servicii",
+      "heading": "Fiecare serviciu, în detaliu",
+      "subheading": "Scop transparent, livrabile clare și tehnologiile folosite — pentru fiecare serviciu oferit.",
+      "featuresTitle": "Ce include",
+      "techTitle": "Tehnologii",
+      "timelineTitle": "Durată",
+      "cta": "Discută acest serviciu"
+    },
+    "web": {
+      "badge": "Cel mai popular",
+      "f1": "Design responsive pixel-perfect pe toate dispozitivele",
+      "f2": "Optimizare Core Web Vitals & Lighthouse",
+      "f3": "Arhitectură semantică SEO-ready & metadate",
+      "f4": "Integrare CMS headless (Sanity, Contentful sau custom)",
+      "f5": "Pipeline CI/CD & deployment automat pe Vercel"
+    },
+    "ecommerce": {
+      "badge": "ROI ridicat",
+      "f1": "Design personalizat al magazinului aliniat brandului tău",
+      "f2": "Integrare gateway de plată (Stripe, PayU sau altele)",
+      "f3": "Catalog produse, inventar & gestionare comenzi",
+      "f4": "Flux de checkout optimizat, mobile-first",
+      "f5": "Analitics, tracking conversii & setup A/B testing"
+    },
+    "backend": {
+      "badge": "Scalabil",
+      "f1": "Design API RESTful & GraphQL cu documentație completă",
+      "f2": "Arhitectură baze de date PostgreSQL / MongoDB",
+      "f3": "Autentificare JWT + OAuth2 & autorizare bazată pe roluri",
+      "f4": "Caching Redis, rate limiting & gestionare cozi",
+      "f5": "Documentație OpenAPI / Swagger + colecție Postman"
+    },
+    "design": {
+      "badge": "Design first",
+      "f1": "Cercetare utilizatori, wireframe-uri & mapare fluxuri",
+      "f2": "Mockup-uri Figma high-fidelity pentru fiecare ecran",
+      "f3": "Design system & bibliotecă de componente reutilizabile",
+      "f4": "Layout-uri responsive & accesibile WCAG 2.1 AA",
+      "f5": "Handoff dezvoltator cu specificații detaliate"
+    },
+    "performance": {
+      "badge": "Poziții mai bune",
+      "f1": "Audit complet Core Web Vitals cu remedieri țintite",
+      "f2": "SEO tehnic: meta, date structurate & sitemap-uri",
+      "f3": "Optimizare imagini, fonturi, JS & bundle CSS",
+      "f4": "Rich snippets & implementare markup schema.org",
+      "f5": "Rapoarte lunare Lighthouse & Search Console"
+    },
+    "support": {
+      "badge": "Liniște sufletească",
+      "f1": "Bug fix-uri prioritare cu răspuns în 24 de ore",
+      "f2": "Actualizări lunare dependențe & patch-uri de securitate",
+      "f3": "Monitorizare uptime, erori & performanță cu alerte",
+      "f4": "Backup-uri automate & proceduri de recuperare",
+      "f5": "Canal dedicat de suport (Slack sau WhatsApp)"
+    },
+    "why": {
+      "badge": "De ce eu",
+      "heading": "Diferența pe care o vei simți",
+      "subheading": "Nu doar promisiuni de agenție — angajamente concrete construite pe cinci ani de experiență reală.",
+      "i1Title": "Cod curat, mentenabil",
+      "i1Desc": "Fiecare proiect este documentat, testat și structurat astfel încât orice dezvoltator să îl poată prelua. Fără dependențe proprietare.",
+      "i2Title": "Comunicare directă",
+      "i2Desc": "Lucrezi direct cu mine — fără account manageri, fără niveluri intermediare. Știi întotdeauna exact unde se află proiectul tău.",
+      "i3Title": "Termene oneste",
+      "i3Desc": "Setez termene pe care le pot respecta. Dacă ceva se schimbă, afli primul de la mine — nu cu o zi înainte de lansare.",
+      "i4Title": "Ownership post-lansare",
+      "i4Desc": "Rămân implicat după livrare. Monitorizarea, fix-urile și iterațiile sunt parte din fiecare colaborare — nu extra-uri plătite."
+    },
+    "tech": {
+      "badge": "Stack",
+      "heading": "Uneltele cu care livrez",
+      "subheading": "Un stack modern și testat în producție, ales pentru performanță, scalabilitate și mentenabilitate pe termen lung.",
+      "cat1": "Frontend",
+      "cat2": "Backend",
+      "cat3": "Baze de date",
+      "cat4": "Unelte & DevOps"
+    },
+    "faq": {
+      "badge": "Întrebări",
+      "heading": "Întrebări frecvente",
+      "subheading": "Tot ce trebuie să știi înainte să începem să lucrăm împreună.",
+      "q1": "Care este durata tipică a unui proiect?",
+      "a1": "Depinde de scop. O pagină de prezentare durează 2–3 săptămâni; o aplicație web completă tipic 6–12 săptămâni. Primești o estimare detaliată după apelul de descoperire.",
+      "q2": "Lucrezi cu startup-uri sau companii consacrate?",
+      "a2": "Cu ambele. Am construit MVP-uri pentru fondatori early-stage și am livrat funcționalități de producție pentru companii cu milioane de utilizatori.",
+      "q3": "Ce include pachetul de mentenanță?",
+      "a3": "Actualizări lunare dependențe, bug fix-uri prioritare, monitorizare uptime & erori, patch-uri de securitate și canal dedicat de suport — la un tarif lunar fix.",
+      "q4": "Cum gestionezi reviziile și feedback-ul?",
+      "a4": "Fiecare proiect are runde structurate de revizii în timeline. Feedback-ul este colectat asincron și adresat în sesiuni concentrate — nu email-uri interminabile.",
+      "q5": "Preț fix sau tarif orar?",
+      "a5": "Ambele sunt disponibile. Prețul fix funcționează pentru proiecte bine definite. Tariful orar sau retainer-ul funcționează mai bine pentru munca continuă sau parteneriate pe termen lung.",
+      "q6": "Poți lucra cu un codebase sau design existent?",
+      "a6": "Da. Încep cu un audit de cod sau design pentru a înțelege ce există deja, apoi integrez curat. Lucrez confortabil în orice stack modern JavaScript sau TypeScript.",
+      "q7": "Ce se întâmplă după lansarea proiectului?",
+      "a7": "Fiecare proiect include o fereastră de suport post-lansare de 30 de zile fără cost suplimentar. După aceea, poți trece la un retainer de mentenanță sau mă poți contacta pe bază de solicitare.",
+      "q8": "Cum pot începe?",
+      "a8": "Trimite un mesaj scurt cu descrierea proiectului tău. Programăm un apel gratuit de 30 de minute, pregătesc o propunere detaliată și începem — de obicei în decurs de o săptămână."
+    },
+    "cta": {
+      "heading": "Gata să începem?",
+      "subheading": "Programează un apel gratuit de 30 de minute. Fără angajament, fără presiune — doar claritate asupra nevoilor proiectului tău.",
+      "primary": "Apel pe WhatsApp",
+      "secondary": "Trimite un email"
+    }
   }
 }
