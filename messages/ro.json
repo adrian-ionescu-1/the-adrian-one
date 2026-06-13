@@ -40,5 +40,80 @@
     "techLabel": "Tehnologii folosite",
     "stat1Label": "Proiecte livrate",
     "stat2Label": "Ani experiență"
+  },
+  "services": {
+    "badge": "Ce fac",
+    "heading": "Servicii construite pentru creștere",
+    "subheading": "Dezvoltare end-to-end de la idee la lansare — tot ce are nevoie afacerea ta online.",
+    "web": {
+      "title": "Dezvoltare Web",
+      "description": "Aplicații web rapide și scalabile cu Next.js și React. De la pagini de prezentare la platforme complexe — pixel-perfect și gata de producție."
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Magazine online personalizate care convertesc. Plăți integrate, inventar inteligent și fluxuri de checkout adaptate brandului tău."
+    },
+    "backend": {
+      "title": "Backend & API-uri",
+      "description": "API-uri REST și GraphQL robuste, arhitectură de baze de date și infrastructură server proiectată pentru scalabilitate reală."
+    },
+    "design": {
+      "title": "Design UI/UX",
+      "description": "Interfețe moderne și clare create în Figma. Responsive, accesibile și gândite să ghideze utilizatorii spre conversie."
+    },
+    "performance": {
+      "title": "SEO & Performanță",
+      "description": "Optimizare Core Web Vitals, audituri SEO tehnice și îmbunătățiri de viteză care urcă pozițiile și rețin utilizatorii."
+    },
+    "support": {
+      "title": "Mentenanță & Suport",
+      "description": "Actualizări continue, monitorizare proactivă și suport prioritar pentru ca produsul tău să rămână rapid, sigur și la zi."
+    }
+  },
+  "process": {
+    "badge": "Cum funcționează",
+    "heading": "De la idee la lansare în 4 pași",
+    "subheading": "Un proces clar și colaborativ care te ține informat și în control la fiecare etapă.",
+    "step1Title": "Descoperire",
+    "step1Desc": "Mapăm obiectivele, audiența și cerințele tale într-o sesiune de kickoff concentrată. Fără divagații — doar claritate.",
+    "step2Title": "Design",
+    "step2Desc": "Wireframe-uri și mockup-uri high-fidelity. Aprobi fiecare detaliu înainte ca o singură linie de cod să fie scrisă.",
+    "step3Title": "Dezvoltare",
+    "step3Desc": "Cod curat, testat și gata de producție, livrat în sprint-uri transparente cu check-in-uri și demo-uri regulate.",
+    "step4Title": "Lansare & Suport",
+    "step4Desc": "Deployment, monitorizare a performanței și suport post-lansare pentru ca totul să funcționeze impecabil."
+  },
+  "testimonials": {
+    "badge": "Feedback clienți",
+    "heading": "De încredere pentru afaceri din toată Europa",
+    "subheading": "Rezultate reale din colaborări reale — fără citate de umplutură.",
+    "1quote": "Adrian a livrat platforma noastră cu două săptămâni înaintea termenului. Calitatea codului și atenția la detalii au depășit cu adevărat așteptările noastre.",
+    "1name": "Maria Constantin",
+    "1role": "CEO, TechStart Romania",
+    "2quote": "Colaborarea cu Adrian a simțit ca și cum am fi avut un dezvoltator senior în echipă. Receptiv, proactiv și extrem de competent — exact ce aveam nevoie.",
+    "2name": "Lucas Müller",
+    "2role": "Fondator, BuildFlow GmbH",
+    "3quote": "Rata noastră de conversie a crescut cu 40% după redesign. Îmbunătățirile de performanță singure au acoperit costul întregului proiect în prima lună.",
+    "3name": "Sofia Andersen",
+    "3role": "Director Marketing, NordShop"
+  },
+  "about": {
+    "badge": "Despre mine",
+    "heading": "Dezvoltator senior, bazat în România",
+    "body1": "Sunt Adrian — un dezvoltator full-stack cu 5+ ani experiență în construirea de produse web pentru startup-uri și companii din toată Europa. Mă specializez în ecosistemul modern JavaScript: Next.js, React, TypeScript și Node.js.",
+    "body2": "Îmi pasă profund de performanță, cod curat și livrarea de valoare reală de business. Fiecare proiect primește aceeași precizie și dedicare, fie că e o pagină de prezentare sau o platformă SaaS complexă.",
+    "cta": "Începe o conversație",
+    "stat1Value": "15+",
+    "stat1Label": "Proiecte livrate",
+    "stat2Value": "5+",
+    "stat2Label": "Ani experiență",
+    "stat3Value": "100%",
+    "stat3Label": "Remote friendly",
+    "skill1": "Next.js & React",
+    "skill2": "TypeScript",
+    "skill3": "Node.js & API-uri",
+    "skill4": "PostgreSQL",
+    "skill5": "Design UI/UX",
+    "skill6": "DevOps & CI/CD"
   }
 }

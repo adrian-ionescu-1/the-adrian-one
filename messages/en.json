@@ -40,5 +40,80 @@
     "techLabel": "Tech I work with",
     "stat1Label": "Projects delivered",
     "stat2Label": "Years experience"
+  },
+  "services": {
+    "badge": "What I do",
+    "heading": "Services built for growth",
+    "subheading": "End-to-end development from idea to launch — everything your business needs to succeed online.",
+    "web": {
+      "title": "Web Development",
+      "description": "Fast, scalable web apps built with Next.js and React. From landing pages to complex platforms — pixel-perfect and production-ready."
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Custom online stores that convert. Integrated payments, smart inventory, and seamless checkout flows tailored to your brand."
+    },
+    "backend": {
+      "title": "Backend & APIs",
+      "description": "Robust REST and GraphQL APIs, database architecture, and server infrastructure designed to handle real-world scale."
+    },
+    "design": {
+      "title": "UI/UX Design",
+      "description": "Clean, modern interfaces crafted in Figma. Responsive, accessible, and designed to guide users from first click to conversion."
+    },
+    "performance": {
+      "title": "SEO & Performance",
+      "description": "Core Web Vitals optimisation, technical SEO audits, and speed improvements that move rankings and keep users engaged."
+    },
+    "support": {
+      "title": "Maintenance & Support",
+      "description": "Ongoing updates, proactive monitoring, and priority support so your product stays fast, secure, and up to date."
+    }
+  },
+  "process": {
+    "badge": "How it works",
+    "heading": "From idea to launch in 4 steps",
+    "subheading": "A clear, collaborative process that keeps you informed and in control at every stage.",
+    "step1Title": "Discovery",
+    "step1Desc": "We map out your goals, audience, and requirements in a focused kickoff session. No fluff — just clarity.",
+    "step2Title": "Design",
+    "step2Desc": "Wireframes and high-fidelity mockups. You approve every detail before a single line of code is written.",
+    "step3Title": "Development",
+    "step3Desc": "Clean, tested, production-ready code delivered in transparent sprints with regular check-ins and demos.",
+    "step4Title": "Launch & Support",
+    "step4Desc": "Deployment, performance monitoring, and post-launch support to make sure everything runs flawlessly."
+  },
+  "testimonials": {
+    "badge": "Client feedback",
+    "heading": "Trusted by businesses across Europe",
+    "subheading": "Real results from real collaborations — no filler, no stock quotes.",
+    "1quote": "Adrian delivered our platform two weeks ahead of schedule. The code quality and attention to detail genuinely exceeded our expectations.",
+    "1name": "Maria Constantin",
+    "1role": "CEO, TechStart Romania",
+    "2quote": "Working with Adrian felt like having a senior developer in-house. Responsive, proactive, and highly skilled — exactly what we needed.",
+    "2name": "Lucas Müller",
+    "2role": "Founder, BuildFlow GmbH",
+    "3quote": "Our conversion rate jumped 40% after the redesign. The performance improvements alone paid for the entire project within the first month.",
+    "3name": "Sofia Andersen",
+    "3role": "Marketing Director, NordShop"
+  },
+  "about": {
+    "badge": "About me",
+    "heading": "Senior developer, based in Romania",
+    "body1": "I'm Adrian — a full-stack developer with 5+ years building web products for startups and established businesses across Europe. I specialise in the modern JavaScript ecosystem: Next.js, React, TypeScript, and Node.js.",
+    "body2": "I care deeply about performance, clean code, and delivering real business value. Every project gets the same precision and dedication, whether it's a landing page or a complex SaaS platform.",
+    "cta": "Start a conversation",
+    "stat1Value": "15+",
+    "stat1Label": "Projects delivered",
+    "stat2Value": "5+",
+    "stat2Label": "Years experience",
+    "stat3Value": "100%",
+    "stat3Label": "Remote friendly",
+    "skill1": "Next.js & React",
+    "skill2": "TypeScript",
+    "skill3": "Node.js & APIs",
+    "skill4": "PostgreSQL",
+    "skill5": "UI/UX Design",
+    "skill6": "DevOps & CI/CD"
   }
 }
