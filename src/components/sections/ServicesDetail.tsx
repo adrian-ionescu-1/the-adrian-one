@@ -206,7 +206,7 @@ export function ServicesDetail() {
                     <span className="font-semibold text-foreground/80">{timeline}</span>
                   </span>
                   <a
-                    href="https://wa.me/400736556174"
+                    href="https://wa.me/40736556174"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-lg bg-primary text-primary-foreground shadow-sm shadow-primary/20 transition-all duration-200 hover:shadow-glow-sm hover:-translate-y-px active:translate-y-0"

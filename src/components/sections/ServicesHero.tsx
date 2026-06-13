@@ -83,7 +83,7 @@ export function ServicesHero() {
           className="flex flex-wrap items-center justify-center gap-3 mb-16"
         >
           <a
-            href="https://wa.me/400736556174"
+            href="https://wa.me/40736556174"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground text-base font-semibold shadow-md shadow-primary/25 transition-all duration-200 hover:shadow-glow hover:-translate-y-px active:translate-y-0"
