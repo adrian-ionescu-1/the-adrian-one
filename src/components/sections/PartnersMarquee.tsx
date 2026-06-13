@@ -65,16 +65,15 @@ function MarqueeRow({
       <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-linear-to-r from-background to-transparent" aria-hidden />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-linear-to-l from-background to-transparent" aria-hidden />
 
-      <div
+      <motion.div
         className="flex gap-3 w-max"
-        style={{
-          animation: `marquee-slide ${duration}s linear infinite ${reverse ? 'reverse' : ''}`,
-        }}
+        animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
+        transition={{ duration, ease: 'linear', repeat: Infinity, repeatType: 'loop' }}
       >
         {doubled.map((item, i) => (
           <TechPill key={`${item.name}-${i}`} item={item} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
