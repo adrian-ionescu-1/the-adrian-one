@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { ThemeToggle } from '@/components/shared/ThemeToggle';
-import { Menu, X, Zap, ArrowRight } from 'lucide-react';
+import { useTheme } from '@/components/shared/ThemeProvider';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
@@ -18,6 +20,7 @@ const NAV_LINKS = [
 export function Navbar() {
   const t = useTranslations('nav');
   const pathname = usePathname();
+  const { theme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -62,12 +65,19 @@ export function Navbar() {
         {/* Logo + Available badge */}
         <Link href="/" className="group flex items-center gap-2.5 shrink-0">
           <motion.span
-            whileHover={{ scale: 1.1, rotate: 6 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-            className="flex items-center justify-center w-8 h-8 rounded-xl bg-primary text-primary-foreground shadow-md shadow-primary/30"
+            className="flex items-center shrink-0"
           >
-            <Zap size={15} strokeWidth={2.5} />
+            <Image
+              src={theme === 'dark' ? '/images/logo-dark.svg' : '/images/logo-light.svg'}
+              alt="The Adrian One logo"
+              width={32}
+              height={32}
+              className="h-8 w-auto object-contain"
+              unoptimized
+            />
           </motion.span>
           <div className="flex flex-col leading-none gap-0.5">
             <span className="font-bold tracking-tight text-base sm:text-lg text-foreground">

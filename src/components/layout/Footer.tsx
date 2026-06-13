@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { Zap, ArrowUpRight, ArrowRight, Mail } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Mail } from 'lucide-react';
+import { FooterLogo } from './FooterLogo';
 
 function LinkedInIcon({ size = 13 }: { size?: number }) {
   return (
@@ -109,13 +110,13 @@ export async function Footer() {
         </div>
 
         {/* ── Stats row ── #5 */}
-        <div className="mb-12 grid grid-cols-3 gap-4 rounded-xl border border-border/40 bg-card/20 px-6 py-5 divide-x divide-border/40">
+        <div className="mb-12 grid grid-cols-3 gap-2 rounded-xl border border-border/40 bg-card/20 px-3 sm:px-6 py-5 divide-x divide-border/40">
           {STATS.map(({ value, labelKey }) => (
-            <div key={labelKey} className="flex flex-col items-center gap-1 px-4">
-              <span className="text-2xl sm:text-3xl font-bold text-primary tabular-nums">
+            <div key={labelKey} className="flex flex-col items-center gap-1 px-1 sm:px-4">
+              <span className="text-xl sm:text-3xl font-bold text-primary tabular-nums">
                 {value}
               </span>
-              <span className="text-sm text-muted-foreground text-center leading-snug">
+              <span className="text-xs text-muted-foreground text-center leading-snug">
                 {t(labelKey)}
               </span>
             </div>
@@ -127,15 +128,7 @@ export async function Footer() {
 
           {/* Brand */}
           <div className="flex flex-col items-center gap-4 md:items-start">
-            <Link
-              href="/"
-              className="group inline-flex items-center gap-2.5 text-base font-bold tracking-tight text-foreground transition-opacity hover:opacity-80"
-            >
-              <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-primary text-primary-foreground shadow-md shadow-primary/25 transition-transform duration-200 group-hover:scale-110">
-                <Zap size={15} strokeWidth={2.5} />
-              </span>
-              The Adrian One
-            </Link>
+            <FooterLogo label="The Adrian One" />
             <p className="text-base text-muted-foreground leading-relaxed max-w-60 text-center md:text-left">
               {t('footer.tagline')}
             </p>
