@@ -96,12 +96,12 @@ export async function Footer() {
           <p className="relative text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-3">
             {t('footer.cta.heading')}
           </p>
-          <p className="relative text-sm text-muted-foreground mb-7 max-w-sm mx-auto leading-relaxed">
+          <p className="relative text-base text-muted-foreground mb-7 max-w-sm mx-auto leading-relaxed">
             {t('footer.cta.subheading')}
           </p>
           <Link
             href="/contact"
-            className="relative inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold rounded-xl bg-primary text-primary-foreground shadow-md shadow-primary/25 transition-all duration-200 hover:shadow-glow hover:-translate-y-px active:translate-y-0"
+            className="relative inline-flex items-center gap-2 px-6 py-2.5 text-base font-semibold rounded-xl bg-primary text-primary-foreground shadow-md shadow-primary/25 transition-all duration-200 hover:shadow-glow hover:-translate-y-px active:translate-y-0"
           >
             {t('footer.cta.button')}
             <ArrowRight size={14} />
@@ -115,7 +115,7 @@ export async function Footer() {
               <span className="text-2xl sm:text-3xl font-bold text-primary tabular-nums">
                 {value}
               </span>
-              <span className="text-xs text-muted-foreground text-center leading-snug">
+              <span className="text-sm text-muted-foreground text-center leading-snug">
                 {t(labelKey)}
               </span>
             </div>
@@ -136,14 +136,14 @@ export async function Footer() {
               </span>
               The Adrian One
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-60 text-center md:text-left">
+            <p className="text-base text-muted-foreground leading-relaxed max-w-60 text-center md:text-left">
               {t('footer.tagline')}
             </p>
           </div>
 
           {/* Quick links */}
           <div className="flex flex-col items-center gap-4 md:items-start">
-            <p className="text-xs font-semibold text-foreground uppercase tracking-[0.12em]">
+            <p className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
               {t('footer.sections.links')}
             </p>
             <ul className="space-y-1.5 flex flex-col items-center md:items-start">
@@ -151,7 +151,7 @@ export async function Footer() {
                 <li key={key}>
                   <Link
                     href={href}
-                    className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-all duration-200 hover:text-foreground"
+                    className="group inline-flex items-center gap-2 text-base text-muted-foreground transition-all duration-200 hover:text-foreground"
                   >
                     <span className="hidden md:block h-px w-3 bg-border transition-all duration-300 group-hover:w-5 group-hover:bg-primary" />
                     {t(`nav.${key}`)}
@@ -163,7 +163,7 @@ export async function Footer() {
 
           {/* Connect */}
           <div className="flex flex-col items-center gap-4 md:items-start">
-            <p className="text-xs font-semibold text-foreground uppercase tracking-[0.12em]">
+            <p className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
               {t('footer.sections.connect')}
             </p>
             <ul className="space-y-2 flex flex-col items-center md:items-start">
@@ -173,14 +173,14 @@ export async function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-all duration-200 hover:text-foreground"
+                    className="group inline-flex items-center gap-2.5 text-base text-muted-foreground transition-all duration-200 hover:text-foreground"
                   >
                     <span className="flex items-center justify-center w-7 h-7 rounded-lg border border-border/60 bg-card transition-all duration-200 group-hover:border-primary/50 group-hover:bg-accent group-hover:scale-105 group-hover:shadow-glow-sm">
-                      <Icon size={13} />
+                      <Icon size={15} />
                     </span>
                     {label}
                     <ArrowUpRight
-                      size={11}
+                      size={13}
                       className="text-muted-foreground/30 transition-all duration-200 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     />
                   </a>
@@ -194,7 +194,7 @@ export async function Footer() {
                   className="group inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-all duration-200 hover:text-foreground"
                 >
                   <span className="flex items-center justify-center w-7 h-7 rounded-lg border border-border/60 bg-card transition-all duration-200 group-hover:border-primary/50 group-hover:bg-accent group-hover:scale-105 group-hover:shadow-glow-sm">
-                    <Mail size={13} />
+                    <Mail size={15} />
                   </span>
                   E-mail
                   <ArrowUpRight
@@ -208,7 +208,7 @@ export async function Footer() {
         </div>
 
         {/* ── Bottom bar — #7: tech stack added ── */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 text-sm text-muted-foreground sm:flex-row">
           <span>{t('footer.copyright', { year })}</span>
 
           {/* Tech stack chips */}
@@ -217,7 +217,7 @@ export async function Footer() {
             {TECH_STACK.map((tech) => (
               <span
                 key={tech}
-                className="px-1.5 py-0.5 text-[10px] font-medium rounded-md border border-border/50 text-muted-foreground/70 bg-muted/20 tracking-wide"
+                className="px-1.5 py-0.5 text-xs font-medium rounded-md border border-border/50 text-muted-foreground/70 bg-muted/20 tracking-wide"
               >
                 {tech}
               </span>

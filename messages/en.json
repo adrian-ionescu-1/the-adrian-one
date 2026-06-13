@@ -29,9 +29,16 @@
   },
   "hero": {
     "badge": "Available for projects",
-    "headline": "I build modern web experiences",
-    "subheadline": "Frontend, Backend and Full-Stack development for your business",
-    "ctaPrimary": "Let's work together",
-    "ctaSecondary": "View portfolio"
+    "headlinePre": "Building",
+    "headlineAccent1": "modern web",
+    "headlineAccent2": "fast apps",
+    "headlineAccent3": "scalable APIs",
+    "headlinePost": "for ambitious businesses",
+    "subheadline": "Frontend, Backend and Full-Stack development — fast, clean, and built to scale.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "View portfolio",
+    "techLabel": "Tech I work with",
+    "stat1Label": "Projects delivered",
+    "stat2Label": "Years experience"
   }
 }
