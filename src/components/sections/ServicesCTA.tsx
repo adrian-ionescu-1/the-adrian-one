@@ -21,7 +21,7 @@ export function ServicesCTA() {
       <motion.div
         animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.14, 0.06] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full bg-primary blur-[120px]"
         aria-hidden
       />
       {/* Top gradient line */}

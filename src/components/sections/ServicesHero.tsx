@@ -26,7 +26,7 @@ export function ServicesHero() {
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.07, 0.16, 0.07] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full bg-primary blur-[130px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-140 h-140 rounded-full bg-primary blur-[130px]"
         aria-hidden
       />
 
