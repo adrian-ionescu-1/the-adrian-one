@@ -9,7 +9,23 @@
   "footer": {
     "tagline": "Quality web development for your business",
     "copyright": "© {year} The Adrian One",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "cta": {
+      "heading": "Ready to build something great?",
+      "subheading": "Let's turn your idea into a fast, modern web product.",
+      "button": "Start a project"
+    },
+    "sections": {
+      "links": "Quick links",
+      "connect": "Connect"
+    },
+    "stats": {
+      "projectsLabel": "Projects delivered",
+      "experienceLabel": "Years experience",
+      "remoteLabel": "Remote friendly"
+    },
+    "email": "theadrianone.dev@gmail.com",
+    "builtWith": "Built with"
   },
   "hero": {
     "badge": "Available for projects",

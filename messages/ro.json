@@ -9,7 +9,23 @@
   "footer": {
     "tagline": "Web development de calitate pentru afacerea ta",
     "copyright": "© {year} The Adrian One",
-    "rights": "Toate drepturile rezervate"
+    "rights": "Toate drepturile rezervate",
+    "cta": {
+      "heading": "Gata să construiești ceva măreț?",
+      "subheading": "Transformăm ideea ta într-un produs web rapid și modern.",
+      "button": "Începe un proiect"
+    },
+    "sections": {
+      "links": "Navigare rapidă",
+      "connect": "Conectează-te"
+    },
+    "stats": {
+      "projectsLabel": "Proiecte livrate",
+      "experienceLabel": "Ani experiență",
+      "remoteLabel": "Remote friendly"
+    },
+    "email": "theadrianone.dev@gmail.com",
+    "builtWith": "Construit cu"
   },
   "hero": {
     "badge": "Disponibil pentru proiecte",
