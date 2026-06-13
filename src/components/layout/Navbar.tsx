@@ -35,6 +35,10 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   const hasBg = scrolled || mobileOpen;
 
   return (
@@ -76,10 +80,12 @@ export function Navbar() {
               width={32}
               height={32}
               className="h-8 w-auto object-contain"
+              loading="eager"
+              priority
               unoptimized
             />
           </motion.span>
-          <div className="flex flex-col leading-none gap-0.5">
+          <div className="hidden xs:flex flex-col leading-none gap-0.5">
             <span className="font-bold tracking-tight text-base sm:text-lg text-foreground">
               The Adrian One
             </span>

@@ -79,7 +79,7 @@ export function PortfolioStats() {
   ];
 
   return (
-    <section className="relative border-t border-border/30 py-24 md:py-32">
+    <section className="relative border-t border-border/30 py-24 md:py-32 overflow-hidden">
       {/* Glow orb */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-primary/10 blur-[100px]"
