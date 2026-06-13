@@ -29,9 +29,16 @@
   },
   "hero": {
     "badge": "Disponibil pentru proiecte",
-    "headline": "Construiesc experiențe web moderne",
-    "subheadline": "Frontend, Backend şi Full-Stack development pentru afacerea ta",
-    "ctaPrimary": "Hai să lucrăm împreună",
-    "ctaSecondary": "Vezi portofoliu"
+    "headlinePre": "Construiesc",
+    "headlineAccent1": "web modern",
+    "headlineAccent2": "aplicații rapide",
+    "headlineAccent3": "API-uri scalabile",
+    "headlinePost": "pentru afaceri ambițioase",
+    "subheadline": "Dezvoltare Frontend, Backend și Full-Stack — rapid, curat și construit să scaleze.",
+    "ctaPrimary": "Începe un proiect",
+    "ctaSecondary": "Vezi portofoliu",
+    "techLabel": "Tehnologii folosite",
+    "stat1Label": "Proiecte livrate",
+    "stat2Label": "Ani experiență"
   }
 }

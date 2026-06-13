@@ -70,7 +70,7 @@ export function Navbar() {
             <Zap size={15} strokeWidth={2.5} />
           </motion.span>
           <div className="flex flex-col leading-none gap-0.5">
-            <span className="font-bold tracking-tight text-sm sm:text-base text-foreground">
+            <span className="font-bold tracking-tight text-base sm:text-lg text-foreground">
               The Adrian One
             </span>
             <span className="flex items-center gap-1">
@@ -78,7 +78,7 @@ export function Navbar() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-70" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
               </span>
-              <span className="text-[10px] font-semibold text-emerald-500 tracking-wide uppercase">
+              <span className="text-xs font-semibold text-emerald-500 tracking-wide uppercase">
                 Available
               </span>
             </span>
@@ -93,7 +93,7 @@ export function Navbar() {
               <li key={key}>
                 <Link
                   href={href}
-                  className={`relative px-3.5 py-2 text-sm font-medium rounded-lg transition-colors duration-200 group ${
+                  className={`relative px-3.5 py-2 text-base font-medium rounded-lg transition-colors duration-200 group ${
                     active
                       ? 'text-foreground'
                       : 'text-muted-foreground hover:text-foreground'
@@ -118,10 +118,10 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-lg bg-primary text-primary-foreground shadow-sm shadow-primary/25 transition-all duration-200 hover:shadow-glow-sm hover:-translate-y-px active:translate-y-0"
+            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-base font-semibold rounded-lg bg-primary text-primary-foreground shadow-sm shadow-primary/25 transition-all duration-200 hover:shadow-glow-sm hover:-translate-y-px active:translate-y-0"
           >
             {t('contact')}
-            <ArrowRight size={13} />
+            <ArrowRight size={15} />
           </Link>
           <ThemeToggle />
           <LanguageSwitcher />
@@ -168,7 +168,7 @@ export function Navbar() {
                 >
                   <Link
                     href={href}
-                    className="block px-3 py-2.5 text-sm font-medium text-muted-foreground rounded-lg transition-colors hover:text-foreground hover:bg-accent"
+                    className="block px-3 py-2.5 text-base font-medium text-muted-foreground rounded-lg transition-colors hover:text-foreground hover:bg-accent"
                     onClick={() => setMobileOpen(false)}
                   >
                     {t(key)}
@@ -182,7 +182,7 @@ export function Navbar() {
               >
                 <Link
                   href="/contact"
-                  className="mt-2 flex items-center justify-center gap-2 px-3 py-2.5 text-sm font-semibold rounded-lg bg-primary text-primary-foreground"
+                  className="mt-2 flex items-center justify-center gap-2 px-3 py-2.5 text-base font-semibold rounded-lg bg-primary text-primary-foreground"
                   onClick={() => setMobileOpen(false)}
                 >
                   {t('contact')}
