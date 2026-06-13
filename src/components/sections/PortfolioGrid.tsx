@@ -428,7 +428,7 @@ export function PortfolioGrid() {
   };
 
   return (
-    <section className="relative border-t border-border/30 py-24 md:py-32">
+    <section className="relative border-t border-border/30 py-24 md:py-32 overflow-hidden">
       <div className="relative mx-auto max-w-6xl px-6">
 
         {/* Section header */}

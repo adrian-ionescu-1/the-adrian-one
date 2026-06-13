@@ -48,6 +48,9 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
+  /* Extra-small breakpoint for 320px devices */
+  --breakpoint-xs: 400px;
+
   /* Custom violet/purple brand palette */
   --color-violet-950: #04020a;
   --color-violet-900: #09070f;
@@ -163,6 +166,12 @@
   }
 }
 
+/* ─── Marquee keyframe for PartnersMarquee ───────────────────────── */
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ─── Base layer ─────────────────────────────────────────────────── */
 @layer base {
   * {
@@ -170,7 +179,7 @@
   }
 
   html {
-    @apply font-sans;
+    @apply font-sans overflow-x-clip;
     color-scheme: light dark;
   }
 
