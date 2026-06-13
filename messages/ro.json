@@ -233,6 +233,63 @@
       "secondary": "Trimite un email"
     }
   },
+  "aboutPage": {
+    "hero": {
+      "badge": "Despre mine",
+      "heading": "Construiesc produse digitale",
+      "headingAccent": "pe care oamenii le iubesc",
+      "subheading": "5+ ani de dezvoltare full-stack în toată Europa — rapid, curat și construit să dureze.",
+      "cta": "Începe o conversație",
+      "available": "Disponibil pentru proiecte",
+      "location": "România 🇷🇴",
+      "role": "Dezvoltator Full-Stack",
+      "stat1Value": "15+", "stat1Label": "Proiecte livrate",
+      "stat2Value": "5+", "stat2Label": "Ani experiență",
+      "stat3Value": "4", "stat3Label": "Țări deservite",
+      "skillsLabel": "Competențe principale"
+    },
+    "story": {
+      "badge": "Drumul meu",
+      "heading": "De la prima linie de cod la full-stack",
+      "subheading": "Etapele care au format felul în care gândesc, construiesc și livrez.",
+      "m1Year": "2018", "m1Title": "Prima linie de cod",
+      "m1Desc": "M-am autoinstruits în HTML, CSS și JavaScript prin cursuri online și proiecte personale. Am construit primul site pentru o afacere locală — fără framework-uri, fără build tools, doar curiozitate.",
+      "m2Year": "2019", "m2Title": "Primul proiect plătit",
+      "m2Desc": "Am obținut primul client freelance: un site WordPress personalizat cu e-commerce. Am învățat că clienții se interesează de rezultate, nu de eleganța codului.",
+      "m3Year": "2021", "m3Title": "Full-stack & full-time",
+      "m3Desc": "Am trecut la dezvoltare full-stack cu Node.js și PostgreSQL. Am trecut la freelancing full-time, lucrând cu startup-uri din România și Germania.",
+      "m4Year": "2022", "m4Title": "Stack modern",
+      "m4Desc": "Am intrat în ecosistemul Next.js, TypeScript și Tailwind CSS. Am livrat primul produs SaaS și am început relații pe termen lung cu clienții.",
+      "m5Year": "2024", "m5Title": "15+ proiecte în Europa",
+      "m5Desc": "Lucrez cu clienți din România, Germania, Norvegia și Danemarca. Fiecare proiect primește aceeași atenție la detalii ca primul."
+    },
+    "skills": {
+      "badge": "Competențe",
+      "heading": "Tehnologii cu care lucrez zilnic",
+      "subheading": "Un stack modern și testat în producție, ales pentru performanță, experiență developer și mentenabilitate pe termen lung.",
+      "cat1": "Frontend", "cat2": "Backend", "cat3": "Baze de date & Cloud", "cat4": "Design & Unelte",
+      "expert": "Expert", "advanced": "Avansat", "intermediate": "Intermediar"
+    },
+    "values": {
+      "badge": "Cum lucrez",
+      "heading": "Principiile din spatele fiecărui proiect",
+      "subheading": "Nu doar un set de unelte — o modalitate de a gândi software-ul care face produsele mai bune și colaborările mai fluide.",
+      "v1Title": "Calitate peste viteză",
+      "v1Desc": "Fiecare linie de cod este scrisă pentru a fi citită, testată și menținută. Livrarea rapidă nu vine niciodată în detrimentul corectitudinii sau clarității.",
+      "v2Title": "Transparență radicală",
+      "v2Desc": "Știi întotdeauna unde se află proiectul tău. Fără surprize, fără blocaje ascunse — doar actualizări clare și directe la fiecare etapă.",
+      "v3Title": "Angajamente oneste",
+      "v3Desc": "Mă angajez doar la termene pe care le pot respecta. Dacă scopul se schimbă, afli de la mine primul — nu în ziua lansării.",
+      "v4Title": "Gândire pe termen lung",
+      "v4Desc": "Construiesc sisteme proiectate să crească odată cu afacerea ta, nu datorii tehnice pe care le vei plăti în șase luni."
+    },
+    "cta": {
+      "heading": "Să construim ceva măreț",
+      "subheading": "Fie că ai un proiect în minte sau vrei să explorezi posibilitățile — sunt disponibil și gata să ajut.",
+      "primary": "Mesaj pe WhatsApp",
+      "secondary": "Vezi lucrările mele"
+    }
+  },
   "partnersPage": {
     "hero": {
       "badge": "Parteneri",
