@@ -87,7 +87,6 @@ export function Navbar() {
               height={32}
               className="h-8 w-auto object-contain"
               loading="eager"
-              priority
               unoptimized
             />
           </motion.span>
@@ -101,7 +100,7 @@ export function Navbar() {
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
               </span>
               <span className="text-xs font-semibold text-emerald-500 tracking-wide uppercase">
-                Available
+                {t('available')}
               </span>
             </span>
           </div>
