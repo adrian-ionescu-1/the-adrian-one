@@ -153,7 +153,16 @@ export function ContactMain() {
 
   // ─── Sidebar data ───────────────────────────────────────────────────────────
 
-  const DIRECT_CONTACTS = [
+  const DIRECT_CONTACTS: Array<{
+    href: string;
+    Icon: React.ElementType;
+    label: string;
+    value?: string;
+    desc: string;
+    color: string;
+    bg: string;
+    border: string;
+  }> = [
     {
       href: 'https://wa.me/40736556174',
       Icon: WhatsAppIcon,
@@ -167,6 +176,7 @@ export function ContactMain() {
       href: 'tel:+40736556174',
       Icon: Phone,
       label: ti('phoneLabel'),
+      value: '+40 736 556 174',
       desc: ti('phoneDesc'),
       color: 'text-amber-600 dark:text-amber-400',
       bg: 'bg-amber-500/8 hover:bg-amber-500/15',
@@ -176,6 +186,7 @@ export function ContactMain() {
       href: 'mailto:theadrianone.dev@gmail.com',
       Icon: Mail,
       label: ti('emailLabel'),
+      value: 'theadrianone.dev@gmail.com',
       desc: ti('emailDesc'),
       color: 'text-blue-600 dark:text-blue-400',
       bg: 'bg-blue-500/8 hover:bg-blue-500/15',
@@ -525,7 +536,7 @@ export function ContactMain() {
                 viewport={viewport}
                 className="flex flex-col gap-2.5"
               >
-                {DIRECT_CONTACTS.map(({ href, Icon, label, desc, color, bg, border }) => (
+                {DIRECT_CONTACTS.map(({ href, Icon, label, value, desc, color, bg, border }) => (
                   <motion.a
                     key={label}
                     variants={contactLinkVariant}
@@ -540,7 +551,10 @@ export function ContactMain() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className={`text-sm font-semibold ${color}`}>{label}</p>
-                      <p className="text-xs text-muted-foreground/70 leading-tight">{desc}</p>
+                      {value && (
+                        <p className="text-sm font-mono font-medium text-foreground/85 leading-tight mt-0.5 break-all">{value}</p>
+                      )}
+                      <p className="text-xs text-muted-foreground/70 leading-tight mt-0.5">{desc}</p>
                     </div>
                     <ExternalLink size={13} className="shrink-0 text-muted-foreground/35 transition-colors duration-200 group-hover:text-muted-foreground/60" />
                   </motion.a>

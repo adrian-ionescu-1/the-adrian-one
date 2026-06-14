@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { PortfolioHero } from '@/components/sections/PortfolioHero';
-import { PortfolioGrid } from '@/components/sections/PortfolioGrid';
-import { PortfolioStats } from '@/components/sections/PortfolioStats';
-import { PortfolioCTA } from '@/components/sections/PortfolioCTA';
+import { PortfolioHero } from '@/components/sections/portfolio/PortfolioHero';
+import { PortfolioGrid } from '@/components/sections/portfolio/PortfolioGrid';
+import { PortfolioStats } from '@/components/sections/portfolio/PortfolioStats';
+import { PortfolioCTA } from '@/components/sections/portfolio/PortfolioCTA';
 import { OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
 
 export async function generateMetadata({

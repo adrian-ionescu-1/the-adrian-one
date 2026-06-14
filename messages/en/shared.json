@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "partners": "Partners",
+    "about": "About",
+    "contact": "Contact",
+    "available": "Available"
+  },
+  "footer": {
+    "tagline": "Quality web development for your business",
+    "copyright": "© {year} The Adrian One",
+    "rights": "All rights reserved",
+    "cta": {
+      "heading": "Ready to build something great?",
+      "subheading": "Let's turn your idea into a fast, modern web product.",
+      "button": "Start a project"
+    },
+    "ctaAlt": {
+      "heading": "Not sure what you need yet?",
+      "subheading": "Explore the full range of services and see exactly what we can build together.",
+      "button": "Explore services"
+    },
+    "sections": {
+      "links": "Quick links",
+      "connect": "Connect"
+    },
+    "stats": {
+      "projectsLabel": "Projects delivered",
+      "experienceLabel": "Years experience",
+      "remoteLabel": "Remote friendly"
+    },
+    "email": "theadrianone.dev@gmail.com",
+    "phone": "+40 736 556 174",
+    "builtWith": "Built with"
+  }
+}

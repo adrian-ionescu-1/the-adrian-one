@@ -82,8 +82,8 @@ export function Navbar() {
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             className="flex items-center shrink-0"
           >
-            <Image src="/images/logo-light.svg" alt="The Adrian One logo" width={32} height={32} loading="lazy" className="h-8 w-auto object-contain block dark:hidden" />
-            <Image src="/images/logo-dark.svg"  alt="The Adrian One logo" width={32} height={32} loading="lazy" className="h-8 w-auto object-contain hidden dark:block" />
+            <Image src="/images/logo-light.svg" alt="The Adrian One logo" width={32} height={32} loading="eager" className="h-8 w-auto object-contain block dark:hidden" />
+            <Image src="/images/logo-dark.svg"  alt="The Adrian One logo" width={32} height={32} loading="eager" className="h-8 w-auto object-contain hidden dark:block" />
           </motion.span>
           <div className="hidden xs:flex flex-col leading-none gap-0.5">
             <span className="font-bold tracking-tight text-base sm:text-lg text-foreground">

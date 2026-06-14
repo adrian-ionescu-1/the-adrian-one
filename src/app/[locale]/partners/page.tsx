@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { PartnersHero } from '@/components/sections/PartnersHero';
-import { PartnersMarquee } from '@/components/sections/PartnersMarquee';
-import { PartnersTypes } from '@/components/sections/PartnersTypes';
-import { PartnersBenefits } from '@/components/sections/PartnersBenefits';
-import { PartnersCTA } from '@/components/sections/PartnersCTA';
+import { PartnersHero } from '@/components/sections/partners/PartnersHero';
+import { PartnersMarquee } from '@/components/sections/partners/PartnersMarquee';
+import { PartnersTypes } from '@/components/sections/partners/PartnersTypes';
+import { PartnersBenefits } from '@/components/sections/partners/PartnersBenefits';
+import { PartnersCTA } from '@/components/sections/partners/PartnersCTA';
 import { OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
 
 export async function generateMetadata({

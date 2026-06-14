@@ -1,0 +1,119 @@
+{
+  "servicesPage": {
+    "hero": {
+      "badge": "What I build",
+      "heading": "Premium web development",
+      "headingAccent": "for ambitious businesses",
+      "subheading": "End-to-end digital products — from design to deployment. Fast, scalable, and built to last.",
+      "stat1Value": "15+", "stat1Label": "Projects delivered",
+      "stat2Value": "5+", "stat2Label": "Years experience",
+      "stat3Value": "4wk", "stat3Label": "Average delivery"
+    },
+    "detail": {
+      "badge": "Services",
+      "heading": "Every service, in detail",
+      "subheading": "Transparent scope, clear deliverables, and the technologies I use — for every service I offer.",
+      "featuresTitle": "What's included",
+      "techTitle": "Technologies",
+      "timelineTitle": "Timeline",
+      "cta": "Discuss this service"
+    },
+    "web": {
+      "badge": "Most popular",
+      "f1": "Pixel-perfect responsive design across all devices",
+      "f2": "Core Web Vitals & Lighthouse performance optimisation",
+      "f3": "SEO-ready semantic architecture & metadata",
+      "f4": "Headless CMS integration (Sanity, Contentful, or custom)",
+      "f5": "CI/CD pipeline & automated deployment to Vercel"
+    },
+    "ecommerce": {
+      "badge": "High ROI",
+      "f1": "Custom storefront design aligned to your brand",
+      "f2": "Payment gateway integration (Stripe, PayU, or others)",
+      "f3": "Product catalogue, inventory & order management",
+      "f4": "Mobile-first, optimised checkout flow",
+      "f5": "Analytics, conversion tracking & A/B testing setup"
+    },
+    "backend": {
+      "badge": "Scalable",
+      "f1": "RESTful & GraphQL API design and full documentation",
+      "f2": "PostgreSQL / MongoDB database architecture",
+      "f3": "JWT + OAuth2 authentication & role-based authorisation",
+      "f4": "Redis caching, rate limiting & queue management",
+      "f5": "OpenAPI / Swagger docs + Postman collection"
+    },
+    "design": {
+      "badge": "Design first",
+      "f1": "User research, wireframes & user flow mapping",
+      "f2": "High-fidelity Figma mockups for every screen",
+      "f3": "Design system & reusable component library",
+      "f4": "Responsive & WCAG 2.1 AA accessible layouts",
+      "f5": "Developer handoff with detailed specifications"
+    },
+    "performance": {
+      "badge": "Rankings boost",
+      "f1": "Full Core Web Vitals audit with targeted fixes",
+      "f2": "Technical SEO: meta, structured data & sitemaps",
+      "f3": "Image, font, JS & CSS bundle optimisation",
+      "f4": "Rich snippets & schema.org markup implementation",
+      "f5": "Monthly Lighthouse & Search Console performance reports"
+    },
+    "support": {
+      "badge": "Peace of mind",
+      "f1": "Priority bug fixes responded to within 24 hours",
+      "f2": "Monthly dependency updates & security patches",
+      "f3": "Uptime, error & performance monitoring with alerts",
+      "f4": "Automated backups & disaster recovery procedures",
+      "f5": "Dedicated support channel (Slack or WhatsApp)"
+    },
+    "why": {
+      "badge": "Why me",
+      "heading": "The difference you'll actually feel",
+      "subheading": "Not just another agency promise — tangible commitments built on five years of real project experience.",
+      "i1Title": "Clean, maintainable code",
+      "i1Desc": "Every project is documented, tested, and structured so any developer can take it over. No proprietary lock-in, no spaghetti.",
+      "i2Title": "Direct communication",
+      "i2Desc": "You work directly with me — no account managers, no layers. You always know exactly where your project stands.",
+      "i3Title": "Honest timelines",
+      "i3Desc": "I set deadlines I can actually keep. If anything changes, you hear from me first — not the day before launch.",
+      "i4Title": "Post-launch ownership",
+      "i4Desc": "I stay involved after delivery. Monitoring, fixes, and iterations are part of every engagement — not paid extras."
+    },
+    "tech": {
+      "badge": "Stack",
+      "heading": "Tools I ship with",
+      "subheading": "A modern, battle-tested stack chosen for performance, scalability, and long-term maintainability.",
+      "cat1": "Frontend",
+      "cat2": "Backend",
+      "cat3": "Database",
+      "cat4": "Tools & DevOps"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "heading": "Common questions",
+      "subheading": "Everything you need to know before we start working together.",
+      "q1": "What is your typical project timeline?",
+      "a1": "It depends on scope. A landing page takes 2–3 weeks; a full web application typically 6–12 weeks. I give you a detailed, itemised estimate after our discovery call — no guesswork.",
+      "q2": "Do you work with startups or established companies?",
+      "a2": "Both. I've built MVPs for early-stage founders and shipped production features for companies with millions of users. The process and communication style adapt to your stage.",
+      "q3": "What does the maintenance package include?",
+      "a3": "Monthly dependency updates, priority bug fixes, uptime & error monitoring, security patches, and a dedicated support channel — all for a fixed monthly fee agreed upfront.",
+      "q4": "How do you handle revisions and feedback?",
+      "a4": "Every project has structured revision rounds built into the timeline. Feedback is collected asynchronously and addressed in focused sessions — not scattered, endless back-and-forth.",
+      "q5": "Fixed price or hourly billing?",
+      "a5": "Both are available. Fixed price suits well-defined projects. Hourly or retainer billing works better for ongoing work, evolving scopes, or long-term partnerships.",
+      "q6": "Can you work with an existing codebase or design?",
+      "a6": "Yes. I start with a code or design audit to understand what's already there, then integrate cleanly. I work comfortably in any modern JavaScript or TypeScript stack.",
+      "q7": "What happens after the project launches?",
+      "a7": "Every project includes a 30-day post-launch support window at no extra cost. After that, you can move to a maintenance retainer or reach out on a per-request basis.",
+      "q8": "How do I get started?",
+      "a8": "Send a short message describing your project. We book a free 30-minute discovery call, I prepare a detailed proposal, and we kick off from there — usually within a week."
+    },
+    "cta": {
+      "heading": "Ready to get started?",
+      "subheading": "Book a free 30-minute discovery call. No commitment, no pressure — just clarity on what your project needs.",
+      "primary": "Book a call on WhatsApp",
+      "secondary": "Send an email"
+    }
+  }
+}
