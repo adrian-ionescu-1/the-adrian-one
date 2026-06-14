@@ -6,6 +6,30 @@ import { WhyChooseMe } from '@/components/sections/WhyChooseMe';
 import { TechShowcase } from '@/components/sections/TechShowcase';
 import { ServicesFAQ } from '@/components/sections/ServicesFAQ';
 import { ServicesCTA } from '@/components/sections/ServicesCTA';
+import { SITE_URL, OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Full-Stack Web Development',
+  provider: {
+    '@type': 'Person',
+    name: 'Adrian Ionescu',
+    url: SITE_URL,
+  },
+  serviceType: 'Web Development',
+  areaServed: { '@type': 'Place', name: 'Europe' },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Web Development Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Frontend Development' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Backend Development' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Full-Stack Web Apps' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'REST & GraphQL APIs' } },
+    ],
+  },
+};
 
 export async function generateMetadata({
   params,
@@ -14,9 +38,26 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'servicesPage.hero' });
+  const description = t('subheading');
+
   return {
-    title: 'Services — The Adrian One',
-    description: t('subheading'),
+    title: 'Services',
+    description,
+    alternates: pageAlternates(locale, 'services'),
+    openGraph: {
+      title: 'Services | The Adrian One',
+      description,
+      url: `/${locale}/services`,
+      type: 'website',
+      locale: ogLocale(locale),
+      images: [OG_IMAGE],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Services | The Adrian One',
+      description,
+      images: [OG_IMAGE.url],
+    },
   };
 }
 
@@ -30,6 +71,10 @@ export default async function ServicesPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <ServicesHero />
       <ServicesDetail />
       <WhyChooseMe />

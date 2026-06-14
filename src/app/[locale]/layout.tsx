@@ -8,6 +8,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import { ScrollToTop } from "@/components/shared/ScrollToTop";
+import { SITE_URL, OG_IMAGE, ogLocale } from "@/lib/seo";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -17,11 +18,6 @@ const geistSans = Geist({
   preload: false,
 });
 
-export const metadata: Metadata = {
-  title: "The Adrian One",
-  description: "Web development services — Frontend, Backend, Full-Stack",
-};
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -29,6 +25,66 @@ export function generateStaticParams() {
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: "The Adrian One",
+      template: "%s | The Adrian One",
+    },
+    description:
+      "Frontend, Backend and Full-Stack web development — fast, clean, and built to scale.",
+    openGraph: {
+      type: "website",
+      siteName: "The Adrian One",
+      locale: ogLocale(locale),
+      alternateLocale: locale === "ro" ? ["en_US"] : ["ro_RO"],
+      images: [OG_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "The Adrian One",
+      description:
+        "Frontend, Backend and Full-Stack web development — fast, clean, and built to scale.",
+      images: [OG_IMAGE.url],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "The Adrian One",
+  url: SITE_URL,
+  description:
+    "Frontend, Backend and Full-Stack web development — fast, clean, and built to scale.",
+  author: {
+    "@type": "Person",
+    name: "Adrian Ionescu",
+    jobTitle: "Full-Stack Web Developer",
+    url: SITE_URL,
+    image: `${SITE_URL}/images/avatar_adrian.jpg`,
+    address: { "@type": "PostalAddress", addressCountry: "RO" },
+    sameAs: ["https://github.com/adrian-ionescu-1"],
+  },
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -48,6 +104,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <Navbar />
