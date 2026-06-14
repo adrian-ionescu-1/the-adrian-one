@@ -3,12 +3,16 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Star, MessageSquare, Clock, TrendingUp } from 'lucide-react';
+import { container, blurUp, fadeUp, scaleIn, viewport } from '@/lib/motion';
+
+// ─── Config ───────────────────────────────────────────────────────────────────
 
 const VALUES = [
   {
     icon: Star,
     accent: 'text-violet-600 dark:text-violet-400',
     bg: 'bg-violet-500/10 border-violet-500/20',
+    glow: 'from-violet-500/8',
     titleKey: 'v1Title',
     descKey: 'v1Desc',
   },
@@ -16,6 +20,7 @@ const VALUES = [
     icon: MessageSquare,
     accent: 'text-blue-600 dark:text-blue-400',
     bg: 'bg-blue-500/10 border-blue-500/20',
+    glow: 'from-blue-500/8',
     titleKey: 'v2Title',
     descKey: 'v2Desc',
   },
@@ -23,6 +28,7 @@ const VALUES = [
     icon: Clock,
     accent: 'text-emerald-600 dark:text-emerald-400',
     bg: 'bg-emerald-500/10 border-emerald-500/20',
+    glow: 'from-emerald-500/8',
     titleKey: 'v3Title',
     descKey: 'v3Desc',
   },
@@ -30,10 +36,18 @@ const VALUES = [
     icon: TrendingUp,
     accent: 'text-amber-600 dark:text-amber-400',
     bg: 'bg-amber-500/10 border-amber-500/20',
+    glow: 'from-amber-500/8',
     titleKey: 'v4Title',
     descKey: 'v4Desc',
   },
 ] as const;
+
+const iconVariant = {
+  hidden: { opacity: 0, scale: 0.4, rotate: -15 },
+  visible: { opacity: 1, scale: 1, rotate: 0, transition: { type: 'spring' as const, stiffness: 320, damping: 20 } },
+};
+
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export function AboutValues() {
   const t = useTranslations('aboutPage.values');
@@ -44,55 +58,53 @@ export function AboutValues() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-14">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
-          >
+        <motion.div
+          variants={container(0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="flex flex-col items-center text-center mb-14"
+        >
+          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
           </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.08 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
-          >
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.14 }}
-            className="text-lg text-muted-foreground max-w-xl leading-relaxed"
-          >
+          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
           </motion.p>
-        </div>
+        </motion.div>
 
         {/* Values grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {VALUES.map(({ icon: Icon, accent, bg, titleKey, descKey }, i) => (
+        <motion.div
+          variants={container(0.1, 0.08)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+        >
+          {VALUES.map(({ icon: Icon, accent, bg, glow, titleKey, descKey }) => (
             <motion.div
               key={titleKey}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.09 }}
+              variants={scaleIn}
+              whileHover={{ y: -6, transition: { duration: 0.2, ease: 'easeOut' } }}
               className="group relative flex gap-5 p-6 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-glow-sm overflow-hidden"
             >
-              {/* Hover overlay */}
-              <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-primary/4 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/35 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+              {/* Accent glow */}
+              <div className={`pointer-events-none absolute inset-0 bg-linear-to-br ${glow} via-transparent to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100`} aria-hidden />
+              {/* Top glow line */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden />
+              {/* Shimmer */}
+              <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-linear-to-r from-transparent via-white/5 to-transparent" aria-hidden />
 
               {/* Icon */}
-              <div className={`relative w-12 h-12 rounded-xl border flex items-center justify-center shrink-0 ${bg} ${accent} transition-transform duration-200 group-hover:scale-110`}>
+              <motion.div
+                variants={iconVariant}
+                className={`relative w-12 h-12 rounded-xl border flex items-center justify-center shrink-0 ${bg} ${accent} transition-transform duration-200 group-hover:scale-110`}
+              >
                 <Icon size={20} />
-              </div>
+              </motion.div>
 
               {/* Text */}
               <div className="relative flex flex-col gap-1.5">
@@ -101,7 +113,7 @@ export function AboutValues() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { container, blurUp, fadeUp, scaleIn, viewport } from '@/lib/motion';
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 type Level = 'expert' | 'advanced' | 'intermediate';
-
 type Skill = { name: string; level: Level };
-
 type Category = {
   catKey: 'cat1' | 'cat2' | 'cat3' | 'cat4';
   accent: string;
@@ -15,6 +16,8 @@ type Category = {
   headerBg: string;
   skills: Skill[];
 };
+
+// ─── Config ───────────────────────────────────────────────────────────────────
 
 const CATEGORIES: Category[] = [
   {
@@ -93,6 +96,13 @@ const LEVEL_BADGE: Record<Level, string> = {
   intermediate: 'text-muted-foreground border-border/60 bg-muted/20',
 };
 
+const skillRowVariant = {
+  hidden: { opacity: 0, x: -14 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] as const } },
+};
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
 export function AboutSkills() {
   const t = useTranslations('aboutPage.skills');
 
@@ -102,45 +112,37 @@ export function AboutSkills() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-14">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
-          >
+        <motion.div
+          variants={container(0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="flex flex-col items-center text-center mb-14"
+        >
+          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
           </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.08 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
-          >
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.14 }}
-            className="text-lg text-muted-foreground max-w-xl leading-relaxed"
-          >
+          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
           </motion.p>
-        </div>
+        </motion.div>
 
         {/* Categories grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {CATEGORIES.map((cat, ci) => (
+        <motion.div
+          variants={container(0.1, 0.05)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+        >
+          {CATEGORIES.map((cat) => (
             <motion.div
               key={cat.catKey}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: ci * 0.08 }}
+              variants={scaleIn}
+              whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
               className={`group rounded-2xl border ${cat.border} ${cat.bg} backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-glow-sm`}
             >
               {/* Category header */}
@@ -150,15 +152,15 @@ export function AboutSkills() {
                 </span>
               </div>
 
-              {/* Skills list */}
-              <div className="p-5 flex flex-col gap-3">
-                {cat.skills.map((skill, si) => (
+              {/* Skills list — stagger */}
+              <motion.div
+                variants={container(0.05, 0.05)}
+                className="p-5 flex flex-col gap-3"
+              >
+                {cat.skills.map((skill) => (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-40px' }}
-                    transition={{ duration: 0.35, ease: 'easeOut', delay: ci * 0.06 + si * 0.04 }}
+                    variants={skillRowVariant}
                     className="flex items-center justify-between gap-3"
                   >
                     {/* Name + dots */}
@@ -168,16 +170,12 @@ export function AboutSkills() {
                           <span
                             key={di}
                             className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
-                              di < LEVEL_DOTS[skill.level]
-                                ? LEVEL_COLORS[skill.level]
-                                : 'bg-border/40'
+                              di < LEVEL_DOTS[skill.level] ? LEVEL_COLORS[skill.level] : 'bg-border/40'
                             }`}
                           />
                         ))}
                       </div>
-                      <span className="text-sm font-medium text-foreground/85 truncate">
-                        {skill.name}
-                      </span>
+                      <span className="text-sm font-medium text-foreground/85 truncate">{skill.name}</span>
                     </div>
 
                     {/* Level badge */}
@@ -186,10 +184,10 @@ export function AboutSkills() {
                     </span>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

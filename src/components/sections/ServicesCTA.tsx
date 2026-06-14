@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ArrowRight, Mail } from 'lucide-react';
+import { container, blurUp, fadeUp, viewport } from '@/lib/motion';
 
 function WhatsAppIcon({ size = 16 }: { size?: number }) {
   return (
@@ -24,21 +25,17 @@ export function ServicesCTA() {
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full bg-primary blur-[120px]"
         aria-hidden
       />
-      {/* Top gradient line */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent"
-        aria-hidden
-      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" aria-hidden />
 
-      <div className="relative mx-auto max-w-3xl px-6 text-center">
-        {/* Decorative badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6 flex justify-center"
-        >
+      <motion.div
+        variants={container(0.1)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        className="relative mx-auto max-w-3xl px-6 text-center"
+      >
+        {/* Badge */}
+        <motion.div variants={blurUp} className="mb-6 flex justify-center">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-primary/10 text-sm font-semibold text-primary">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60" />
@@ -48,45 +45,36 @@ export function ServicesCTA() {
           </span>
         </motion.div>
 
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.55, ease: 'easeOut', delay: 0.08 }}
-          className="mb-5 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight"
-        >
+        <motion.h2 variants={fadeUp} className="mb-5 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
           {t('heading')}
         </motion.h2>
 
-        {/* Subheading */}
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.55, ease: 'easeOut', delay: 0.14 }}
-          className="mb-10 text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto"
-        >
+        <motion.p variants={fadeUp} className="mb-10 text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
           {t('subheading')}
         </motion.p>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.55, ease: 'easeOut', delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <a
-            href="https://wa.me/40736556174"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground text-base font-semibold shadow-md shadow-primary/30 transition-all duration-200 hover:shadow-glow hover:-translate-y-px active:translate-y-0"
-          >
-            <WhatsAppIcon size={17} />
-            {t('primary')}
-          </a>
+        <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-4">
+          {/* Primary — gradient + breathing glow */}
+          <div className="relative">
+            <motion.div
+              animate={{ opacity: [0.3, 0.65, 0.3], scale: [1, 1.07, 1] }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+              className="pointer-events-none absolute inset-0 rounded-xl bg-primary/50 blur-md"
+              aria-hidden
+            />
+            <a
+              href="https://wa.me/40736556174"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl overflow-hidden bg-linear-to-r from-primary to-violet-500/90 text-primary-foreground text-base font-semibold shadow-md shadow-primary/30 transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-linear-to-r from-transparent via-white/20 to-transparent" aria-hidden />
+              <WhatsAppIcon size={17} />
+              {t('primary')}
+            </a>
+          </div>
+
           <a
             href="mailto:theadrianone.dev@gmail.com"
             className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-border bg-card/40 text-base font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:border-primary/40 hover:bg-card/60 hover:-translate-y-px"
@@ -96,7 +84,7 @@ export function ServicesCTA() {
             <ArrowRight size={13} className="text-muted-foreground" />
           </a>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

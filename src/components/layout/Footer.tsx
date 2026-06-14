@@ -1,8 +1,13 @@
-import { getTranslations } from 'next-intl/server';
+'use client';
+
+import { useRef, useState, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import { FooterLogo } from './FooterLogo';
 import { FooterCTA } from './FooterCTA';
+import { container, fadeUp, fadeLeft, fadeRight, fadeIn, scaleIn, viewport } from '@/lib/motion';
 
 function LinkedInIcon({ size = 13 }: { size?: number }) {
   return (
@@ -19,21 +24,6 @@ function GitHubIcon({ size = 13 }: { size?: number }) {
     </svg>
   );
 }
-
-const STATS = [
-  { value: '15+', labelKey: 'footer.stats.projectsLabel' },
-  { value: '5+', labelKey: 'footer.stats.experienceLabel' },
-  { value: '100%', labelKey: 'footer.stats.remoteLabel' },
-] as const;
-
-const QUICK_LINKS = [
-  { key: 'home', href: '/' },
-  { key: 'services', href: '/services' },
-  { key: 'portfolio', href: '/portfolio' },
-  { key: 'partners', href: '/partners' },
-  { key: 'about', href: '/about' },
-  { key: 'contact', href: '/contact' },
-] as const;
 
 function InstagramIcon({ size = 13 }: { size?: number }) {
   return (
@@ -67,43 +57,55 @@ function WhatsAppIcon({ size = 13 }: { size?: number }) {
   );
 }
 
+const STATS = [
+  { to: 15, suffix: '+', labelKey: 'footer.stats.projectsLabel' },
+  { to: 5,  suffix: '+', labelKey: 'footer.stats.experienceLabel' },
+  { to: 100, suffix: '%', labelKey: 'footer.stats.remoteLabel' },
+] as const;
+
+const QUICK_LINKS = [
+  { key: 'home', href: '/' },
+  { key: 'services', href: '/services' },
+  { key: 'portfolio', href: '/portfolio' },
+  { key: 'partners', href: '/partners' },
+  { key: 'about', href: '/about' },
+  { key: 'contact', href: '/contact' },
+] as const;
+
 const SOCIAL_LINKS = [
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/george-adrian-ionescu-005234286',
-    Icon: LinkedInIcon,
-  },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/adrian-ionescu-1',
-    Icon: GitHubIcon,
-  },
-  {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/theadrianone/',
-    Icon: InstagramIcon,
-  },
-  {
-    label: 'TikTok',
-    href: 'https://www.tiktok.com/@theadrianone.dev',
-    Icon: TikTokIcon,
-  },
-  {
-    label: 'X',
-    href: 'https://x.com/theadrianone',
-    Icon: XIcon,
-  },
-  {
-    label: 'WhatsApp',
-    href: 'https://wa.me/40736556174',
-    Icon: WhatsAppIcon,
-  },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/george-adrian-ionescu-005234286', Icon: LinkedInIcon },
+  { label: 'GitHub',    href: 'https://github.com/adrian-ionescu-1', Icon: GitHubIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/theadrianone/', Icon: InstagramIcon },
+  { label: 'TikTok',   href: 'https://www.tiktok.com/@theadrianone.dev', Icon: TikTokIcon },
+  { label: 'X',        href: 'https://x.com/theadrianone', Icon: XIcon },
+  { label: 'WhatsApp', href: 'https://wa.me/40736556174', Icon: WhatsAppIcon },
 ] as const;
 
 const TECH_STACK = ['Next.js', 'React', 'Tailwind CSS'] as const;
 
-export async function Footer() {
-  const t = await getTranslations();
+function CountUp({ to, suffix = '' }: { to: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const duration = 1400;
+    const startTime = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * to));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [isInView, to]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
+export function Footer() {
+  const t = useTranslations();
   const year = new Date().getFullYear();
 
   return (
@@ -121,42 +123,67 @@ export async function Footer() {
 
       <div className="relative mx-auto max-w-6xl px-6 py-14">
 
-        {/* ── CTA Banner ── */}
-        <FooterCTA />
+        {/* CTA Banner */}
+        <motion.div
+          variants={scaleIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <FooterCTA />
+        </motion.div>
 
-        {/* ── Stats row ── #5 */}
-        <div className="mb-12 grid grid-cols-3 gap-2 rounded-xl border border-border/40 bg-card/20 px-3 sm:px-6 py-5 divide-x divide-border/40">
-          {STATS.map(({ value, labelKey }) => (
-            <div key={labelKey} className="flex flex-col items-center gap-1 px-1 sm:px-4">
+        {/* Stats row */}
+        <motion.div
+          variants={container(0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="mb-12 grid grid-cols-3 gap-2 rounded-xl border border-border/40 bg-card/20 px-3 sm:px-6 py-5 divide-x divide-border/40"
+        >
+          {STATS.map(({ to, suffix, labelKey }) => (
+            <motion.div key={labelKey} variants={fadeUp} className="flex flex-col items-center gap-1 px-1 sm:px-4">
               <span className="text-xl sm:text-3xl font-bold text-primary tabular-nums">
-                {value}
+                <CountUp to={to} suffix={suffix} />
               </span>
               <span className="text-xs text-muted-foreground text-center leading-snug">
                 {t(labelKey)}
               </span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* ── Links grid ── */}
+        {/* Links grid */}
         <div className="grid grid-cols-1 gap-8 md:gap-12 md:grid-cols-3">
 
           {/* Brand */}
-          <div className="flex flex-col items-center gap-4 md:items-start">
+          <motion.div
+            variants={fadeLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="flex flex-col items-center gap-4 md:items-start"
+          >
             <FooterLogo label="The Adrian One" />
             <p className="text-base text-muted-foreground leading-relaxed max-w-60 text-center md:text-left">
               {t('footer.tagline')}
             </p>
-          </div>
+          </motion.div>
 
           {/* Quick links */}
-          <div className="flex flex-col items-center gap-4 md:items-start">
-            <p className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
+          <motion.div
+            variants={container(0.07)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="flex flex-col items-center gap-4 md:items-start"
+          >
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
               {t('footer.sections.links')}
-            </p>
+            </motion.p>
             <ul className="space-y-1.5 flex flex-col items-center md:items-start">
               {QUICK_LINKS.map(({ key, href }) => (
-                <li key={key}>
+                <motion.li key={key} variants={fadeUp}>
                   <Link
                     href={href}
                     className="group inline-flex items-center gap-2 text-base text-muted-foreground transition-all duration-200 hover:text-foreground"
@@ -164,19 +191,25 @@ export async function Footer() {
                     <span className="hidden md:block h-px w-3 bg-border transition-all duration-300 group-hover:w-5 group-hover:bg-primary" />
                     {t(`nav.${key}`)}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Connect */}
-          <div className="flex flex-col items-center gap-4 md:items-start">
-            <p className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
+          <motion.div
+            variants={container(0.06)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="flex flex-col items-center gap-4 md:items-start"
+          >
+            <motion.p variants={fadeUp} className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
               {t('footer.sections.connect')}
-            </p>
+            </motion.p>
             <ul className="space-y-2 flex flex-col items-center md:items-start">
               {SOCIAL_LINKS.map(({ label, href, Icon }) => (
-                <li key={label}>
+                <motion.li key={label} variants={fadeRight}>
                   <a
                     href={href}
                     target="_blank"
@@ -192,11 +225,11 @@ export async function Footer() {
                       className="text-muted-foreground/30 transition-all duration-200 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     />
                   </a>
-                </li>
+                </motion.li>
               ))}
 
               {/* Email */}
-              <li>
+              <motion.li variants={fadeRight}>
                 <a
                   href={`mailto:${t('footer.email')}`}
                   className="group inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-all duration-200 hover:text-foreground"
@@ -210,16 +243,21 @@ export async function Footer() {
                     className="text-muted-foreground/30 transition-all duration-200 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
                 </a>
-              </li>
+              </motion.li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        {/* ── Bottom bar — #7: tech stack added ── */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 text-sm text-muted-foreground sm:flex-row">
+        {/* Bottom bar */}
+        <motion.div
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 text-sm text-muted-foreground sm:flex-row"
+        >
           <span>{t('footer.copyright', { year })}</span>
 
-          {/* Tech stack chips */}
           <div className="flex items-center gap-1.5 flex-wrap justify-center">
             <span className="text-muted-foreground/50">{t('footer.builtWith')}</span>
             {TECH_STACK.map((tech) => (
@@ -236,7 +274,7 @@ export async function Footer() {
             <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-pulse" />
             {t('footer.rights')}
           </span>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
