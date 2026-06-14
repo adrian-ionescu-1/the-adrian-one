@@ -1,6 +1,6 @@
 # The Adrian One — Personal Portfolio & Business Website
 
-> **Live site:** [theadrianone.com](https://www.theadrianone.com) *(link will be updated after deployment)*
+> **Live site:** [the-adrian-one.vercel.app](https://the-adrian-one.vercel.app)
 
 Full-stack developer portfolio and business website built with Next.js 16, featuring bilingual support (Romanian / English), dark/light theme, premium animations, full SEO, and a working contact form.
 
