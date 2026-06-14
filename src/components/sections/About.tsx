@@ -109,7 +109,7 @@ export function About() {
           >
             {/* Glow behind card */}
             <div
-              className="pointer-events-none absolute -inset-8 rounded-3xl bg-primary/6 blur-[60px]"
+              className="pointer-events-none absolute -inset-y-8 inset-x-0 rounded-3xl bg-primary/6 blur-[60px]"
               aria-hidden
             />
 

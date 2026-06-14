@@ -50,7 +50,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <Navbar />
-            <main className="flex-1 pt-16">{children}</main>
+            <main className="flex-1 pt-16 overflow-x-hidden">{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
