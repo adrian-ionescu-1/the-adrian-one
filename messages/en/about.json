@@ -1,0 +1,59 @@
+{
+  "aboutPage": {
+    "hero": {
+      "badge": "About me",
+      "heading": "I build digital products",
+      "headingAccent": "people love",
+      "subheading": "5+ years of full-stack development across Europe — fast, clean, and built to last.",
+      "cta": "Start a conversation",
+      "available": "Available for projects",
+      "location": "Romania 🇷🇴",
+      "role": "Full-Stack Developer",
+      "stat1Value": "15+", "stat1Label": "Projects delivered",
+      "stat2Value": "5+", "stat2Label": "Years experience",
+      "stat3Value": "4", "stat3Label": "Countries served",
+      "skillsLabel": "Core skills"
+    },
+    "story": {
+      "badge": "My journey",
+      "heading": "From first line of code to full-stack",
+      "subheading": "The milestones that shaped how I think, build, and deliver.",
+      "m1Year": "2018", "m1Title": "First line of code",
+      "m1Desc": "Taught myself HTML, CSS, and JavaScript through online courses and side projects. Built my first website for a local business — no frameworks, no build tools, just curiosity.",
+      "m2Year": "2019", "m2Title": "First paid project",
+      "m2Desc": "Landed my first freelance client: a custom WordPress site with e-commerce. Learned that clients care about outcomes, not code elegance.",
+      "m3Year": "2021", "m3Title": "Full-stack & full-time",
+      "m3Desc": "Moved into full-stack development with Node.js and PostgreSQL. Transitioned to freelancing full-time, working with startups across Romania and Germany.",
+      "m4Year": "2022", "m4Title": "Modern stack adoption",
+      "m4Desc": "Deep-dived into Next.js, TypeScript, and Tailwind CSS. Shipped my first SaaS product and started building long-term client relationships.",
+      "m5Year": "2024", "m5Title": "15+ projects across Europe",
+      "m5Desc": "Working with clients in Romania, Germany, Norway, and Denmark. Every project still gets the same attention to detail as the very first one."
+    },
+    "skills": {
+      "badge": "Skills",
+      "heading": "Technologies I work with daily",
+      "subheading": "A modern, battle-tested stack chosen for performance, developer experience, and long-term maintainability.",
+      "cat1": "Frontend", "cat2": "Backend", "cat3": "Database & Cloud", "cat4": "Design & Tools",
+      "expert": "Expert", "advanced": "Advanced", "intermediate": "Intermediate"
+    },
+    "values": {
+      "badge": "How I work",
+      "heading": "The principles behind every project",
+      "subheading": "Not just a set of tools — a way of thinking about software that makes products better and collaborations smoother.",
+      "v1Title": "Quality over speed",
+      "v1Desc": "Every line of code is written to be read, tested, and maintained. Fast delivery never comes at the cost of correctness or clarity.",
+      "v2Title": "Radical transparency",
+      "v2Desc": "You always know where your project stands. No surprises, no hidden blockers — just clear, direct updates at every stage.",
+      "v3Title": "Honest commitments",
+      "v3Desc": "I only commit to deadlines I can keep. If scope changes, you hear from me first — not on launch day.",
+      "v4Title": "Long-term thinking",
+      "v4Desc": "I build systems designed to grow with your business, not technical debt you'll pay back in six months."
+    },
+    "cta": {
+      "heading": "Let's build something great",
+      "subheading": "Whether you have a project in mind or just want to explore possibilities — I'm available and ready to help.",
+      "primary": "Message on WhatsApp",
+      "secondary": "View my work"
+    }
+  }
+}

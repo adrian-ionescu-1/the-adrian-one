@@ -130,14 +130,14 @@ export function ContactHero() {
           variants={container(0.1, 0.25)}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl mx-auto"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 max-w-3xl mx-auto"
         >
           {INFO_CARDS.map(({ Icon, label, value, color, ringColor, iconBg, glowColor }) => (
             <motion.div
               key={label}
               variants={scaleIn}
               whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeOut' } }}
-              className={`group relative flex flex-col items-center gap-3 p-5 rounded-2xl border ${ringColor} bg-card/20 backdrop-blur-sm transition-all duration-300 hover:bg-card/35 hover:shadow-glow-sm overflow-hidden`}
+              className={`group relative flex flex-col items-center gap-2.5 sm:gap-3 p-3.5 sm:p-5 rounded-2xl border ${ringColor} bg-card/20 backdrop-blur-sm transition-all duration-300 hover:bg-card/35 hover:shadow-glow-sm overflow-hidden`}
             >
               {/* Accent glow on hover */}
               <div className={`pointer-events-none absolute inset-0 bg-linear-to-b ${glowColor} via-transparent to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100`} aria-hidden />

@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { ArrowUpRight, Mail } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone } from 'lucide-react';
 import { FooterLogo } from './FooterLogo';
 import { FooterCTA } from './FooterCTA';
 import { container, fadeUp, fadeLeft, fadeRight, fadeIn, scaleIn, viewport } from '@/lib/motion';
@@ -139,11 +139,11 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
-          className="mb-12 grid grid-cols-3 gap-2 rounded-xl border border-border/40 bg-card/20 px-3 sm:px-6 py-5 divide-x divide-border/40"
+          className="mb-12 grid grid-cols-3 gap-0 rounded-xl border border-border/40 bg-card/20 px-2 sm:px-6 py-4 sm:py-5 divide-x divide-border/40"
         >
           {STATS.map(({ to, suffix, labelKey }) => (
-            <motion.div key={labelKey} variants={fadeUp} className="flex flex-col items-center gap-1 px-1 sm:px-4">
-              <span className="text-xl sm:text-3xl font-bold text-primary tabular-nums">
+            <motion.div key={labelKey} variants={fadeUp} className="flex flex-col items-center gap-1 px-0 sm:px-4">
+              <span className="text-lg sm:text-3xl font-bold text-primary tabular-nums">
                 <CountUp to={to} suffix={suffix} />
               </span>
               <span className="text-xs text-muted-foreground text-center leading-snug">
@@ -168,6 +168,22 @@ export function Footer() {
             <p className="text-base text-muted-foreground leading-relaxed max-w-60 text-center md:text-left">
               {t('footer.tagline')}
             </p>
+            <div className="flex flex-col items-center md:items-start gap-1.5 text-sm">
+              <a
+                href="tel:+40736556174"
+                className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                <Phone size={13} className="shrink-0 text-primary/60 group-hover:text-primary transition-colors" />
+                <span>{t('footer.phone')}</span>
+              </a>
+              <a
+                href={`mailto:${t('footer.email')}`}
+                className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                <Mail size={13} className="shrink-0 text-primary/60 group-hover:text-primary transition-colors" />
+                <span className="break-all">{t('footer.email')}</span>
+              </a>
+            </div>
           </motion.div>
 
           {/* Quick links */}
@@ -228,22 +244,6 @@ export function Footer() {
                 </motion.li>
               ))}
 
-              {/* Email */}
-              <motion.li variants={fadeRight}>
-                <a
-                  href={`mailto:${t('footer.email')}`}
-                  className="group inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-all duration-200 hover:text-foreground"
-                >
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg border border-border/60 bg-card transition-all duration-200 group-hover:border-primary/50 group-hover:bg-accent group-hover:scale-105 group-hover:shadow-glow-sm">
-                    <Mail size={15} />
-                  </span>
-                  E-mail
-                  <ArrowUpRight
-                    size={11}
-                    className="text-muted-foreground/30 transition-all duration-200 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </a>
-              </motion.li>
             </ul>
           </motion.div>
         </div>

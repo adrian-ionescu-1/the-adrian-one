@@ -1,0 +1,49 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="sphere" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#C77DFF"/>
+      <stop offset="50%" stop-color="#7B2CBF"/>
+      <stop offset="100%" stop-color="#3C096C"/>
+    </radialGradient>
+    <linearGradient id="border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9D4EDD"/>
+      <stop offset="100%" stop-color="#5A189A"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#180332"/>
+      <stop offset="100%" stop-color="#030008"/>
+    </radialGradient>
+    <clipPath id="clip">
+      <circle cx="50" cy="50" r="43"/>
+    </clipPath>
+  </defs>
+
+  <!-- Gold outer accent ring -->
+  <circle cx="50" cy="50" r="48.5" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
+  <!-- Purple gradient border -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="url(#border)" stroke-width="3"/>
+  <!-- Inner gold hairline -->
+  <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+  <!-- Interior dark fill -->
+  <circle cx="50" cy="50" r="43.5" fill="url(#bg)"/>
+
+  <!-- AO monogram — centered vertically in circle -->
+  <g clip-path="url(#clip)">
+    <!-- "A" — apex (39,27), left base (19,69), right base (51.5,69) -->
+    <line x1="39" y1="27" x2="19" y2="69" stroke="white" stroke-width="7" stroke-linecap="round"/>
+    <line x1="39" y1="27" x2="51.5" y2="69" stroke="white" stroke-width="7" stroke-linecap="round"/>
+    <!-- Crossbar -->
+    <line x1="26.5" y1="53.5" x2="42" y2="53.5" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- "O" globe — center (61,46), r=15.5 -->
+    <circle cx="61" cy="46" r="15.5" fill="url(#sphere)"/>
+    <!-- Latitude line -->
+    <ellipse cx="61" cy="46" rx="15.5" ry="5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+    <!-- Longitude line -->
+    <ellipse cx="61" cy="46" rx="5" ry="15.5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+    <!-- Outer ring highlight -->
+    <circle cx="61" cy="46" r="15.5" fill="none" stroke="rgba(255,255,255,0.50)" stroke-width="1"/>
+    <!-- Light reflection spot -->
+    <circle cx="55" cy="39" r="3.5" fill="rgba(255,255,255,0.22)"/>
+  </g>
+</svg>

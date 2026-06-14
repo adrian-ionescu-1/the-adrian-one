@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { ContactHero } from '@/components/sections/ContactHero';
-import { ContactMain } from '@/components/sections/ContactMain';
+import { ContactHero } from '@/components/sections/contact/ContactHero';
+import { ContactMain } from '@/components/sections/contact/ContactMain';
 import { OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
 
 export async function generateMetadata({

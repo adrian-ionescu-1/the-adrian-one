@@ -1,0 +1,83 @@
+{
+  "partnersPage": {
+    "hero": {
+      "badge": "Partners",
+      "heading": "Strategic partnerships",
+      "headingAccent": "built to last",
+      "subheading": "Technology alliances, agency collaborations, and referral programs — built on transparency and mutual growth.",
+      "cta": "Become a partner",
+      "stat1Value": "15+", "stat1Label": "Technology partners",
+      "stat2Value": "8+", "stat2Label": "Agency collaborators",
+      "stat3Value": "3", "stat3Label": "Partnership tiers"
+    },
+    "ecosystem": {
+      "badge": "Tech ecosystem",
+      "heading": "Powered by best-in-class tools",
+      "subheading": "A curated stack of production-tested technologies — chosen for performance, reliability, and developer experience."
+    },
+    "types": {
+      "badge": "Work with me",
+      "heading": "Choose your partnership model",
+      "subheading": "Three structured ways to collaborate — whether you're an agency, a consultant, or a satisfied client.",
+      "referral": {
+        "badge": "Most popular",
+        "title": "Referral Partner",
+        "tagline": "Earn for every introduction",
+        "description": "Know someone who needs a web product built? Refer them and earn a commission on every completed project — no technical knowledge required.",
+        "b1": "10% commission on every referred project",
+        "b2": "Tracked referral links with real-time reporting",
+        "b3": "No cap on earnings — refer as many as you like",
+        "b4": "30-day attribution window per referral",
+        "b5": "Monthly payouts via bank transfer or PayPal",
+        "cta": "Apply as referral partner"
+      },
+      "agency": {
+        "badge": "White-label",
+        "title": "Agency Partner",
+        "tagline": "Extend your team's capabilities",
+        "description": "Agencies and studios can white-label my development services. I work behind the scenes — you keep your client relationship and margin.",
+        "b1": "White-label development under your brand",
+        "b2": "Dedicated Slack channel for project coordination",
+        "b3": "Priority scheduling and capacity reservation",
+        "b4": "Joint NDA and IP protection agreements",
+        "b5": "Volume discounts from 3+ concurrent projects",
+        "cta": "Apply as agency partner"
+      },
+      "technology": {
+        "badge": "Integration",
+        "title": "Technology Partner",
+        "tagline": "Build integrations together",
+        "description": "SaaS platforms, tools, and developer products can partner to build certified integrations, co-market, and publish joint case studies.",
+        "b1": "Certified integration development and testing",
+        "b2": "Listed as technology partner on this site",
+        "b3": "Joint case studies and technical blog posts",
+        "b4": "Co-marketing and cross-promotion opportunities",
+        "b5": "Early access to new integration capabilities",
+        "cta": "Explore technology partnership"
+      }
+    },
+    "benefits": {
+      "badge": "Why partner",
+      "heading": "What you get from day one",
+      "subheading": "Concrete benefits, not vague promises — every partnership tier comes with tangible value from the start.",
+      "b1Title": "Revenue sharing",
+      "b1Desc": "Transparent, on-time commission payouts with no hidden deductions or fine print.",
+      "b2Title": "Lead exchange",
+      "b2Desc": "Mutual referrals — I send relevant leads your way whenever projects fall outside my scope.",
+      "b3Title": "Priority access",
+      "b3Desc": "Partners get first access to my calendar before public availability opens.",
+      "b4Title": "Co-marketing",
+      "b4Desc": "Joint social content, case studies, and cross-promotion to both our audiences.",
+      "b5Title": "Dedicated support",
+      "b5Desc": "A direct line for questions, project updates, and issues — no ticket queues.",
+      "b6Title": "Trusted network",
+      "b6Desc": "Access to my vetted network of designers, copywriters, and other specialists."
+    },
+    "cta": {
+      "heading": "Ready to partner up?",
+      "subheading": "Send a short message describing how you'd like to collaborate. I'll respond within 24 hours.",
+      "primary": "Message on WhatsApp",
+      "secondary": "Send an email"
+    }
+  }
+}

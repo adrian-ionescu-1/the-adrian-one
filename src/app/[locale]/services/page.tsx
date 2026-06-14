@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { ServicesHero } from '@/components/sections/ServicesHero';
-import { ServicesDetail } from '@/components/sections/ServicesDetail';
-import { WhyChooseMe } from '@/components/sections/WhyChooseMe';
-import { TechShowcase } from '@/components/sections/TechShowcase';
-import { ServicesFAQ } from '@/components/sections/ServicesFAQ';
-import { ServicesCTA } from '@/components/sections/ServicesCTA';
+import { ServicesHero } from '@/components/sections/services/ServicesHero';
+import { ServicesDetail } from '@/components/sections/services/ServicesDetail';
+import { WhyChooseMe } from '@/components/sections/services/WhyChooseMe';
+import { TechShowcase } from '@/components/sections/services/TechShowcase';
+import { ServicesFAQ } from '@/components/sections/services/ServicesFAQ';
+import { ServicesCTA } from '@/components/sections/services/ServicesCTA';
 import { SITE_URL, OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
 
 const serviceJsonLd = {

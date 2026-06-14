@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "services": "Servicii",
+    "portfolio": "Portofoliu",
+    "partners": "Parteneri",
+    "about": "Despre",
+    "contact": "Contact",
+    "available": "Disponibil"
+  },
+  "footer": {
+    "tagline": "Web development de calitate pentru afacerea ta",
+    "copyright": "© {year} The Adrian One",
+    "rights": "Toate drepturile rezervate",
+    "cta": {
+      "heading": "Gata să construiești ceva măreț?",
+      "subheading": "Transformăm ideea ta într-un produs web rapid și modern.",
+      "button": "Începe un proiect"
+    },
+    "ctaAlt": {
+      "heading": "Nu ești sigur de ce ai nevoie?",
+      "subheading": "Explorează toate serviciile și descoperă exact ce putem construi împreună.",
+      "button": "Vezi serviciile"
+    },
+    "sections": {
+      "links": "Navigare rapidă",
+      "connect": "Conectează-te"
+    },
+    "stats": {
+      "projectsLabel": "Proiecte livrate",
+      "experienceLabel": "Ani experiență",
+      "remoteLabel": "Remote friendly"
+    },
+    "email": "theadrianone.dev@gmail.com",
+    "phone": "+40 736 556 174",
+    "builtWith": "Construit cu"
+  }
+}

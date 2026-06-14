@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { Hero } from '@/components/sections/Hero';
-import { Services } from '@/components/sections/Services';
-import { Process } from '@/components/sections/Process';
-import { Testimonials } from '@/components/sections/Testimonials';
-import { About } from '@/components/sections/About';
+import { Hero } from '@/components/sections/home/Hero';
+import { Services } from '@/components/sections/home/Services';
+import { Process } from '@/components/sections/home/Process';
+import { Testimonials } from '@/components/sections/home/Testimonials';
+import { About } from '@/components/sections/home/About';
 import { SITE_URL, OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
 
 type Props = {

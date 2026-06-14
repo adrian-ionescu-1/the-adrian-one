@@ -1,0 +1,93 @@
+{
+  "portfolioPage": {
+    "hero": {
+      "badge": "Portfolio",
+      "heading": "Projects that",
+      "headingAccent": "deliver results",
+      "subheading": "A curated selection of real products built for real clients — with measurable outcomes.",
+      "stat1Value": "15+", "stat1Label": "Projects completed",
+      "stat2Value": "5", "stat2Label": "Industries served",
+      "stat3Value": "4", "stat3Label": "Countries reached"
+    },
+    "grid": {
+      "badge": "Work",
+      "heading": "Selected projects",
+      "subheading": "Each project starts with a problem. Here's how I solved them.",
+      "featuredBadge": "Featured",
+      "challenge": "The challenge",
+      "techUsed": "Tech stack",
+      "viewLive": "View live",
+      "filterAll": "All",
+      "filterWebapp": "Web Apps",
+      "filterEcommerce": "E-commerce",
+      "filterLanding": "Landing Pages",
+      "filterApi": "APIs",
+      "otherHeading": "More projects"
+    },
+    "stats": {
+      "badge": "Results",
+      "heading": "Outcomes that matter",
+      "subheading": "Real numbers from real projects — not marketing averages.",
+      "s1Value": "40%",
+      "s1Label": "Avg. conversion increase",
+      "s1Desc": "Across e-commerce and landing page projects after launch",
+      "s2Value": "98",
+      "s2Label": "Avg. Lighthouse score",
+      "s2Desc": "Performance, accessibility and best practices combined",
+      "s3Value": "3×",
+      "s3Label": "Avg. load time improvement",
+      "s3Desc": "After performance audits and targeted optimisation",
+      "s4Value": "100%",
+      "s4Label": "On-time delivery",
+      "s4Desc": "Every project delivered on or before the agreed deadline"
+    },
+    "cta": {
+      "heading": "Your project could be next",
+      "subheading": "Let's talk about what you're building and how I can help make it successful.",
+      "primary": "Start a conversation",
+      "secondary": "View services"
+    },
+    "projects": {
+      "techstart": {
+        "title": "TechStart Platform",
+        "tagline": "Multi-tenant SaaS platform",
+        "description": "Full-stack project management and analytics platform built for a Romanian startup. Real-time collaboration, custom reporting dashboard, and team workspaces — from 0 to production in 8 weeks.",
+        "challenge": "Design a multi-tenant architecture supporting 50+ isolated teams with real-time updates and a sub-200ms dashboard load time under concurrent load.",
+        "metric": "2 wks ahead of schedule",
+        "m1Label": "Time to launch",
+        "m2Label": "Uptime SLA",
+        "m3Label": "Active teams"
+      },
+      "nordshop": {
+        "title": "NordShop",
+        "tagline": "Nordic e-commerce platform",
+        "description": "High-converting online store for a Nordic market — custom Stripe integration, advanced product filtering, multi-currency, and a mobile-first checkout that lifted conversions by 40%.",
+        "metric": "+40% conversions"
+      },
+      "buildflow": {
+        "title": "BuildFlow Dashboard",
+        "tagline": "SaaS project management",
+        "description": "Project management dashboard with real-time updates, team workspaces, Gantt charts, and advanced analytics — built for a German B2B SaaS startup.",
+        "metric": "10k+ active users"
+      },
+      "medconnect": {
+        "title": "MedConnect API",
+        "tagline": "Healthcare backend system",
+        "description": "HIPAA-compliant REST API for a healthcare provider — patient records, appointment scheduling, real-time notifications, and secure third-party integrations.",
+        "metric": "99.9% uptime SLA"
+      },
+      "greenmarket": {
+        "title": "GreenMarket",
+        "tagline": "Sustainable goods marketplace",
+        "description": "B2C + B2B sustainable goods marketplace with Sanity CMS, custom product configurator, wholesale pricing tiers, and a 98 Lighthouse score.",
+        "metric": "98 Lighthouse score"
+      },
+      "lumina": {
+        "title": "Lumina Agency",
+        "tagline": "Creative agency website",
+        "description": "Award-quality agency website with scroll-driven animations, video backgrounds, multilingual support, and a sub-1s LCP on mobile.",
+        "metric": "<1s LCP on mobile"
+      }
+    }
+  }
+}

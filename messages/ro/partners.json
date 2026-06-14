@@ -1,0 +1,83 @@
+{
+  "partnersPage": {
+    "hero": {
+      "badge": "Parteneri",
+      "heading": "Parteneriate strategice",
+      "headingAccent": "construite să dureze",
+      "subheading": "Alianțe tehnologice, colaborări cu agenții și programe de referral — construite pe transparență și creștere mutuală.",
+      "cta": "Devino partener",
+      "stat1Value": "15+", "stat1Label": "Parteneri tehnologici",
+      "stat2Value": "8+", "stat2Label": "Colaboratori agenții",
+      "stat3Value": "3", "stat3Label": "Tipuri de parteneriat"
+    },
+    "ecosystem": {
+      "badge": "Ecosistem tech",
+      "heading": "Alimentat de instrumente de top",
+      "subheading": "Un stack modern testat în producție — ales pentru performanță, fiabilitate și experiență developer."
+    },
+    "types": {
+      "badge": "Lucrează cu mine",
+      "heading": "Alege modelul de parteneriat",
+      "subheading": "Trei moduri structurate de colaborare — fie că ești agenție, consultant sau client mulțumit.",
+      "referral": {
+        "badge": "Cel mai popular",
+        "title": "Partener Referral",
+        "tagline": "Câștigă pentru fiecare recomandare",
+        "description": "Cunoști pe cineva care are nevoie de un produs web? Recomandă-l și câștigă un comision pentru fiecare proiect finalizat — fără cunoștințe tehnice necesare.",
+        "b1": "10% comision pentru fiecare proiect recomandat",
+        "b2": "Link-uri de referral urmărite cu raportare în timp real",
+        "b3": "Fără plafon de câștig — recomandă oricât dorești",
+        "b4": "Fereastră de atribuire de 30 de zile per referral",
+        "b5": "Plăți lunare prin transfer bancar sau PayPal",
+        "cta": "Aplică ca partener referral"
+      },
+      "agency": {
+        "badge": "White-label",
+        "title": "Partener Agenție",
+        "tagline": "Extinde capacitățile echipei tale",
+        "description": "Agențiile și studiourile pot folosi serviciile mele de dezvoltare sub brand propriu. Eu lucrez în spate — tu păstrezi relația cu clientul și marja.",
+        "b1": "Dezvoltare white-label sub brandul tău",
+        "b2": "Canal Slack dedicat pentru coordonarea proiectului",
+        "b3": "Programare prioritară și rezervare de capacitate",
+        "b4": "Acorduri comune NDA și protecție IP",
+        "b5": "Discounturi de volum de la 3+ proiecte simultane",
+        "cta": "Aplică ca partener agenție"
+      },
+      "technology": {
+        "badge": "Integrare",
+        "title": "Partener Tehnologic",
+        "tagline": "Construiți integrări împreună",
+        "description": "Platformele SaaS, uneltele și produsele developer pot face parteneriat pentru integrări certificate, co-marketing și studii de caz comune.",
+        "b1": "Dezvoltare și testare integrare certificată",
+        "b2": "Listat ca partener tehnologic pe acest site",
+        "b3": "Studii de caz comune și articole tehnice",
+        "b4": "Oportunități de co-marketing și promovare încrucișată",
+        "b5": "Acces timpuriu la noi capacități de integrare",
+        "cta": "Explorează parteneriatul tehnologic"
+      }
+    },
+    "benefits": {
+      "badge": "De ce parteneriat",
+      "heading": "Ce primești din prima zi",
+      "subheading": "Beneficii concrete, nu promisiuni vagi — fiecare nivel de parteneriat vine cu valoare tangibilă de la start.",
+      "b1Title": "Împărțirea veniturilor",
+      "b1Desc": "Plăți de comision transparente și la timp, fără deduceri ascunse sau condiții fine print.",
+      "b2Title": "Schimb de lead-uri",
+      "b2Desc": "Referral-uri reciproce — trimit lead-uri relevante când proiectele nu se potrivesc scopului meu.",
+      "b3Title": "Acces prioritar",
+      "b3Desc": "Partenerii au primul acces la calendarul meu înainte ca disponibilitatea să se deschidă public.",
+      "b4Title": "Co-marketing",
+      "b4Desc": "Conținut social comun, studii de caz și promovare încrucișată către ambele audiențe.",
+      "b5Title": "Suport dedicat",
+      "b5Desc": "O linie directă pentru întrebări, actualizări proiect și probleme — fără cozi de tichete.",
+      "b6Title": "Rețea de încredere",
+      "b6Desc": "Acces la rețeaua mea verificată de designeri, copywriteri și alți specialiști."
+    },
+    "cta": {
+      "heading": "Gata să facem echipă?",
+      "subheading": "Trimite un mesaj scurt descriind cum ai dori să colaborăm. Răspund în 24 de ore.",
+      "primary": "Mesaj pe WhatsApp",
+      "secondary": "Trimite un email"
+    }
+  }
+}

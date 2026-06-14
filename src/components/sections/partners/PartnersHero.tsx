@@ -138,11 +138,11 @@ export function PartnersHero() {
           variants={container(0.12, 0.35)}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-3 divide-x divide-border/40 rounded-2xl border border-border/40 bg-card/25 backdrop-blur-sm px-4 py-6 max-w-sm mx-auto sm:max-w-md"
+          className="grid grid-cols-3 divide-x divide-border/40 rounded-2xl border border-border/40 bg-card/25 backdrop-blur-sm px-2 sm:px-4 py-4 sm:py-6 max-w-sm mx-auto sm:max-w-md"
         >
           {STATS.map(({ to, suffix, labelKey }) => (
-            <motion.div key={labelKey} variants={scaleIn} className="flex flex-col items-center gap-1 px-2">
-              <span className="text-2xl sm:text-3xl font-bold text-primary tabular-nums">
+            <motion.div key={labelKey} variants={scaleIn} className="flex flex-col items-center gap-1 px-1 sm:px-2">
+              <span className="text-xl sm:text-3xl font-bold text-primary tabular-nums">
                 <CountUp to={to} suffix={suffix} />
               </span>
               <span className="text-xs text-muted-foreground text-center leading-snug">
