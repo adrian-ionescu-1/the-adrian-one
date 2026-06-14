@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, startTransition } from 'react';
+import { useState, useEffect, useRef, startTransition } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ExternalLink } from 'lucide-react';
+import { container, fadeUp, fadeRight, scaleIn, blurUp, viewport } from '@/lib/motion';
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
@@ -22,21 +23,40 @@ function WhatsAppIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-const inView = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-80px' },
-  transition: { duration: 0.5, ease: 'easeOut' as const, delay },
-});
+function CountUp({ to, suffix = '' }: { to: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const duration = 1400;
+    const startTime = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * to));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [isInView, to]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
+const skillVariant = {
+  hidden: { opacity: 0, scale: 0.8, y: 8 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } },
+};
 
 export function About() {
   const t = useTranslations('about');
   const [imgErr, setImgErr] = useState(false);
 
-  const stats = [
-    { value: t('stat1Value'), label: t('stat1Label') },
-    { value: t('stat2Value'), label: t('stat2Label') },
-    { value: t('stat3Value'), label: t('stat3Label') },
+  const stats: { to: number; suffix: string; label: string }[] = [
+    { to: 15, suffix: '+', label: t('stat1Label') },
+    { to: 5,  suffix: '+', label: t('stat2Label') },
+    { to: 100, suffix: '%', label: t('stat3Label') },
   ];
 
   const skills = [
@@ -46,37 +66,42 @@ export function About() {
 
   return (
     <section className="relative py-24 md:py-32 border-t border-border/30">
-      {/* Faint bg tint */}
       <div className="pointer-events-none absolute inset-0 bg-card/8" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
           {/* Left — text */}
-          <div className="flex flex-col gap-6">
+          <motion.div
+            variants={container(0.1)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="flex flex-col gap-6"
+          >
             <motion.span
-              {...inView(0)}
+              variants={blurUp}
               className="self-start inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
             >
               {t('badge')}
             </motion.span>
 
             <motion.h2
-              {...inView(0.08)}
+              variants={fadeUp}
               className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight"
             >
               {t('heading')}
             </motion.h2>
 
-            <motion.p {...inView(0.16)} className="text-lg text-muted-foreground leading-relaxed">
+            <motion.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed">
               {t('body1')}
             </motion.p>
 
-            <motion.p {...inView(0.22)} className="text-base text-muted-foreground leading-relaxed">
+            <motion.p variants={fadeUp} className="text-base text-muted-foreground leading-relaxed">
               {t('body2')}
             </motion.p>
 
-            <motion.div {...inView(0.28)} className="flex flex-wrap gap-3">
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
               <a
                 href="https://wa.me/40736556174"
                 target="_blank"
@@ -97,14 +122,16 @@ export function About() {
                 <ExternalLink size={12} className="text-muted-foreground/50" />
               </a>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Right — profile card */}
           <motion.div
-            initial={{ opacity: 0, x: 32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.12 }}
+            variants={fadeRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            whileHover={{ rotateY: 2, rotateX: -1, transition: { duration: 0.3 } }}
+            style={{ perspective: 800 }}
             className="relative"
           >
             {/* Glow behind card */}
@@ -115,10 +142,12 @@ export function About() {
 
             <div className="relative rounded-2xl border border-border/50 bg-card/40 backdrop-blur-md p-8 flex flex-col gap-8 shadow-glow-sm">
 
-              {/* Avatar + name + LinkedIn */}
+              {/* Avatar + name */}
               <div className="flex items-center gap-4">
-                {/* Avatar — imagine sau fallback initiale */}
-                <div className="relative shrink-0 w-16 h-16">
+                <motion.div
+                  variants={scaleIn}
+                  className="relative shrink-0 w-16 h-16"
+                >
                   {!imgErr ? (
                     <Image
                       src="/images/avatar_adrian.jpg"
@@ -133,11 +162,10 @@ export function About() {
                       A
                     </div>
                   )}
-                  {/* Online indicator */}
                   <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 ring-2 ring-card">
                     <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   </span>
-                </div>
+                </motion.div>
 
                 <div className="flex flex-col gap-1 min-w-0">
                   <span className="text-lg font-bold text-foreground">Adrian Ionescu</span>
@@ -158,32 +186,41 @@ export function About() {
                 <ExternalLink size={12} className="text-muted-foreground/50 ml-auto" />
               </a>
 
-              {/* Stats row */}
+              {/* Stats row — counter animat */}
               <div className="grid grid-cols-3 gap-2 rounded-xl border border-border/40 bg-background/30 px-2 py-4 divide-x divide-border/40">
-                {stats.map(({ value, label }) => (
+                {stats.map(({ to, suffix, label }) => (
                   <div key={label} className="flex flex-col items-center gap-0.5 text-center px-1">
-                    <span className="text-xl font-bold text-primary tabular-nums">{value}</span>
+                    <span className="text-xl font-bold text-primary tabular-nums">
+                      <CountUp to={to} suffix={suffix} />
+                    </span>
                     <span className="text-xs text-muted-foreground text-center leading-snug">{label}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Skills */}
+              {/* Skills — stagger */}
               <div className="flex flex-col gap-2.5">
                 <span className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-[0.14em]">
                   Core skills
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <motion.div
+                  variants={container(0.07)}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewport}
+                  className="flex flex-wrap gap-2"
+                >
                   {skills.map((skill) => (
-                    <span
+                    <motion.span
                       key={skill}
+                      variants={skillVariant}
                       className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border border-border/50 bg-primary/6 text-foreground"
                     >
                       <span className="w-1 h-1 rounded-full bg-primary/70" />
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
-                </div>
+                </motion.div>
               </div>
 
             </div>

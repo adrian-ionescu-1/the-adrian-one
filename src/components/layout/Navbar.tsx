@@ -6,9 +6,9 @@ import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { ThemeToggle } from '@/components/shared/ThemeToggle';
-import { useTheme } from '@/components/shared/ThemeProvider';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { container, fadeUp } from '@/lib/motion';
 
 const NAV_LINKS = [
   { key: 'home', href: '/' },
@@ -26,7 +26,6 @@ function isActive(href: string, pathname: string) {
 export function Navbar() {
   const t = useTranslations('nav');
   const pathname = usePathname();
-  const { theme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -48,7 +47,10 @@ export function Navbar() {
   const hasBg = scrolled || mobileOpen;
 
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         hasBg
           ? scrolled
@@ -80,15 +82,8 @@ export function Navbar() {
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             className="flex items-center shrink-0"
           >
-            <Image
-              src={theme === 'dark' ? '/images/logo-dark.svg' : '/images/logo-light.svg'}
-              alt="The Adrian One logo"
-              width={32}
-              height={32}
-              className="h-8 w-auto object-contain"
-              loading="eager"
-              unoptimized
-            />
+            <Image src="/images/logo-light.svg" alt="The Adrian One logo" width={32} height={32} loading="lazy" className="h-8 w-auto object-contain block dark:hidden" />
+            <Image src="/images/logo-dark.svg"  alt="The Adrian One logo" width={32} height={32} loading="lazy" className="h-8 w-auto object-contain hidden dark:block" />
           </motion.span>
           <div className="hidden xs:flex flex-col leading-none gap-0.5">
             <span className="font-bold tracking-tight text-base sm:text-lg text-foreground">
@@ -107,11 +102,16 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-0.5">
+        <motion.ul
+          variants={container(0.07, 0.25)}
+          initial="hidden"
+          animate="visible"
+          className="hidden md:flex items-center gap-0.5"
+        >
           {NAV_LINKS.map(({ key, href }) => {
             const active = isActive(href, pathname);
             return (
-              <li key={key}>
+              <motion.li key={key} variants={fadeUp}>
                 <Link
                   href={href}
                   className={`relative px-3.5 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
@@ -134,20 +134,41 @@ export function Navbar() {
                   />
                   <span className="relative">{t(key)}</span>
                 </Link>
-              </li>
+              </motion.li>
             );
           })}
-        </ul>
+        </motion.ul>
 
         {/* Right: CTA + theme + lang + burger */}
-        <div className="flex items-center gap-2">
-          <Link
-            href="/contact"
-            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-base font-semibold rounded-lg bg-primary text-primary-foreground shadow-sm shadow-primary/25 transition-all duration-200 hover:shadow-glow-sm hover:-translate-y-px active:translate-y-0"
-          >
-            {t('contact')}
-            <ArrowRight size={15} />
-          </Link>
+        <motion.div
+          initial={{ opacity: 0, x: 12 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+          className="flex items-center gap-2"
+        >
+          <div className="relative hidden md:block">
+            {/* Idle breathing glow */}
+            <motion.div
+              animate={{ opacity: [0.35, 0.7, 0.35], scale: [1, 1.08, 1] }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+              className="pointer-events-none absolute inset-0 rounded-xl bg-primary/50 blur-md"
+              aria-hidden
+            />
+            <Link
+              href="/contact"
+              className="group relative inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-xl overflow-hidden bg-linear-to-r from-primary to-violet-500/90 text-primary-foreground shadow-md shadow-primary/30 transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0 active:shadow-md"
+            >
+              {/* Shimmer sweep */}
+              <span
+                className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-linear-to-r from-transparent via-white/20 to-transparent"
+                aria-hidden
+              />
+              {t('contact')}
+              <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                <ArrowRight size={14} />
+              </span>
+            </Link>
+          </div>
           <ThemeToggle />
           <LanguageSwitcher />
           <button
@@ -170,7 +191,7 @@ export function Navbar() {
               </motion.span>
             </AnimatePresence>
           </button>
-        </div>
+        </motion.div>
       </nav>
 
       {/* Mobile menu */}
@@ -230,6 +251,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

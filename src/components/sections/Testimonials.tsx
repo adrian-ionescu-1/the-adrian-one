@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Star } from 'lucide-react';
+import { container, fadeUp, scaleIn, blurUp, fadeIn, viewport } from '@/lib/motion';
 
 const TESTIMONIALS = [
   { quoteKey: '1quote', nameKey: '1name', roleKey: '1role', initials: 'MC' },
@@ -10,12 +11,10 @@ const TESTIMONIALS = [
   { quoteKey: '3quote', nameKey: '3name', roleKey: '3role', initials: 'SA' },
 ] as const;
 
-const inView = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-80px' },
-  transition: { duration: 0.5, ease: 'easeOut' as const, delay },
-});
+const starVariant = {
+  hidden: { opacity: 0, scale: 0.4, rotate: -15 },
+  visible: { opacity: 1, scale: 1, rotate: 0, transition: { type: 'spring' as const, stiffness: 400, damping: 20 } },
+};
 
 export function Testimonials() {
   const t = useTranslations('testimonials');
@@ -23,34 +22,47 @@ export function Testimonials() {
   return (
     <section className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
       {/* Section header */}
-      <div className="flex flex-col items-center text-center mb-16">
+      <motion.div
+        variants={container(0.1)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        className="flex flex-col items-center text-center mb-16"
+      >
         <motion.span
-          {...inView(0)}
+          variants={blurUp}
           className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
         >
           {t('badge')}
         </motion.span>
         <motion.h2
-          {...inView(0.08)}
+          variants={fadeUp}
           className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
         >
           {t('heading')}
         </motion.h2>
         <motion.p
-          {...inView(0.16)}
+          variants={fadeUp}
           className="text-lg text-muted-foreground max-w-xl leading-relaxed"
         >
           {t('subheading')}
         </motion.p>
-      </div>
+      </motion.div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {TESTIMONIALS.map(({ quoteKey, nameKey, roleKey, initials }, i) => (
+      <motion.div
+        variants={container(0.1)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
+        {TESTIMONIALS.map(({ quoteKey, nameKey, roleKey, initials }) => (
           <motion.div
             key={quoteKey}
-            {...inView(0.1 * i)}
-            className="group relative flex flex-col gap-5 p-7 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-card/50 hover:shadow-glow-sm"
+            variants={scaleIn}
+            whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeOut' } }}
+            className="group relative flex flex-col gap-5 p-7 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm transition-colors duration-300 hover:border-primary/30 hover:bg-card/50 hover:shadow-glow-sm"
           >
             {/* Top glow line */}
             <div
@@ -58,23 +70,31 @@ export function Testimonials() {
               aria-hidden
             />
 
-            {/* Stars */}
-            <div className="flex gap-0.5">
+            {/* Stars — stagger */}
+            <motion.div
+              variants={container(0.06, 0.1)}
+              className="flex gap-0.5"
+            >
               {Array.from({ length: 5 }).map((_, s) => (
-                <Star key={s} size={14} className="fill-primary text-primary" />
+                <motion.span key={s} variants={starVariant}>
+                  <Star size={14} className="fill-primary text-primary" />
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
 
             {/* Quote */}
-            <blockquote className="flex-1 text-base text-foreground/90 leading-relaxed italic">
+            <motion.blockquote
+              variants={fadeIn}
+              className="flex-1 text-base text-foreground/90 leading-relaxed italic"
+            >
               &ldquo;{t(quoteKey)}&rdquo;
-            </blockquote>
+            </motion.blockquote>
 
             {/* Divider */}
             <div className="h-px bg-border/50" />
 
             {/* Author */}
-            <div className="flex items-center gap-3">
+            <motion.div variants={fadeUp} className="flex items-center gap-3">
               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/15 text-primary text-sm font-bold shrink-0">
                 {initials}
               </div>
@@ -82,10 +102,10 @@ export function Testimonials() {
                 <span className="text-sm font-semibold text-foreground">{t(nameKey)}</span>
                 <span className="text-xs text-muted-foreground">{t(roleKey)}</span>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

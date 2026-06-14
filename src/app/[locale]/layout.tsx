@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
+import { ScrollToTop } from "@/components/shared/ScrollToTop";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -52,6 +53,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Navbar />
             <main className="flex-1 pt-16 overflow-x-hidden">{children}</main>
             <Footer />
+            <ScrollToTop />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
