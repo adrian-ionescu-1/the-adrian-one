@@ -82,11 +82,11 @@
         "description": "Marketplace B2C + B2B de produse sustenabile cu Sanity CMS, configurator personalizat de produse, niveluri de prețuri en-gros și un scor Lighthouse de 98.",
         "metric": "Scor Lighthouse 98"
       },
-      "lumina": {
-        "title": "Lumina Agency",
-        "tagline": "Website agenție creativă",
-        "description": "Website de agenție de calitate premium cu animații scroll-driven, fundaluri video, suport multilingv și un LCP sub 1s pe mobil.",
-        "metric": "<1s LCP pe mobil"
+      "foodie": {
+        "title": "Foodie Brașov",
+        "tagline": "Website restaurant",
+        "description": "Website pentru shaormerie în Centrul Vechi Brașov — hero animat, card Google Reviews cu counter live, bilingv RO/EN, SEO complet cu date structurate schema.org și dark mode fără flash.",
+        "metric": "Bilingv + Schema.org"
       }
     }
   }

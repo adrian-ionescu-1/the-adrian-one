@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, startTransition } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import { container, blurUp, fadeUp, fadeLeft, fadeRight, scaleIn, viewport } from '@/lib/motion';
+import { useTheme } from '@/components/shared/ThemeProvider';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -21,6 +23,7 @@ type Project = {
   gradient: string;
   year: string;
   liveUrl: string;
+  image?: { light: string; dark: string };
 };
 
 type FeaturedProject = Project & {
@@ -47,12 +50,13 @@ const PROJECTS_CONFIG: {
   gradient: string;
   year: string;
   liveUrl: string;
+  image?: { light: string; dark: string };
 }[] = [
+  { id: 'foodie',     category: 'landing',   tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS v4', 'next-intl', 'Schema.org JSON-LD'], gradient: 'from-amber-500 via-orange-500 to-red-500', year: '2025', liveUrl: 'https://foodie-brasov.vercel.app', image: { light: '/images/projects/foodie-brasov-light.jpg', dark: '/images/projects/foodie-brasov-dark.jpg' } },
   { id: 'nordshop',   category: 'ecommerce', tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Vercel'],             gradient: 'from-blue-500 via-cyan-500 to-teal-600',     year: '2024', liveUrl: '#' },
   { id: 'buildflow',  category: 'webapp',    tech: ['React', 'Node.js', 'GraphQL', 'Redis', 'Docker'],        gradient: 'from-emerald-500 via-green-500 to-teal-600',  year: '2023', liveUrl: '#' },
   { id: 'medconnect', category: 'api',       tech: ['Node.js', 'Express', 'PostgreSQL', 'Docker', 'AWS'],     gradient: 'from-rose-500 via-pink-500 to-red-600',       year: '2023', liveUrl: '#' },
   { id: 'greenmarket',category: 'ecommerce', tech: ['Next.js', 'Sanity', 'Stripe', 'Tailwind CSS'],           gradient: 'from-lime-500 via-green-500 to-emerald-600',  year: '2024', liveUrl: '#' },
-  { id: 'lumina',     category: 'landing',   tech: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'next-intl'], gradient: 'from-amber-500 via-orange-500 to-red-500',    year: '2024', liveUrl: '#' },
 ];
 
 const CATEGORY_LABELS: Record<Category, string> = {
@@ -64,7 +68,9 @@ const CATEGORY_LABELS: Record<Category, string> = {
 
 // ─── Browser Mockup ───────────────────────────────────────────────────────────
 
-function BrowserMockup({ gradient }: { gradient: string }) {
+function BrowserMockup({ gradient, image }: { gradient: string; image?: { light: string; dark: string } }) {
+  const { theme } = useTheme();
+  const src = image ? image[theme] : null;
   return (
     <div className="w-full rounded-xl overflow-hidden border border-border/40 shadow-lg">
       <div className="flex items-center gap-1.5 px-3 py-2 bg-neutral-900 border-b border-white/8">
@@ -76,33 +82,39 @@ function BrowserMockup({ gradient }: { gradient: string }) {
           <div className="h-1.5 w-24 rounded-full bg-white/20" />
         </div>
       </div>
-      <div className={`aspect-video bg-linear-to-br ${gradient} relative overflow-hidden`}>
-        <div className="absolute inset-0 p-4 flex flex-col gap-2.5">
-          <div className="flex items-center gap-2">
-            <div className="h-5 w-14 rounded-md bg-white/25" />
-            <div className="flex gap-1.5 ml-1">
-              <div className="h-2.5 w-7 rounded-sm bg-white/15" />
-              <div className="h-2.5 w-7 rounded-sm bg-white/15" />
-              <div className="h-2.5 w-7 rounded-sm bg-white/15" />
+      {src ? (
+        <div className="aspect-video relative overflow-hidden bg-neutral-900">
+          <Image src={src} alt="" fill loading="eager" priority className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+        </div>
+      ) : (
+        <div className={`aspect-video bg-linear-to-br ${gradient} relative overflow-hidden`}>
+          <div className="absolute inset-0 p-4 flex flex-col gap-2.5">
+            <div className="flex items-center gap-2">
+              <div className="h-5 w-14 rounded-md bg-white/25" />
+              <div className="flex gap-1.5 ml-1">
+                <div className="h-2.5 w-7 rounded-sm bg-white/15" />
+                <div className="h-2.5 w-7 rounded-sm bg-white/15" />
+                <div className="h-2.5 w-7 rounded-sm bg-white/15" />
+              </div>
+              <div className="ml-auto h-6 w-14 rounded-lg bg-white/25" />
             </div>
-            <div className="ml-auto h-6 w-14 rounded-lg bg-white/25" />
-          </div>
-          <div className="mt-1.5 space-y-2">
-            <div className="h-5 w-44 rounded-md bg-white/22" />
-            <div className="h-3 w-56 rounded-sm bg-white/15" />
-            <div className="h-3 w-48 rounded-sm bg-white/12" />
-            <div className="mt-1 flex gap-2">
-              <div className="h-7 w-20 rounded-lg bg-white/25" />
-              <div className="h-7 w-16 rounded-lg bg-white/15" />
+            <div className="mt-1.5 space-y-2">
+              <div className="h-5 w-44 rounded-md bg-white/22" />
+              <div className="h-3 w-56 rounded-sm bg-white/15" />
+              <div className="h-3 w-48 rounded-sm bg-white/12" />
+              <div className="mt-1 flex gap-2">
+                <div className="h-7 w-20 rounded-lg bg-white/25" />
+                <div className="h-7 w-16 rounded-lg bg-white/15" />
+              </div>
             </div>
-          </div>
-          <div className="mt-auto grid grid-cols-3 gap-2">
-            <div className="h-10 rounded-lg bg-white/18" />
-            <div className="h-10 rounded-lg bg-white/12" />
-            <div className="h-10 rounded-lg bg-white/18" />
+            <div className="mt-auto grid grid-cols-3 gap-2">
+              <div className="h-10 rounded-lg bg-white/18" />
+              <div className="h-10 rounded-lg bg-white/12" />
+              <div className="h-10 rounded-lg bg-white/18" />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -203,7 +215,7 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
           whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
           className="relative w-full"
         >
-          <BrowserMockup gradient={project.gradient} />
+          <BrowserMockup gradient={project.gradient} image={project.image} />
         </motion.div>
       </motion.div>
     </div>
@@ -220,7 +232,7 @@ function ProjectCard({ project, viewLiveLabel }: { project: Project; viewLiveLab
     >
       {/* Mockup area */}
       <div className="relative overflow-hidden">
-        <BrowserMockup gradient={project.gradient} />
+        <BrowserMockup gradient={project.gradient} image={project.image} />
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-background/85 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
           <a
@@ -285,8 +297,8 @@ function ProjectCard({ project, viewLiveLabel }: { project: Project; viewLiveLab
 // ─── Filter ───────────────────────────────────────────────────────────────────
 
 type FilterKey = 'all' | Category;
-const FILTER_KEYS: FilterKey[] = ['all', 'webapp', 'ecommerce', 'landing', 'api'];
-const FILTER_LABEL_KEYS = ['filterAll', 'filterWebapp', 'filterEcommerce', 'filterLanding', 'filterApi'] as const;
+const FILTER_KEYS: FilterKey[] = ['all', 'landing', 'webapp', 'ecommerce', 'api'];
+const FILTER_LABEL_KEYS = ['filterAll', 'filterLanding', 'filterWebapp', 'filterEcommerce', 'filterApi'] as const;
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
