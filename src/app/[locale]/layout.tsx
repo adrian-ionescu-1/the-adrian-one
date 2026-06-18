@@ -8,6 +8,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import { ScrollToTop } from "@/components/shared/ScrollToTop";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { SITE_URL, OG_IMAGE, ogLocale } from "@/lib/seo";
 import "../globals.css";
@@ -118,6 +119,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
