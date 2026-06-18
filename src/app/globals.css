@@ -166,6 +166,23 @@
   }
 }
 
+/* ─── View Transition — language switch smooth fade ──────────────── */
+::view-transition-old(root) {
+  animation: 150ms ease both vt-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 220ms ease both vt-fade-in;
+}
+
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+}
+
 /* ─── Marquee keyframe for PartnersMarquee ───────────────────────── */
 @keyframes marquee-slide {
   from { transform: translateX(0); }
