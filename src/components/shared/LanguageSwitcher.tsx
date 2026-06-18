@@ -1,5 +1,6 @@
 'use client';
 
+import { startTransition } from 'react';
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
 
@@ -10,7 +11,15 @@ export function LanguageSwitcher() {
 
   const switchLocale = () => {
     const nextLocale = locale === 'ro' ? 'en' : 'ro';
-    router.replace(pathname, { locale: nextLocale, scroll: false });
+    const navigate = () => router.replace(pathname, { locale: nextLocale, scroll: false });
+
+    if (!('startViewTransition' in document)) {
+      navigate();
+      return;
+    }
+
+    (document as Document & { startViewTransition: (cb: () => void) => void })
+      .startViewTransition(() => startTransition(navigate));
   };
 
   return (
