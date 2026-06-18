@@ -73,17 +73,17 @@ function BrowserMockup({ gradient, image }: { gradient: string; image?: { light:
   const src = image ? image[theme] : null;
   return (
     <div className="w-full rounded-xl overflow-hidden border border-border/40 shadow-lg">
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-neutral-900 border-b border-white/8">
+      <div className="flex items-center gap-1.5 px-3 py-2 bg-neutral-100 dark:bg-neutral-900 border-b border-black/8 dark:border-white/8">
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 shrink-0" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 shrink-0" />
         <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 shrink-0" />
-        <div className="ml-2 flex-1 h-5 rounded-md bg-white/10 flex items-center gap-2 px-2.5">
-          <div className="w-3 h-3 rounded-full border border-white/20 shrink-0" />
-          <div className="h-1.5 w-24 rounded-full bg-white/20" />
+        <div className="ml-2 flex-1 h-5 rounded-md bg-black/8 dark:bg-white/10 flex items-center gap-2 px-2.5">
+          <div className="w-3 h-3 rounded-full border border-black/15 dark:border-white/20 shrink-0" />
+          <div className="h-1.5 w-24 rounded-full bg-black/15 dark:bg-white/20" />
         </div>
       </div>
       {src ? (
-        <div className="aspect-video relative overflow-hidden bg-neutral-900">
+        <div className="aspect-video relative overflow-hidden bg-neutral-100 dark:bg-neutral-900">
           <Image src={src} alt="" fill loading="eager" priority className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
         </div>
       ) : (
