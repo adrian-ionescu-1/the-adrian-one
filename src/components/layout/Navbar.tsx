@@ -7,7 +7,7 @@ import { Link, usePathname } from '@/i18n/navigation';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { ThemeToggle } from '@/components/shared/ThemeToggle';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { container, fadeUp } from '@/lib/motion';
 
 const NAV_LINKS = [
@@ -47,7 +47,7 @@ export function Navbar() {
   const hasBg = scrolled || mobileOpen;
 
   return (
-    <motion.header
+    <m.header
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -76,7 +76,7 @@ export function Navbar() {
 
         {/* Logo + Available badge */}
         <Link href="/" className="group flex items-center gap-2.5 shrink-0">
-          <motion.span
+          <m.span
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -84,7 +84,7 @@ export function Navbar() {
           >
             <Image src="/images/logo-light.svg" alt="The Adrian One logo" width={32} height={32} loading="eager" className="h-8 w-auto object-contain block dark:hidden" />
             <Image src="/images/logo-dark.svg"  alt="The Adrian One logo" width={32} height={32} loading="eager" className="h-8 w-auto object-contain hidden dark:block" />
-          </motion.span>
+          </m.span>
           <div className="hidden xs:flex flex-col leading-none gap-0.5">
             <span className="font-bold tracking-tight text-base sm:text-lg text-foreground">
               The Adrian One
@@ -102,7 +102,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <motion.ul
+        <m.ul
           variants={container(0.07, 0.25)}
           initial="hidden"
           animate="visible"
@@ -111,7 +111,7 @@ export function Navbar() {
           {NAV_LINKS.map(({ key, href }) => {
             const active = isActive(href, pathname);
             return (
-              <motion.li key={key} variants={fadeUp}>
+              <m.li key={key} variants={fadeUp}>
                 <Link
                   href={href}
                   className={`relative px-3.5 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
@@ -134,13 +134,13 @@ export function Navbar() {
                   />
                   <span className="relative">{t(key)}</span>
                 </Link>
-              </motion.li>
+              </m.li>
             );
           })}
-        </motion.ul>
+        </m.ul>
 
         {/* Right: CTA + theme + lang + burger */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: 12 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
@@ -148,7 +148,7 @@ export function Navbar() {
         >
           <div className="relative hidden md:block">
             {/* Idle breathing glow */}
-            <motion.div
+            <m.div
               animate={{ opacity: [0.35, 0.7, 0.35], scale: [1, 1.08, 1] }}
               transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
               className="pointer-events-none absolute inset-0 rounded-xl bg-primary/50 blur-md"
@@ -179,7 +179,7 @@ export function Navbar() {
             aria-expanded={mobileOpen}
           >
             <AnimatePresence mode="wait" initial={false}>
-              <motion.span
+              <m.span
                 key={mobileOpen ? 'x' : 'burger'}
                 initial={{ rotate: -60, opacity: 0, scale: 0.7 }}
                 animate={{ rotate: 0, opacity: 1, scale: 1 }}
@@ -188,16 +188,16 @@ export function Navbar() {
                 className="block"
               >
                 {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-              </motion.span>
+              </m.span>
             </AnimatePresence>
           </button>
-        </motion.div>
+        </m.div>
       </nav>
 
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -208,7 +208,7 @@ export function Navbar() {
               {NAV_LINKS.map(({ key, href }, i) => {
                 const active = isActive(href, pathname);
                 return (
-                  <motion.li
+                  <m.li
                     key={key}
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -230,10 +230,10 @@ export function Navbar() {
                       />
                       {t(key)}
                     </Link>
-                  </motion.li>
+                  </m.li>
                 );
               })}
-              <motion.li
+              <m.li
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: NAV_LINKS.length * 0.05 + 0.08, duration: 0.2 }}
@@ -246,11 +246,11 @@ export function Navbar() {
                   {t('contact')}
                   <ArrowRight size={14} />
                 </Link>
-              </motion.li>
+              </m.li>
             </ul>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </m.header>
   );
 }

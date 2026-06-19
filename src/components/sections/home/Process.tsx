@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Search, PenTool, Code2, Rocket } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -31,35 +31,35 @@ export function Process() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Section header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-16"
         >
-          <motion.span
+          <m.span
             variants={blurUp}
             className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
           >
             {t('badge')}
-          </motion.span>
-          <motion.h2
+          </m.span>
+          <m.h2
             variants={fadeUp}
             className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
           >
             {t('heading')}
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             variants={fadeUp}
             className="text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Steps */}
-        <motion.div
+        <m.div
           variants={container(0.12, 0.2)}
           initial="hidden"
           whileInView="visible"
@@ -71,7 +71,7 @@ export function Process() {
             className="hidden lg:block pointer-events-none absolute top-9 left-[calc(12.5%+1rem)] right-[calc(12.5%+1rem)] h-px overflow-hidden"
             aria-hidden
           >
-            <motion.div
+            <m.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={viewport}
@@ -82,7 +82,7 @@ export function Process() {
           </div>
 
           {STEPS.map(({ num, Icon, titleKey, descKey }, i) => (
-            <motion.div
+            <m.div
               key={num}
               variants={scaleIn}
               className="relative flex flex-row lg:flex-col items-start lg:items-center text-left lg:text-center gap-4 p-5 sm:p-6 rounded-2xl border border-border/40 bg-card/25 backdrop-blur-sm"
@@ -90,12 +90,12 @@ export function Process() {
               {/* Step number circle */}
               <div className="relative shrink-0 flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-full border-2 border-primary/30 bg-primary/8">
                 <Icon size={22} className="text-primary" strokeWidth={1.8} />
-                <motion.span
+                <m.span
                   variants={badgeVariant}
                   className="absolute -top-2 -right-2 flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold"
                 >
                   {i + 1}
-                </motion.span>
+                </m.span>
               </div>
               <div className="flex flex-col gap-1.5 min-w-0">
                 <h3 className="text-base lg:text-lg font-bold text-foreground">
@@ -105,9 +105,9 @@ export function Process() {
                   {t(descKey as Parameters<typeof t>[0])}
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

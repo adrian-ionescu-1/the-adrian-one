@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import {
   Send, Loader2, CheckCircle2, AlertTriangle, ExternalLink,
@@ -240,7 +240,7 @@ export function ContactMain() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 xl:gap-14 items-start">
 
           {/* ═══ LEFT — Form ════════════════════════════════════════════════════ */}
-          <motion.div
+          <m.div
             variants={fadeLeft}
             initial="hidden"
             whileInView="visible"
@@ -248,29 +248,29 @@ export function ContactMain() {
             className="min-w-0"
           >
             {/* Section header */}
-            <motion.div
+            <m.div
               variants={container(0.1)}
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
               className="mb-8"
             >
-              <motion.span
+              <m.span
                 variants={blurUp}
                 className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
               >
                 {tf('sectionBadge')}
-              </motion.span>
-              <motion.h2 variants={fadeUp} className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+              </m.span>
+              <m.h2 variants={fadeUp} className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
                 {tf('heading')}
-              </motion.h2>
-              <motion.p variants={fadeUp} className="text-muted-foreground leading-relaxed max-w-lg">
+              </m.h2>
+              <m.p variants={fadeUp} className="text-muted-foreground leading-relaxed max-w-lg">
                 {tf('subheading')}
-              </motion.p>
-            </motion.div>
+              </m.p>
+            </m.div>
 
             {/* Form card */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
@@ -284,7 +284,7 @@ export function ContactMain() {
                 <AnimatePresence mode="wait">
                   {/* ── SUCCESS STATE ── */}
                   {submitState === 'success' ? (
-                    <motion.div
+                    <m.div
                       key="success"
                       initial={{ opacity: 0, scale: 0.94 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -293,7 +293,7 @@ export function ContactMain() {
                       className="py-12 flex flex-col items-center text-center gap-5"
                     >
                       <div className="relative">
-                        <motion.div
+                        <m.div
                           animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.15, 1] }}
                           transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
                           className="absolute inset-0 rounded-full bg-emerald-500/20 blur-xl scale-125"
@@ -313,10 +313,10 @@ export function ContactMain() {
                         <RefreshCw size={14} />
                         {tf('successBack')}
                       </button>
-                    </motion.div>
+                    </m.div>
                   ) : (
                     /* ── FORM STATE ── */
-                    <motion.form
+                    <m.form
                       key="form"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -409,7 +409,7 @@ export function ContactMain() {
                           {PROJECT_TYPE_OPTIONS.map((opt) => {
                             const isSelected = selectedType === opt.value;
                             return (
-                              <motion.button
+                              <m.button
                                 key={opt.key}
                                 type="button"
                                 whileHover={{ scale: 1.04 }}
@@ -423,7 +423,7 @@ export function ContactMain() {
                                 ].join(' ')}
                               >
                                 {tf(opt.key)}
-                              </motion.button>
+                              </m.button>
                             );
                           })}
                         </div>
@@ -451,7 +451,7 @@ export function ContactMain() {
                       {/* Error banner */}
                       <AnimatePresence>
                         {submitState === 'error' && (
-                          <motion.div
+                          <m.div
                             initial={{ opacity: 0, y: -8, height: 0 }}
                             animate={{ opacity: 1, y: 0, height: 'auto' }}
                             exit={{ opacity: 0, y: -8, height: 0 }}
@@ -460,14 +460,14 @@ export function ContactMain() {
                           >
                             <AlertTriangle size={15} className="shrink-0 mt-px" />
                             <span>{tf('errorBanner')}</span>
-                          </motion.div>
+                          </m.div>
                         )}
                       </AnimatePresence>
 
                       {/* Submit button — gradient + breathing glow + shimmer */}
                       <div className="relative">
                         {submitState !== 'submitting' && (
-                          <motion.div
+                          <m.div
                             animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 1.03, 1] }}
                             transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                             className="pointer-events-none absolute inset-0 rounded-xl bg-primary/40 blur-sm"
@@ -493,15 +493,15 @@ export function ContactMain() {
                           )}
                         </button>
                       </div>
-                    </motion.form>
+                    </m.form>
                   )}
                 </AnimatePresence>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* ═══ RIGHT — Sidebar ════════════════════════════════════════════════ */}
-          <motion.div
+          <m.div
             variants={fadeRight}
             initial="hidden"
             whileInView="visible"
@@ -510,7 +510,7 @@ export function ContactMain() {
           >
             {/* Direct contact */}
             <div>
-              <motion.span
+              <m.span
                 variants={blurUp}
                 initial="hidden"
                 whileInView="visible"
@@ -518,8 +518,8 @@ export function ContactMain() {
                 className="mb-3 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/25 bg-primary/6 text-xs font-semibold text-primary tracking-wide"
               >
                 {ti('altBadge')}
-              </motion.span>
-              <motion.h3
+              </m.span>
+              <m.h3
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
@@ -527,9 +527,9 @@ export function ContactMain() {
                 className="text-lg font-bold text-foreground mb-4"
               >
                 {ti('altHeading')}
-              </motion.h3>
+              </m.h3>
 
-              <motion.div
+              <m.div
                 variants={container(0.07, 0.05)}
                 initial="hidden"
                 whileInView="visible"
@@ -537,7 +537,7 @@ export function ContactMain() {
                 className="flex flex-col gap-2.5"
               >
                 {DIRECT_CONTACTS.map(({ href, Icon, label, value, desc, color, bg, border }) => (
-                  <motion.a
+                  <m.a
                     key={label}
                     variants={contactLinkVariant}
                     whileHover={{ x: 3, transition: { duration: 0.15 } }}
@@ -557,9 +557,9 @@ export function ContactMain() {
                       <p className="text-xs text-muted-foreground/70 leading-tight mt-0.5">{desc}</p>
                     </div>
                     <ExternalLink size={13} className="shrink-0 text-muted-foreground/35 transition-colors duration-200 group-hover:text-muted-foreground/60" />
-                  </motion.a>
+                  </m.a>
                 ))}
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Divider */}
@@ -567,7 +567,7 @@ export function ContactMain() {
 
             {/* What happens next */}
             <div>
-              <motion.h3
+              <m.h3
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
@@ -575,8 +575,8 @@ export function ContactMain() {
                 className="text-base font-bold text-foreground mb-4"
               >
                 {ti('nextHeading')}
-              </motion.h3>
-              <motion.div
+              </m.h3>
+              <m.div
                 variants={container(0.08, 0.05)}
                 initial="hidden"
                 whileInView="visible"
@@ -584,7 +584,7 @@ export function ContactMain() {
                 className="flex flex-col gap-3"
               >
                 {NEXT_STEPS.map(({ num, title, desc, accent, border, bg }) => (
-                  <motion.div
+                  <m.div
                     key={num}
                     variants={nextStepVariant}
                     whileHover={{ x: 3, transition: { duration: 0.15 } }}
@@ -597,11 +597,11 @@ export function ContactMain() {
                       <p className={`text-sm font-semibold mb-0.5 ${accent}`}>{title}</p>
                       <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
 
         </div>
       </div>

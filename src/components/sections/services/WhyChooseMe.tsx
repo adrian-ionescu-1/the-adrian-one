@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Code2, MessageSquare, Clock, Shield } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -27,26 +27,26 @@ export function WhyChooseMe() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-16"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* 2×2 grid */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
@@ -54,7 +54,7 @@ export function WhyChooseMe() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-5"
         >
           {ITEMS.map(({ Icon, key, color, bg }) => (
-            <motion.div
+            <m.div
               key={key}
               variants={scaleIn}
               whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -66,21 +66,21 @@ export function WhyChooseMe() {
               <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-linear-to-r from-transparent via-white/5 to-transparent" aria-hidden />
 
               {/* Icon */}
-              <motion.span
+              <m.span
                 variants={iconVariant}
                 className={`shrink-0 flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 ${bg} ${color} group-hover:scale-105`}
               >
                 <Icon size={22} strokeWidth={1.8} />
-              </motion.span>
+              </m.span>
 
               {/* Text */}
               <div className="flex flex-col gap-1.5 min-w-0">
                 <h3 className="text-lg font-bold text-foreground">{t(`${key}Title` as Parameters<typeof t>[0])}</h3>
                 <p className="text-base text-muted-foreground leading-relaxed">{t(`${key}Desc` as Parameters<typeof t>[0])}</p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

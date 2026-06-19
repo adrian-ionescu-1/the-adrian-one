@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { CheckCircle2, Gift, Building2, Cpu, ArrowRight } from 'lucide-react';
 import { container, blurUp, fadeUp, scaleIn, viewport } from '@/lib/motion';
@@ -70,26 +70,26 @@ export function PartnersTypes() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Section header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-16"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('types.badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('types.heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('types.subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Tier cards */}
-        <motion.div
+        <m.div
           variants={container(0.12, 0.1)}
           initial="hidden"
           whileInView="visible"
@@ -97,7 +97,7 @@ export function PartnersTypes() {
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {TIERS.map((tier) => (
-            <motion.div
+            <m.div
               key={tier.key}
               variants={scaleIn}
               whileHover={{ y: -6, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -115,12 +115,12 @@ export function PartnersTypes() {
               <div className="relative flex flex-col gap-6 p-7 flex-1">
                 {/* Top row: icon + badge */}
                 <div className="flex items-start justify-between gap-3">
-                  <motion.div
+                  <m.div
                     variants={iconVariant}
                     className={`w-12 h-12 rounded-xl border flex items-center justify-center ${tier.iconBg} ${tier.accent} transition-transform duration-200 group-hover:scale-110 shrink-0`}
                   >
                     {tier.icon}
-                  </motion.div>
+                  </m.div>
                   <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border/50 bg-muted/20 text-xs font-semibold text-muted-foreground">
                     {t(`types.${tier.key}.badge` as Parameters<typeof t>[0])}
                   </span>
@@ -140,25 +140,25 @@ export function PartnersTypes() {
                 </div>
 
                 {/* Benefits list — stagger */}
-                <motion.ul
+                <m.ul
                   variants={container(0.06, 0.1)}
                   className="flex flex-col gap-2.5"
                 >
                   {BENEFIT_KEYS.map((bk) => (
-                    <motion.li key={bk} variants={benefitVariant} className="flex items-start gap-2.5">
+                    <m.li key={bk} variants={benefitVariant} className="flex items-start gap-2.5">
                       <CheckCircle2 size={15} className={`mt-0.5 shrink-0 ${tier.accent}`} />
                       <span className="text-sm text-muted-foreground leading-snug">
                         {t(`types.${tier.key}.${bk}` as Parameters<typeof t>[0])}
                       </span>
-                    </motion.li>
+                    </m.li>
                   ))}
-                </motion.ul>
+                </m.ul>
 
                 {/* CTA */}
                 <div className="mt-auto pt-2">
                   {tier.featured ? (
                     <div className="relative">
-                      <motion.div
+                      <m.div
                         animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 1.05, 1] }}
                         transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                         className="pointer-events-none absolute inset-0 rounded-xl bg-primary/40 blur-sm"
@@ -188,9 +188,9 @@ export function PartnersTypes() {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

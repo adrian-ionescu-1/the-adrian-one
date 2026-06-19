@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 
 export function ScrollToTop() {
@@ -29,7 +29,7 @@ export function ScrollToTop() {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.button
+        <m.button
           initial={{ opacity: 0, scale: 0.55, y: 18 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.55, y: 14 }}
@@ -41,7 +41,7 @@ export function ScrollToTop() {
           className="group fixed bottom-6 right-6 z-50 sm:bottom-8 sm:right-8"
         >
           {/* Breathing glow */}
-          <motion.div
+          <m.div
             animate={{ opacity: [0.35, 0.7, 0.35], scale: [1, 1.25, 1] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
             className="pointer-events-none absolute inset-0 rounded-full bg-primary/50 blur-md"
@@ -56,15 +56,15 @@ export function ScrollToTop() {
               aria-hidden
             />
             {/* Idle arrow bounce */}
-            <motion.span
+            <m.span
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
               className="relative"
             >
               <ArrowUp size={18} strokeWidth={2.5} />
-            </motion.span>
+            </m.span>
           </div>
-        </motion.button>
+        </m.button>
       )}
     </AnimatePresence>
   );

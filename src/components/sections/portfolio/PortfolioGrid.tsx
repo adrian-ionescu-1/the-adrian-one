@@ -2,7 +2,7 @@
 
 import { useState, startTransition } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import { container, blurUp, fadeUp, fadeLeft, fadeRight, scaleIn, viewport } from '@/lib/motion';
@@ -138,7 +138,7 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
       <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-linear-to-r from-transparent via-white/5 to-transparent" aria-hidden />
 
       {/* Left: info */}
-      <motion.div
+      <m.div
         variants={fadeLeft}
         initial="hidden"
         whileInView="visible"
@@ -170,24 +170,24 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
         {/* Tech stack */}
         <div>
           <p className="text-xs font-semibold text-muted-foreground/55 uppercase tracking-[0.13em] mb-2">{labels.techUsed}</p>
-          <motion.div variants={container(0.05, 0.1)} className="flex flex-wrap gap-1.5">
+          <m.div variants={container(0.05, 0.1)} className="flex flex-wrap gap-1.5">
             {project.tech.map((item) => (
-              <motion.span key={item} variants={pillVariant} className="px-2.5 py-1 text-xs font-medium rounded-lg border border-border/50 bg-primary/6 text-foreground/80">
+              <m.span key={item} variants={pillVariant} className="px-2.5 py-1 text-xs font-medium rounded-lg border border-border/50 bg-primary/6 text-foreground/80">
                 {item}
-              </motion.span>
+              </m.span>
             ))}
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Metrics */}
-        <motion.div variants={container(0.08, 0.15)} className="grid grid-cols-3 gap-3">
+        <m.div variants={container(0.08, 0.15)} className="grid grid-cols-3 gap-3">
           {project.metrics.map(({ value, label }) => (
-            <motion.div key={label} variants={scaleIn} className="flex flex-col items-center gap-1 p-3 rounded-xl border border-border/40 bg-card/50 text-center">
+            <m.div key={label} variants={scaleIn} className="flex flex-col items-center gap-1 p-3 rounded-xl border border-border/40 bg-card/50 text-center">
               <span className="text-xl font-bold text-primary tabular-nums">{value}</span>
               <span className="text-xs text-muted-foreground leading-snug">{label}</span>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         <div>
           <a
@@ -200,10 +200,10 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
             <ExternalLink size={13} />
           </a>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Right: browser mockup */}
-      <motion.div
+      <m.div
         variants={fadeRight}
         initial="hidden"
         whileInView="visible"
@@ -211,13 +211,13 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
         className="relative flex items-center order-1 lg:order-2"
       >
         <div className={`pointer-events-none absolute -inset-4 rounded-2xl bg-linear-to-br ${project.gradient} opacity-15 blur-2xl`} aria-hidden />
-        <motion.div
+        <m.div
           whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
           className="relative w-full"
         >
           <BrowserMockup gradient={project.gradient} image={project.image} priority />
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </div>
   );
 }
@@ -226,7 +226,7 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
 
 function ProjectCard({ project, viewLiveLabel }: { project: Project; viewLiveLabel: string }) {
   return (
-    <motion.article
+    <m.article
       whileHover={{ y: -6, transition: { duration: 0.2, ease: 'easeOut' } }}
       className="group flex flex-col rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm overflow-hidden transition-colors duration-300 hover:border-primary/30 hover:shadow-glow-sm"
     >
@@ -258,12 +258,12 @@ function ProjectCard({ project, viewLiveLabel }: { project: Project; viewLiveLab
         <div>
           <p className="text-xs font-semibold text-primary/80 mb-0.5">{project.tagline}</p>
           <h3 className="text-lg font-bold text-foreground mb-1.5">{project.title}</h3>
-          <div className="h-[4.5rem] overflow-hidden">
+          <div className="h-18 overflow-hidden">
             <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-1.5 mt-auto overflow-hidden h-[2.875rem] content-start">
+        <div className="flex flex-wrap gap-1.5 mt-auto overflow-hidden h-11.5 content-start">
           {project.tech.slice(0, 4).map((item) => (
             <span key={item} className="px-2 py-0.5 text-xs font-medium rounded-md border border-border/40 bg-primary/5 text-foreground/70">
               {item}
@@ -292,7 +292,7 @@ function ProjectCard({ project, viewLiveLabel }: { project: Project; viewLiveLab
           </a>
         </div>
       </div>
-    </motion.article>
+    </m.article>
   );
 }
 
@@ -338,23 +338,23 @@ export function PortfolioGrid() {
       <div className="relative mx-auto max-w-6xl px-6">
 
         {/* Section header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-14"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Featured */}
         <FeaturedCard
@@ -364,11 +364,11 @@ export function PortfolioGrid() {
 
         {/* Filter row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-          <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport} className="text-lg font-bold text-foreground">
+          <m.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport} className="text-lg font-bold text-foreground">
             {t('otherHeading')}
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             variants={scaleIn}
             initial="hidden"
             whileInView="visible"
@@ -385,19 +385,19 @@ export function PortfolioGrid() {
                 }`}
               >
                 {activeFilter === key && (
-                  <motion.span layoutId="filter-pill" className="absolute inset-0 rounded-lg bg-primary" transition={{ type: 'spring', stiffness: 380, damping: 28 }} />
+                  <m.span layoutId="filter-pill" className="absolute inset-0 rounded-lg bg-primary" transition={{ type: 'spring', stiffness: 380, damping: 28 }} />
                 )}
                 <span className="relative z-10">{t(FILTER_LABEL_KEYS[i])}</span>
               </button>
             ))}
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Cards grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <m.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence mode="popLayout">
             {filtered.map((project) => (
-              <motion.div
+              <m.div
                 key={project.id}
                 layout
                 initial={{ opacity: 0, scale: 0.9, y: 16 }}
@@ -406,22 +406,22 @@ export function PortfolioGrid() {
                 transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               >
                 <ProjectCard project={project} viewLiveLabel={t('viewLive')} />
-              </motion.div>
+              </m.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </m.div>
 
         {/* Empty state */}
         <AnimatePresence>
           {filtered.length === 0 && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
               className="flex justify-center py-16 text-muted-foreground text-base"
             >
               No projects in this category yet.
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>

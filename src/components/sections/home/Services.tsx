@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Globe, ShoppingBag, Server, Layers, Zap, Shield } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -26,35 +26,35 @@ export function Services() {
   return (
     <section className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
       {/* Section header */}
-      <motion.div
+      <m.div
         variants={container(0.1)}
         initial="hidden"
         whileInView="visible"
         viewport={viewport}
         className="flex flex-col items-center text-center mb-16"
       >
-        <motion.span
+        <m.span
           variants={blurUp}
           className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
         >
           {t('badge')}
-        </motion.span>
-        <motion.h2
+        </m.span>
+        <m.h2
           variants={fadeUp}
           className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
         >
           {t('heading')}
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           variants={fadeUp}
           className="text-lg text-muted-foreground max-w-xl leading-relaxed"
         >
           {t('subheading')}
-        </motion.p>
-      </motion.div>
+        </m.p>
+      </m.div>
 
       {/* Cards grid */}
-      <motion.div
+      <m.div
         variants={container(0.07)}
         initial="hidden"
         whileInView="visible"
@@ -62,7 +62,7 @@ export function Services() {
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
       >
         {SERVICES.map(({ Icon, titleKey, descKey }) => (
-          <motion.div
+          <m.div
             key={titleKey}
             variants={scaleIn}
             whileHover={{ y: -6, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -80,21 +80,21 @@ export function Services() {
             />
 
             {/* Icon */}
-            <motion.span
+            <m.span
               variants={iconVariant}
               className="shrink-0 flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/18 group-hover:scale-110 group-hover:shadow-glow-sm"
             >
               <Icon size={20} strokeWidth={1.8} />
-            </motion.span>
+            </m.span>
 
             {/* Text */}
             <div className="flex flex-col gap-1.5 sm:gap-0 min-w-0">
               <h3 className="text-base sm:text-lg font-bold text-foreground">{t(titleKey as Parameters<typeof t>[0])}</h3>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{t(descKey as Parameters<typeof t>[0])}</p>
             </div>
-          </motion.div>
+          </m.div>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

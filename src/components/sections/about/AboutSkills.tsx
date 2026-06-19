@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { container, blurUp, fadeUp, scaleIn, viewport } from '@/lib/motion';
 
@@ -112,26 +112,26 @@ export function AboutSkills() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-14"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Categories grid */}
-        <motion.div
+        <m.div
           variants={container(0.1, 0.05)}
           initial="hidden"
           whileInView="visible"
@@ -139,7 +139,7 @@ export function AboutSkills() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-5"
         >
           {CATEGORIES.map((cat) => (
-            <motion.div
+            <m.div
               key={cat.catKey}
               variants={scaleIn}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -153,12 +153,12 @@ export function AboutSkills() {
               </div>
 
               {/* Skills list — stagger */}
-              <motion.div
+              <m.div
                 variants={container(0.05, 0.05)}
                 className="p-5 flex flex-col gap-3"
               >
                 {cat.skills.map((skill) => (
-                  <motion.div
+                  <m.div
                     key={skill.name}
                     variants={skillRowVariant}
                     className="flex items-center justify-between gap-3"
@@ -182,12 +182,12 @@ export function AboutSkills() {
                     <span className={`shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full border ${LEVEL_BADGE[skill.level]}`}>
                       {t(skill.level)}
                     </span>
-                  </motion.div>
+                  </m.div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

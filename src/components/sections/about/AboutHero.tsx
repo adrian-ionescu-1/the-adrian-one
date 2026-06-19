@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect, startTransition } from 'react';
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ExternalLink, MapPin, Briefcase } from 'lucide-react';
 import { container, blurUp, fadeUp, fadeRight, scaleIn } from '@/lib/motion';
@@ -71,7 +71,7 @@ export function AboutHero() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
       {/* Pulsing glow orb */}
-      <motion.div
+      <m.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.06, 0.14, 0.06] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-140 h-140 rounded-full bg-primary blur-[130px]"
@@ -88,47 +88,47 @@ export function AboutHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
 
           {/* Left: text */}
-          <motion.div
+          <m.div
             variants={container(0.1)}
             initial="hidden"
             animate="visible"
             className="flex flex-col gap-7"
           >
-            <motion.span
+            <m.span
               variants={blurUp}
               className="self-start inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
             >
               {t('badge')}
-            </motion.span>
+            </m.span>
 
-            <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
+            <m.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
               {t('heading')}{' '}
               <span className="bg-linear-to-r from-primary via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
                 {t('headingAccent')}
               </span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p variants={fadeUp} className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-lg">
+            <m.p variants={fadeUp} className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-lg">
               {t('subheading')}
-            </motion.p>
+            </m.p>
 
             {/* Stats with CountUp */}
-            <motion.div variants={container(0.12, 0.1)} className="grid grid-cols-3 divide-x divide-border/40 rounded-2xl border border-border/40 bg-card/25 backdrop-blur-sm px-2 sm:px-4 py-4 sm:py-5 max-w-sm">
+            <m.div variants={container(0.12, 0.1)} className="grid grid-cols-3 divide-x divide-border/40 rounded-2xl border border-border/40 bg-card/25 backdrop-blur-sm px-2 sm:px-4 py-4 sm:py-5 max-w-sm">
               {STATS.map(({ to, suffix, labelKey }) => (
-                <motion.div key={labelKey} variants={scaleIn} className="flex flex-col items-center gap-0.5 px-2 text-center">
+                <m.div key={labelKey} variants={scaleIn} className="flex flex-col items-center gap-0.5 px-2 text-center">
                   <span className="text-2xl font-bold text-primary tabular-nums">
                     <CountUp to={to} suffix={suffix} />
                   </span>
                   <span className="text-xs text-muted-foreground leading-snug">{t(labelKey)}</span>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
+            <m.div variants={fadeUp} className="flex flex-wrap gap-3">
               {/* Primary — gradient + glow + shimmer */}
               <div className="relative">
-                <motion.div
+                <m.div
                   animate={{ opacity: [0.3, 0.65, 0.3], scale: [1, 1.07, 1] }}
                   transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
                   className="pointer-events-none absolute inset-0 rounded-xl bg-primary/50 blur-md"
@@ -155,11 +155,11 @@ export function AboutHero() {
                 LinkedIn
                 <ExternalLink size={12} className="text-muted-foreground/50" />
               </a>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Right: profile card */}
-          <motion.div
+          <m.div
             variants={fadeRight}
             initial="hidden"
             animate="visible"
@@ -224,23 +224,23 @@ export function AboutHero() {
                   <p className="text-xs font-semibold text-muted-foreground/55 uppercase tracking-[0.13em] mb-3">
                     {t('skillsLabel')}
                   </p>
-                  <motion.div
+                  <m.div
                     variants={container(0.05)}
                     initial="hidden"
                     animate="visible"
                     className="flex flex-wrap gap-2"
                   >
                     {SKILLS.map((skill) => (
-                      <motion.span
+                      <m.span
                         key={skill}
                         variants={skillVariant}
                         className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg border border-border/50 bg-primary/6 text-foreground/80"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0" />
                         {skill}
-                      </motion.span>
+                      </m.span>
                     ))}
-                  </motion.div>
+                  </m.div>
                 </div>
 
                 <div className="h-px bg-border/40" />
@@ -258,7 +258,7 @@ export function AboutHero() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
         </div>
       </div>

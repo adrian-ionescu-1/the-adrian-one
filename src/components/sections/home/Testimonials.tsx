@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Star } from 'lucide-react';
 import { container, fadeUp, scaleIn, blurUp, fadeIn, viewport } from '@/lib/motion';
@@ -22,35 +22,35 @@ export function Testimonials() {
   return (
     <section className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
       {/* Section header */}
-      <motion.div
+      <m.div
         variants={container(0.1)}
         initial="hidden"
         whileInView="visible"
         viewport={viewport}
         className="flex flex-col items-center text-center mb-16"
       >
-        <motion.span
+        <m.span
           variants={blurUp}
           className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
         >
           {t('badge')}
-        </motion.span>
-        <motion.h2
+        </m.span>
+        <m.h2
           variants={fadeUp}
           className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
         >
           {t('heading')}
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           variants={fadeUp}
           className="text-lg text-muted-foreground max-w-xl leading-relaxed"
         >
           {t('subheading')}
-        </motion.p>
-      </motion.div>
+        </m.p>
+      </m.div>
 
       {/* Cards */}
-      <motion.div
+      <m.div
         variants={container(0.1)}
         initial="hidden"
         whileInView="visible"
@@ -58,7 +58,7 @@ export function Testimonials() {
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         {TESTIMONIALS.map(({ quoteKey, nameKey, roleKey, initials }) => (
-          <motion.div
+          <m.div
             key={quoteKey}
             variants={scaleIn}
             whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -71,30 +71,30 @@ export function Testimonials() {
             />
 
             {/* Stars — stagger */}
-            <motion.div
+            <m.div
               variants={container(0.06, 0.1)}
               className="flex gap-0.5"
             >
               {Array.from({ length: 5 }).map((_, s) => (
-                <motion.span key={s} variants={starVariant}>
+                <m.span key={s} variants={starVariant}>
                   <Star size={14} className="fill-primary text-primary" />
-                </motion.span>
+                </m.span>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* Quote */}
-            <motion.blockquote
+            <m.blockquote
               variants={fadeIn}
               className="flex-1 text-base text-foreground/90 leading-relaxed italic"
             >
               &ldquo;{t(quoteKey)}&rdquo;
-            </motion.blockquote>
+            </m.blockquote>
 
             {/* Divider */}
             <div className="h-px bg-border/50" />
 
             {/* Author */}
-            <motion.div variants={fadeUp} className="flex items-center gap-3">
+            <m.div variants={fadeUp} className="flex items-center gap-3">
               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/15 text-primary text-sm font-bold shrink-0">
                 {initials}
               </div>
@@ -102,10 +102,10 @@ export function Testimonials() {
                 <span className="text-sm font-semibold text-foreground">{t(nameKey)}</span>
                 <span className="text-xs text-muted-foreground">{t(roleKey)}</span>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

@@ -1,12 +1,18 @@
 'use client';
 
-import { MotionConfig } from 'framer-motion';
+import { LazyMotion, MotionConfig, domMax } from 'framer-motion';
 
 /**
- * Transmite tuturor animațiilor framer-motion să respecte
- * `prefers-reduced-motion`. Când utilizatorul a cerut mai puțină mișcare,
- * tranzițiile de transform/opacity sunt reduse automat.
+ * Componentele folosesc `m.*` (varianta tree-shakeable a `motion`) împreună cu
+ * `LazyMotion`, care încarcă o singură dată setul de feature-uri `domMax`
+ * (animații + gesturi + layout) în loc ca fiecare `motion.*` să tragă tot
+ * bundle-ul framer-motion. Rezultat: mai puțin JS de hidratat, animații
+ * identice. `MotionConfig reducedMotion="user"` respectă prefers-reduced-motion.
  */
 export function MotionProvider({ children }: { children: React.ReactNode }) {
-  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
+  return (
+    <LazyMotion features={domMax}>
+      <MotionConfig reducedMotion="user">{children}</MotionConfig>
+    </LazyMotion>
+  );
 }

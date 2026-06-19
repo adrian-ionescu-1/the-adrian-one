@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight, Zap } from 'lucide-react';
@@ -39,7 +39,7 @@ export function ServicesHero() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
       {/* Pulsing glow orb */}
-      <motion.div
+      <m.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.07, 0.16, 0.07] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-140 h-140 rounded-full bg-primary blur-[130px]"
@@ -59,7 +59,7 @@ export function ServicesHero() {
       <div className="relative mx-auto max-w-4xl px-6 text-center">
 
         {/* Badge */}
-        <motion.span
+        <m.span
           variants={blurUp}
           initial="hidden"
           animate="visible"
@@ -67,10 +67,10 @@ export function ServicesHero() {
         >
           <Zap size={12} strokeWidth={2.5} />
           {t('hero.badge')}
-        </motion.span>
+        </m.span>
 
         {/* Heading */}
-        <motion.h1
+        <m.h1
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -81,10 +81,10 @@ export function ServicesHero() {
           <span className="bg-linear-to-r from-primary via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
             {t('hero.headingAccent')}
           </span>
-        </motion.h1>
+        </m.h1>
 
         {/* Subheading */}
-        <motion.p
+        <m.p
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -92,10 +92,10 @@ export function ServicesHero() {
           className="mb-10 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
         >
           {t('hero.subheading')}
-        </motion.p>
+        </m.p>
 
         {/* CTAs */}
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -104,7 +104,7 @@ export function ServicesHero() {
         >
           {/* Primary — gradient + shimmer */}
           <div className="relative">
-            <motion.div
+            <m.div
               animate={{ opacity: [0.3, 0.65, 0.3], scale: [1, 1.07, 1] }}
               transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
               className="pointer-events-none absolute inset-0 rounded-xl bg-primary/50 blur-md"
@@ -128,26 +128,26 @@ export function ServicesHero() {
           >
             {t('cta.secondary')}
           </Link>
-        </motion.div>
+        </m.div>
 
         {/* Stats row — counter animat */}
-        <motion.div
+        <m.div
           variants={container(0.1, 0.4)}
           initial="hidden"
           animate="visible"
           className="grid grid-cols-3 divide-x divide-border/40 rounded-2xl border border-border/40 bg-card/25 backdrop-blur-sm px-2 sm:px-4 py-4 sm:py-6 max-w-sm mx-auto sm:max-w-md"
         >
           {STATS.map(({ to, suffix, labelKey }) => (
-            <motion.div key={labelKey} variants={scaleIn} className="flex flex-col items-center gap-1 px-1 sm:px-2">
+            <m.div key={labelKey} variants={scaleIn} className="flex flex-col items-center gap-1 px-1 sm:px-2">
               <span className="text-xl sm:text-3xl font-bold text-primary tabular-nums">
                 <CountUp to={to} suffix={suffix} />
               </span>
               <span className="text-xs text-muted-foreground text-center leading-snug">
                 {t(labelKey as Parameters<typeof t>[0])}
               </span>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

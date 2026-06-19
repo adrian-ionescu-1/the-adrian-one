@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, startTransition } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight, ChevronDown } from 'lucide-react';
@@ -42,7 +42,7 @@ export function Hero() {
 
       {/* Pulsing glow orbs */}
       {ORBS.map(({ className, blur, opacity, duration }, i) => (
-        <motion.div
+        <m.div
           key={i}
           animate={{ opacity }}
           transition={{ duration, repeat: Infinity, ease: 'easeInOut', repeatType: 'loop' }}
@@ -56,7 +56,7 @@ export function Hero() {
       <div className="relative z-10 flex flex-col items-center text-center max-w-4xl">
 
         {/* Badge */}
-        <motion.span
+        <m.span
           variants={blurUp}
           initial="hidden"
           animate="visible"
@@ -67,20 +67,16 @@ export function Hero() {
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
           </span>
           {t('badge')}
-        </motion.span>
+        </m.span>
 
         {/* Headline with rotating accent */}
-        <motion.h1
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.1 }}
+        <h1
           className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.12] mb-6"
         >
           {t('headlinePre')}{' '}
           <span className="inline-block">
-            <AnimatePresence mode="wait">
-              <motion.span
+            <AnimatePresence mode="wait" initial={false}>
+              <m.span
                 key={accentIndex}
                 initial={{ opacity: 0, y: 18, filter: 'blur(6px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -89,15 +85,15 @@ export function Hero() {
                 className="bg-linear-to-r from-primary via-violet-400 to-primary/60 bg-clip-text text-transparent"
               >
                 {accentWords[accentIndex]}
-              </motion.span>
+              </m.span>
             </AnimatePresence>
           </span>
           <br className="hidden sm:block" />
           {' '}{t('headlinePost')}
-        </motion.h1>
+        </h1>
 
         {/* Subheadline */}
-        <motion.p
+        <m.p
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -105,10 +101,10 @@ export function Hero() {
           className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed mb-10"
         >
           {t('subheadline')}
-        </motion.p>
+        </m.p>
 
         {/* CTAs */}
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -120,12 +116,12 @@ export function Hero() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-base font-semibold shadow-md shadow-primary/25 transition-all duration-200 hover:shadow-glow hover:-translate-y-px active:translate-y-0"
           >
             {t('ctaPrimary')}
-            <motion.span
+            <m.span
               animate={{ x: [0, 3, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
             >
               <ArrowRight size={15} />
-            </motion.span>
+            </m.span>
           </Link>
           <Link
             href="/portfolio"
@@ -133,10 +129,10 @@ export function Hero() {
           >
             {t('ctaSecondary')}
           </Link>
-        </motion.div>
+        </m.div>
 
         {/* Tech pills — stagger individual */}
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -146,28 +142,28 @@ export function Hero() {
           <span className="text-xs text-muted-foreground/45 uppercase tracking-[0.18em]">
             {t('techLabel')}
           </span>
-          <motion.div
+          <m.div
             variants={container(0.07, 0.5)}
             initial="hidden"
             animate="visible"
             className="flex flex-wrap justify-center gap-2"
           >
             {TECH.map((tech) => (
-              <motion.span
+              <m.span
                 key={tech}
                 variants={scaleIn}
                 className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border border-border/50 bg-card/30 text-muted-foreground backdrop-blur-sm"
               >
                 <span className="w-1 h-1 rounded-full bg-primary/60" />
                 {tech}
-              </motion.span>
+              </m.span>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
 
       {/* Scroll cue */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.6, duration: 0.6 }}
@@ -175,7 +171,7 @@ export function Hero() {
         aria-hidden
       >
         <ChevronDown size={18} className="animate-bounce" />
-      </motion.div>
+      </m.div>
     </section>
   );
 }
