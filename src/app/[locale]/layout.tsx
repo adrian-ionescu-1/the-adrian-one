@@ -7,17 +7,20 @@ import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
+import { MotionProvider } from "@/components/shared/MotionProvider";
 import { ScrollToTop } from "@/components/shared/ScrollToTop";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import { SITE_URL, OG_IMAGE, ogLocale } from "@/lib/seo";
+import { SITE_URL, ogLocale } from "@/lib/seo";
 import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
-  preload: false,
+  preload: true,
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+  adjustFontFallback: true,
 });
 
 export function generateStaticParams() {
@@ -49,14 +52,12 @@ export async function generateMetadata({
       siteName: "The Adrian One",
       locale: ogLocale(locale),
       alternateLocale: locale === "ro" ? ["en_US"] : ["ro_RO"],
-      images: [OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title: "The Adrian One",
       description:
         "Frontend, Backend and Full-Stack web development — fast, clean, and built to scale.",
-      images: [OG_IMAGE.url],
     },
     robots: {
       index: true,
@@ -111,12 +112,14 @@ export default async function LocaleLayout({ children, params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            <main className="flex-1 pt-16 overflow-x-hidden">{children}</main>
-            <Footer />
-            <ScrollToTop />
-          </NextIntlClientProvider>
+          <MotionProvider>
+            <NextIntlClientProvider messages={messages}>
+              <Navbar />
+              <main className="flex-1 pt-16 overflow-x-hidden">{children}</main>
+              <Footer />
+              <ScrollToTop />
+            </NextIntlClientProvider>
+          </MotionProvider>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

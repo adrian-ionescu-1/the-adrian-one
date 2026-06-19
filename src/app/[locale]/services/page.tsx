@@ -6,7 +6,7 @@ import { WhyChooseMe } from '@/components/sections/services/WhyChooseMe';
 import { TechShowcase } from '@/components/sections/services/TechShowcase';
 import { ServicesFAQ } from '@/components/sections/services/ServicesFAQ';
 import { ServicesCTA } from '@/components/sections/services/ServicesCTA';
-import { SITE_URL, OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
+import { SITE_URL, ogLocale, pageAlternates } from '@/lib/seo';
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
@@ -50,13 +50,11 @@ export async function generateMetadata({
       url: `/${locale}/services`,
       type: 'website',
       locale: ogLocale(locale),
-      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Services | The Adrian One',
       description,
-      images: [OG_IMAGE.url],
     },
   };
 }

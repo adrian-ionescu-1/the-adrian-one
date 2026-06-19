@@ -5,7 +5,7 @@ import { Services } from '@/components/sections/home/Services';
 import { Process } from '@/components/sections/home/Process';
 import { Testimonials } from '@/components/sections/home/Testimonials';
 import { About } from '@/components/sections/home/About';
-import { SITE_URL, OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
+import { SITE_URL, ogLocale, pageAlternates } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -26,13 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `/${locale}`,
       type: 'website',
       locale: ogLocale(locale),
-      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'The Adrian One',
       description,
-      images: [OG_IMAGE.url],
     },
   };
 }

@@ -68,7 +68,7 @@ const CATEGORY_LABELS: Record<Category, string> = {
 
 // ─── Browser Mockup ───────────────────────────────────────────────────────────
 
-function BrowserMockup({ gradient, image }: { gradient: string; image?: { light: string; dark: string } }) {
+function BrowserMockup({ gradient, image, priority = false }: { gradient: string; image?: { light: string; dark: string }; priority?: boolean }) {
   const { theme } = useTheme();
   const src = image ? image[theme] : null;
   return (
@@ -84,7 +84,7 @@ function BrowserMockup({ gradient, image }: { gradient: string; image?: { light:
       </div>
       {src ? (
         <div className="aspect-video relative overflow-hidden bg-neutral-100 dark:bg-neutral-900">
-          <Image src={src} alt="" fill loading="eager" priority className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+          <Image src={src} alt="" fill priority={priority} className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
         </div>
       ) : (
         <div className={`aspect-video bg-linear-to-br ${gradient} relative overflow-hidden`}>
@@ -215,7 +215,7 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
           whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
           className="relative w-full"
         >
-          <BrowserMockup gradient={project.gradient} image={project.image} />
+          <BrowserMockup gradient={project.gradient} image={project.image} priority />
         </motion.div>
       </motion.div>
     </div>
