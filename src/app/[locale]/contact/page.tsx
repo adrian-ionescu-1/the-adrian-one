@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ContactHero } from '@/components/sections/contact/ContactHero';
 import { ContactMain } from '@/components/sections/contact/ContactMain';
-import { OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
+import { ogLocale, pageAlternates } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
@@ -23,13 +23,11 @@ export async function generateMetadata({
       url: `/${locale}/contact`,
       type: 'website',
       locale: ogLocale(locale),
-      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Contact | The Adrian One',
       description,
-      images: [OG_IMAGE.url],
     },
   };
 }

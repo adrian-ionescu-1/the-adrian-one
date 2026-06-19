@@ -8,9 +8,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-sans), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  --font-heading: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -204,9 +206,32 @@
     @apply text-foreground;
     overflow-x: hidden;
     background-color: var(--background);
-    background-image: var(--body-bg-image);
-    background-attachment: fixed;
     min-height: 100dvh;
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Fundalul cu gradient stă pe un strat fix, ca să evite jank-ul de
+     `background-attachment: fixed` pe mobil (iOS Safari repaint la scroll). */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: var(--body-bg-image);
+    background-size: cover;
+    transition: opacity 0.3s ease;
+  }
+}
+
+/* ─── Reduce motion — respectă preferința utilizatorului ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

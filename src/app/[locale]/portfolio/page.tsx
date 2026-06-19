@@ -4,7 +4,7 @@ import { PortfolioHero } from '@/components/sections/portfolio/PortfolioHero';
 import { PortfolioGrid } from '@/components/sections/portfolio/PortfolioGrid';
 import { PortfolioStats } from '@/components/sections/portfolio/PortfolioStats';
 import { PortfolioCTA } from '@/components/sections/portfolio/PortfolioCTA';
-import { OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
+import { ogLocale, pageAlternates } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
@@ -25,13 +25,11 @@ export async function generateMetadata({
       url: `/${locale}/portfolio`,
       type: 'website',
       locale: ogLocale(locale),
-      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Portfolio | The Adrian One',
       description,
-      images: [OG_IMAGE.url],
     },
   };
 }

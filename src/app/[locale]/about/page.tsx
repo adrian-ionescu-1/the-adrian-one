@@ -5,7 +5,7 @@ import { AboutStory } from '@/components/sections/about/AboutStory';
 import { AboutSkills } from '@/components/sections/about/AboutSkills';
 import { AboutValues } from '@/components/sections/about/AboutValues';
 import { AboutCTA } from '@/components/sections/about/AboutCTA';
-import { SITE_URL, OG_IMAGE, ogLocale, pageAlternates } from '@/lib/seo';
+import { SITE_URL, ogLocale, pageAlternates } from '@/lib/seo';
 
 const aboutJsonLd = {
   '@context': 'https://schema.org',
@@ -45,13 +45,11 @@ export async function generateMetadata({
       url: `/${locale}/about`,
       type: 'profile',
       locale: ogLocale(locale),
-      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'About | The Adrian One',
       description,
-      images: [OG_IMAGE.url],
     },
   };
 }
