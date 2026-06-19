@@ -258,12 +258,12 @@ function ProjectCard({ project, viewLiveLabel }: { project: Project; viewLiveLab
         <div>
           <p className="text-xs font-semibold text-primary/80 mb-0.5">{project.tagline}</p>
           <h3 className="text-lg font-bold text-foreground mb-1.5">{project.title}</h3>
-          <div className="h-[4.5rem] overflow-hidden">
+          <div className="h-18 overflow-hidden">
             <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-1.5 mt-auto overflow-hidden h-[2.875rem] content-start">
+        <div className="flex flex-wrap gap-1.5 mt-auto overflow-hidden h-11.5 content-start">
           {project.tech.slice(0, 4).map((item) => (
             <span key={item} className="px-2 py-0.5 text-xs font-medium rounded-md border border-border/40 bg-primary/5 text-foreground/70">
               {item}
