@@ -28,7 +28,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-6 py-24 overflow-hidden">
+    <section className="relative flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center px-6 py-24 overflow-hidden">
 
       {/* Dot grid */}
       <div
