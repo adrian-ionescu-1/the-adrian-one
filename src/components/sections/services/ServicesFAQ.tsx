@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, startTransition } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
 import { container, blurUp, fadeUp, viewport } from '@/lib/motion';
@@ -32,26 +32,26 @@ export function ServicesFAQ() {
 
       <div className="relative mx-auto max-w-3xl px-6">
         {/* Header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-14"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Accordion */}
-        <motion.div
+        <m.div
           variants={container(0.06, 0.1)}
           initial="hidden"
           whileInView="visible"
@@ -61,7 +61,7 @@ export function ServicesFAQ() {
           {items.map(({ q, a }, i) => {
             const isOpen = openIndex === i;
             return (
-              <motion.div key={i} variants={itemVariant} className="group">
+              <m.div key={i} variants={itemVariant} className="group">
                 <button
                   type="button"
                   onClick={() => toggle(i)}
@@ -74,18 +74,18 @@ export function ServicesFAQ() {
                   <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${isOpen ? 'text-primary' : 'text-foreground'}`}>
                     {q}
                   </span>
-                  <motion.span
+                  <m.span
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25, ease: 'easeInOut' }}
                     className={`shrink-0 transition-colors duration-200 ${isOpen ? 'text-primary' : 'text-muted-foreground'}`}
                   >
                     <ChevronDown size={18} strokeWidth={2} />
-                  </motion.span>
+                  </m.span>
                 </button>
 
                 <AnimatePresence initial={false}>
                   {isOpen && (
-                    <motion.div
+                    <m.div
                       key="answer"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
@@ -96,13 +96,13 @@ export function ServicesFAQ() {
                       <p className="px-6 pb-6 pt-1 text-base text-muted-foreground leading-relaxed border-t border-border/30">
                         {a}
                       </p>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </m.div>
             );
           })}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

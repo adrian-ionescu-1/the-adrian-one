@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, startTransition } from 'react';
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ExternalLink } from 'lucide-react';
 import { container, fadeUp, fadeRight, scaleIn, blurUp, viewport } from '@/lib/motion';
@@ -72,36 +72,36 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
           {/* Left — text */}
-          <motion.div
+          <m.div
             variants={container(0.1)}
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
             className="flex flex-col gap-6"
           >
-            <motion.span
+            <m.span
               variants={blurUp}
               className="self-start inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
             >
               {t('badge')}
-            </motion.span>
+            </m.span>
 
-            <motion.h2
+            <m.h2
               variants={fadeUp}
               className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight"
             >
               {t('heading')}
-            </motion.h2>
+            </m.h2>
 
-            <motion.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed">
+            <m.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed">
               {t('body1')}
-            </motion.p>
+            </m.p>
 
-            <motion.p variants={fadeUp} className="text-base text-muted-foreground leading-relaxed">
+            <m.p variants={fadeUp} className="text-base text-muted-foreground leading-relaxed">
               {t('body2')}
-            </motion.p>
+            </m.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
+            <m.div variants={fadeUp} className="flex flex-wrap gap-3">
               <a
                 href="https://wa.me/40736556174"
                 target="_blank"
@@ -121,11 +121,11 @@ export function About() {
                 LinkedIn
                 <ExternalLink size={12} className="text-muted-foreground/50" />
               </a>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Right — profile card */}
-          <motion.div
+          <m.div
             variants={fadeRight}
             initial="hidden"
             whileInView="visible"
@@ -144,7 +144,7 @@ export function About() {
 
               {/* Avatar + name */}
               <div className="flex items-center gap-4">
-                <motion.div
+                <m.div
                   variants={scaleIn}
                   className="relative shrink-0 w-16 h-16"
                 >
@@ -165,7 +165,7 @@ export function About() {
                   <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 ring-2 ring-card">
                     <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   </span>
-                </motion.div>
+                </m.div>
 
                 <div className="flex flex-col gap-1 min-w-0">
                   <span className="text-lg font-bold text-foreground">Adrian Ionescu</span>
@@ -203,7 +203,7 @@ export function About() {
                 <span className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-[0.14em]">
                   Core skills
                 </span>
-                <motion.div
+                <m.div
                   variants={container(0.07)}
                   initial="hidden"
                   whileInView="visible"
@@ -211,20 +211,20 @@ export function About() {
                   className="flex flex-wrap gap-2"
                 >
                   {skills.map((skill) => (
-                    <motion.span
+                    <m.span
                       key={skill}
                       variants={skillVariant}
                       className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border border-border/50 bg-primary/6 text-foreground"
                     >
                       <span className="w-1 h-1 rounded-full bg-primary/70" />
                       {skill}
-                    </motion.span>
+                    </m.span>
                   ))}
-                </motion.div>
+                </m.div>
               </div>
 
             </div>
-          </motion.div>
+          </m.div>
 
         </div>
       </div>

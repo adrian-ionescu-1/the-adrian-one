@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Mail } from 'lucide-react';
 import { container, blurUp, fadeUp, viewport } from '@/lib/motion';
@@ -19,7 +19,7 @@ export function PartnersCTA() {
   return (
     <section className="relative border-t border-border/30 py-24 md:py-32 overflow-hidden">
       {/* Pulsing glow orb */}
-      <motion.div
+      <m.div
         animate={{ scale: [1, 1.18, 1], opacity: [0.07, 0.18, 0.07] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full bg-primary blur-[140px]"
@@ -28,7 +28,7 @@ export function PartnersCTA() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent" aria-hidden />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" aria-hidden />
 
-      <motion.div
+      <m.div
         variants={container(0.1)}
         initial="hidden"
         whileInView="visible"
@@ -36,7 +36,7 @@ export function PartnersCTA() {
         className="relative mx-auto max-w-3xl px-6 text-center"
       >
         {/* Badge */}
-        <motion.div variants={blurUp} className="mb-6 flex justify-center">
+        <m.div variants={blurUp} className="mb-6 flex justify-center">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-primary/10 text-sm font-semibold text-primary">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60" />
@@ -44,21 +44,21 @@ export function PartnersCTA() {
             </span>
             Available for new projects
           </span>
-        </motion.div>
+        </m.div>
 
-        <motion.h2 variants={fadeUp} className="mb-5 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">
+        <m.h2 variants={fadeUp} className="mb-5 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">
           {t('heading')}
-        </motion.h2>
+        </m.h2>
 
-        <motion.p variants={fadeUp} className="mb-10 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto">
+        <m.p variants={fadeUp} className="mb-10 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto">
           {t('subheading')}
-        </motion.p>
+        </m.p>
 
         {/* CTAs */}
-        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <m.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           {/* Primary — gradient + breathing glow + shimmer */}
           <div className="relative">
-            <motion.div
+            <m.div
               animate={{ opacity: [0.3, 0.65, 0.3], scale: [1, 1.07, 1] }}
               transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
               className="pointer-events-none absolute inset-0 rounded-xl bg-primary/50 blur-md"
@@ -84,8 +84,8 @@ export function PartnersCTA() {
             <Mail size={15} />
             {t('secondary')}
           </a>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

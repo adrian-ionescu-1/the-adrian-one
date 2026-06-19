@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowUpRight, Mail, Phone } from 'lucide-react';
@@ -124,17 +124,17 @@ export function Footer() {
       <div className="relative mx-auto max-w-6xl px-6 py-14">
 
         {/* CTA Banner */}
-        <motion.div
+        <m.div
           variants={scaleIn}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
         >
           <FooterCTA />
-        </motion.div>
+        </m.div>
 
         {/* Stats row */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
@@ -142,22 +142,22 @@ export function Footer() {
           className="mb-12 grid grid-cols-3 gap-0 rounded-xl border border-border/40 bg-card/20 px-2 sm:px-6 py-4 sm:py-5 divide-x divide-border/40"
         >
           {STATS.map(({ to, suffix, labelKey }) => (
-            <motion.div key={labelKey} variants={fadeUp} className="flex flex-col items-center gap-1 px-0 sm:px-4">
+            <m.div key={labelKey} variants={fadeUp} className="flex flex-col items-center gap-1 px-0 sm:px-4">
               <span className="text-lg sm:text-3xl font-bold text-primary tabular-nums">
                 <CountUp to={to} suffix={suffix} />
               </span>
               <span className="text-xs text-muted-foreground text-center leading-snug">
                 {t(labelKey)}
               </span>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Links grid */}
         <div className="grid grid-cols-1 gap-8 md:gap-12 md:grid-cols-3">
 
           {/* Brand */}
-          <motion.div
+          <m.div
             variants={fadeLeft}
             initial="hidden"
             whileInView="visible"
@@ -184,22 +184,22 @@ export function Footer() {
                 <span className="break-all">{t('footer.email')}</span>
               </a>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Quick links */}
-          <motion.div
+          <m.div
             variants={container(0.07)}
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
             className="flex flex-col items-center gap-4 md:items-start"
           >
-            <motion.p variants={fadeUp} className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
+            <m.p variants={fadeUp} className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
               {t('footer.sections.links')}
-            </motion.p>
+            </m.p>
             <ul className="space-y-1.5 flex flex-col items-center md:items-start">
               {QUICK_LINKS.map(({ key, href }) => (
-                <motion.li key={key} variants={fadeUp}>
+                <m.li key={key} variants={fadeUp}>
                   <Link
                     href={href}
                     className="group inline-flex items-center gap-2 text-base text-muted-foreground transition-all duration-200 hover:text-foreground"
@@ -207,25 +207,25 @@ export function Footer() {
                     <span className="hidden md:block h-px w-3 bg-border transition-all duration-300 group-hover:w-5 group-hover:bg-primary" />
                     {t(`nav.${key}`)}
                   </Link>
-                </motion.li>
+                </m.li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
 
           {/* Connect */}
-          <motion.div
+          <m.div
             variants={container(0.06)}
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
             className="flex flex-col items-center gap-4 md:items-start"
           >
-            <motion.p variants={fadeUp} className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
+            <m.p variants={fadeUp} className="text-sm font-semibold text-foreground uppercase tracking-[0.12em]">
               {t('footer.sections.connect')}
-            </motion.p>
+            </m.p>
             <ul className="space-y-2 flex flex-col items-center md:items-start">
               {SOCIAL_LINKS.map(({ label, href, Icon }) => (
-                <motion.li key={label} variants={fadeRight}>
+                <m.li key={label} variants={fadeRight}>
                   <a
                     href={href}
                     target="_blank"
@@ -241,15 +241,15 @@ export function Footer() {
                       className="text-muted-foreground/30 transition-all duration-200 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     />
                   </a>
-                </motion.li>
+                </m.li>
               ))}
 
             </ul>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Bottom bar */}
-        <motion.div
+        <m.div
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
@@ -274,7 +274,7 @@ export function Footer() {
             <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-pulse" />
             {t('footer.rights')}
           </span>
-        </motion.div>
+        </m.div>
       </div>
     </footer>
   );

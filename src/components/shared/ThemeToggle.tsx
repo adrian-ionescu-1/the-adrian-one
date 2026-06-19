@@ -2,7 +2,7 @@
 
 import { useEffect, useState, startTransition } from 'react';
 import { Sun, Moon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useTheme } from './ThemeProvider';
 
 export function ThemeToggle() {
@@ -23,7 +23,7 @@ export function ThemeToggle() {
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <AnimatePresence mode="wait" initial={false}>
-        <motion.span
+        <m.span
           key={theme}
           initial={{ rotate: -90, opacity: 0, scale: 0.7 }}
           animate={{ rotate: 0, opacity: 1, scale: 1 }}
@@ -32,7 +32,7 @@ export function ThemeToggle() {
           className="block"
         >
           {isDark ? <Sun size={17} /> : <Moon size={17} />}
-        </motion.span>
+        </m.span>
       </AnimatePresence>
     </button>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Globe, Server, Layers, Settings } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -39,26 +39,26 @@ export function TechShowcase() {
       <div className="relative mx-auto max-w-6xl px-6">
 
         {/* Header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-16"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* 4-column category grid */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
@@ -66,7 +66,7 @@ export function TechShowcase() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
         >
           {CATEGORIES.map(({ Icon, labelKey, color, border, bg, pillBg, items }) => (
-            <motion.div
+            <m.div
               key={labelKey}
               variants={scaleIn}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -74,30 +74,30 @@ export function TechShowcase() {
             >
               {/* Category header */}
               <div className="flex items-center gap-2.5">
-                <motion.span variants={iconVariant} className={`flex items-center justify-center w-9 h-9 rounded-lg ${bg} ${color} transition-transform duration-300 group-hover:scale-110`}>
+                <m.span variants={iconVariant} className={`flex items-center justify-center w-9 h-9 rounded-lg ${bg} ${color} transition-transform duration-300 group-hover:scale-110`}>
                   <Icon size={18} strokeWidth={1.8} />
-                </motion.span>
+                </m.span>
                 <span className={`text-sm font-bold uppercase tracking-[0.12em] ${color}`}>
                   {t(labelKey as Parameters<typeof t>[0])}
                 </span>
               </div>
 
               {/* Tech pills — stagger */}
-              <motion.div variants={container(0.07, 0.1)} className="flex flex-col gap-2">
+              <m.div variants={container(0.07, 0.1)} className="flex flex-col gap-2">
                 {items.map((item) => (
-                  <motion.span
+                  <m.span
                     key={item}
                     variants={pillVariant}
                     className={`inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-lg border ${pillBg}`}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60 shrink-0" />
                     {item}
-                  </motion.span>
+                  </m.span>
                 ))}
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

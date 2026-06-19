@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { container, blurUp, fadeUp, viewport } from '@/lib/motion';
 
@@ -40,7 +40,7 @@ function MilestoneCard({ milestone, index, t }: { milestone: Milestone; index: n
       {/* Timeline spine */}
       <div className="relative flex flex-col items-center">
         {/* Dot */}
-        <motion.div
+        <m.div
           initial={{ scale: 0, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : {}}
           transition={{ type: 'spring', stiffness: 350, damping: 22, delay: index * 0.08 }}
@@ -48,7 +48,7 @@ function MilestoneCard({ milestone, index, t }: { milestone: Milestone; index: n
         />
         {/* Connector line */}
         {!isLast && (
-          <motion.div
+          <m.div
             initial={{ scaleY: 0, opacity: 0 }}
             animate={isInView ? { scaleY: 1, opacity: 1 } : {}}
             transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.08 + 0.2 }}
@@ -59,7 +59,7 @@ function MilestoneCard({ milestone, index, t }: { milestone: Milestone; index: n
       </div>
 
       {/* Card */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: 24 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 + 0.05 }}
@@ -82,7 +82,7 @@ function MilestoneCard({ milestone, index, t }: { milestone: Milestone; index: n
             <p className="text-sm text-muted-foreground leading-relaxed">{t(milestone.descKey as MilestoneKey)}</p>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -100,23 +100,23 @@ export function AboutStory() {
 
       <div className="relative mx-auto max-w-3xl px-6">
         {/* Section header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-16"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Timeline */}
         <div className="flex flex-col">

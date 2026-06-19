@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import {
   Banknote,
@@ -81,26 +81,26 @@ export function PartnersBenefits() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-14"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Benefits grid */}
-        <motion.div
+        <m.div
           variants={container(0.08, 0.1)}
           initial="hidden"
           whileInView="visible"
@@ -108,7 +108,7 @@ export function PartnersBenefits() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {BENEFITS.map(({ icon: Icon, accent, bg, glow, titleKey, descKey }) => (
-            <motion.div
+            <m.div
               key={titleKey}
               variants={scaleIn}
               whileHover={{ y: -6, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -122,21 +122,21 @@ export function PartnersBenefits() {
               <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-linear-to-r from-transparent via-white/5 to-transparent" aria-hidden />
 
               {/* Icon */}
-              <motion.div
+              <m.div
                 variants={iconVariant}
                 className={`w-11 h-11 rounded-xl border flex items-center justify-center shrink-0 ${bg} ${accent} transition-transform duration-200 group-hover:scale-110`}
               >
                 <Icon size={19} />
-              </motion.div>
+              </m.div>
 
               {/* Text */}
               <div className="relative">
                 <h3 className="text-base font-bold text-foreground mb-1.5">{t(titleKey)}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t(descKey)}</p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

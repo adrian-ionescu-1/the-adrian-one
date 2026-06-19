@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import {
   Globe, ShoppingBag, Server, Layers, Zap, Shield,
@@ -47,28 +47,28 @@ export function ServicesDetail() {
       <div className="relative mx-auto max-w-6xl px-6">
 
         {/* Section header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-16"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('detail.badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t('detail.heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('detail.subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Cards grid — alternate left/right entrance */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {SERVICES.map(({ Icon, key, tech, timeline, featured, cardAccent, iconAccent }, i) => (
-            <motion.article
+            <m.article
               key={key}
               variants={i % 2 === 0 ? fadeLeft : fadeRight}
               initial="hidden"
@@ -86,14 +86,14 @@ export function ServicesDetail() {
 
               {/* Top row: icon + badge */}
               <div className="relative flex items-start justify-between gap-3">
-                <motion.span
+                <m.span
                   variants={iconVariant}
                   className={`flex items-center justify-center w-14 h-14 rounded-xl transition-all duration-300 ${iconAccent} group-hover:scale-105 group-hover:shadow-glow-sm`}
                 >
                   <Icon size={24} strokeWidth={1.7} />
-                </motion.span>
+                </m.span>
 
-                <motion.span
+                <m.span
                   variants={pillVariant}
                   className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold tracking-wide ${
                     featured
@@ -102,7 +102,7 @@ export function ServicesDetail() {
                   }`}
                 >
                   {t(`${key}.badge` as Parameters<typeof t>[0])}
-                </motion.span>
+                </m.span>
               </div>
 
               {/* Title + description */}
@@ -112,32 +112,32 @@ export function ServicesDetail() {
               </div>
 
               {/* Feature list */}
-              <motion.div
+              <m.div
                 variants={container(0.06, 0.1)}
                 className="relative flex flex-col gap-3"
               >
                 <p className="text-xs font-semibold text-muted-foreground/55 uppercase tracking-[0.13em]">{t('detail.featuresTitle')}</p>
                 <ul className="space-y-2.5">
                   {([1, 2, 3, 4, 5] as const).map((n) => (
-                    <motion.li key={n} variants={fadeUp} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                    <m.li key={n} variants={fadeUp} className="flex items-start gap-2.5 text-sm text-foreground/85">
                       <CheckCircle2 size={15} className="shrink-0 mt-0.5 text-primary" strokeWidth={2} />
                       {t(`${key}.f${n}` as Parameters<typeof t>[0])}
-                    </motion.li>
+                    </m.li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
 
               {/* Footer: tech + timeline + CTA */}
               <div className="relative mt-auto flex flex-col gap-4 pt-5 border-t border-border/30">
                 <div className="flex flex-col gap-2">
                   <p className="text-xs font-semibold text-muted-foreground/55 uppercase tracking-[0.13em]">{t('detail.techTitle')}</p>
-                  <motion.div variants={container(0.05, 0.15)} className="flex flex-wrap gap-1.5">
+                  <m.div variants={container(0.05, 0.15)} className="flex flex-wrap gap-1.5">
                     {tech.map((item) => (
-                      <motion.span key={item} variants={pillVariant} className="px-2.5 py-1 text-xs font-medium rounded-lg border border-border/50 bg-primary/6 text-foreground/80">
+                      <m.span key={item} variants={pillVariant} className="px-2.5 py-1 text-xs font-medium rounded-lg border border-border/50 bg-primary/6 text-foreground/80">
                         {item}
-                      </motion.span>
+                      </m.span>
                     ))}
-                  </motion.div>
+                  </m.div>
                 </div>
 
                 <div className="flex items-center justify-between gap-3 flex-wrap">
@@ -157,7 +157,7 @@ export function ServicesDetail() {
                   </a>
                 </div>
               </div>
-            </motion.article>
+            </m.article>
           ))}
         </div>
       </div>

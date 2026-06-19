@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Clock, Globe2, CalendarCheck, MessageCircle } from 'lucide-react';
 import { container, blurUp, fadeUp, scaleIn } from '@/lib/motion';
@@ -71,7 +71,7 @@ export function ContactHero() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
       {/* Pulsing ambient glow */}
-      <motion.div
+      <m.div
         animate={{ scale: [1, 1.18, 1], opacity: [0.07, 0.15, 0.07] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-primary blur-[140px]"
@@ -91,17 +91,17 @@ export function ContactHero() {
       <div className="relative mx-auto max-w-5xl px-6 text-center">
 
         {/* Badge */}
-        <motion.span
+        <m.span
           variants={blurUp}
           initial="hidden"
           animate="visible"
           className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide"
         >
           {t('badge')}
-        </motion.span>
+        </m.span>
 
         {/* Heading */}
-        <motion.h1
+        <m.h1
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -112,10 +112,10 @@ export function ContactHero() {
           <span className="bg-linear-to-r from-primary via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
             {t('headingAccent')}
           </span>
-        </motion.h1>
+        </m.h1>
 
         {/* Subheading */}
-        <motion.p
+        <m.p
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -123,17 +123,17 @@ export function ContactHero() {
           className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-14"
         >
           {t('subheading')}
-        </motion.p>
+        </m.p>
 
         {/* Info cards — stagger */}
-        <motion.div
+        <m.div
           variants={container(0.1, 0.25)}
           initial="hidden"
           animate="visible"
           className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 max-w-3xl mx-auto"
         >
           {INFO_CARDS.map(({ Icon, label, value, color, ringColor, iconBg, glowColor }) => (
-            <motion.div
+            <m.div
               key={label}
               variants={scaleIn}
               whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -144,19 +144,19 @@ export function ContactHero() {
               {/* Shimmer */}
               <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-linear-to-r from-transparent via-white/6 to-transparent" aria-hidden />
 
-              <motion.div
+              <m.div
                 variants={iconVariant}
                 className={`relative w-10 h-10 rounded-xl ${iconBg} flex items-center justify-center transition-transform duration-200 group-hover:scale-110`}
               >
                 <Icon size={18} className={color} />
-              </motion.div>
+              </m.div>
               <div className="relative text-center">
                 <p className="text-xs text-muted-foreground/70 leading-tight mb-1">{label}</p>
                 <p className={`text-sm font-bold ${color}`}>{value}</p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

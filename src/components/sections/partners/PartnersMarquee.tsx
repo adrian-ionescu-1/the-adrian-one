@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { container, blurUp, fadeUp, viewport } from '@/lib/motion';
 
@@ -57,7 +57,7 @@ function MarqueeRow({ items, duration, reverse = false }: { items: TechItem[]; d
     <div className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-linear-to-r from-background to-transparent" aria-hidden />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-linear-to-l from-background to-transparent" aria-hidden />
-      <motion.div
+      <m.div
         className="flex gap-3 w-max"
         animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
         transition={{ duration, ease: 'linear', repeat: Infinity, repeatType: 'loop' }}
@@ -65,7 +65,7 @@ function MarqueeRow({ items, duration, reverse = false }: { items: TechItem[]; d
         {doubled.map((item, i) => (
           <TechPill key={`${item.name}-${i}`} item={item} />
         ))}
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -81,23 +81,23 @@ export function PartnersMarquee() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
-        <motion.div
+        <m.div
           variants={container(0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
           className="flex flex-col items-center text-center mb-12"
         >
-          <motion.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
+          <m.span variants={blurUp} className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/8 text-sm font-semibold text-primary tracking-wide">
             {t('badge')}
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          </m.span>
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
             {t('heading')}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-lg text-muted-foreground max-w-xl leading-relaxed">
             {t('subheading')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
       </div>
 
       {/* Marquee rows — full bleed */}
