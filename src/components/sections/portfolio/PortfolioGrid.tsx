@@ -12,6 +12,9 @@ import { useTheme } from '@/components/shared/ThemeProvider';
 
 type Category = 'webapp' | 'ecommerce' | 'landing' | 'api';
 
+// A single shared image, or separate light/dark variants.
+type ProjectImage = string | { light: string; dark: string };
+
 type Project = {
   id: string;
   title: string;
@@ -23,7 +26,7 @@ type Project = {
   gradient: string;
   year: string;
   liveUrl: string;
-  image?: { light: string; dark: string };
+  image?: ProjectImage;
 };
 
 type FeaturedProject = Project & {
@@ -36,11 +39,12 @@ type FeaturedProject = Project & {
 const FEATURED_CONFIG = {
   id: 'techstart' as const,
   category: 'webapp' as Category,
-  tech: ['Next.js 16', 'TypeScript', 'PostgreSQL', 'Prisma', 'Redis', 'Tailwind CSS'],
-  metricValues: ['8 wk', '99.9%', '50+'],
-  gradient: 'from-violet-600 via-purple-600 to-indigo-700',
-  year: '2024',
-  liveUrl: '#',
+  tech: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase (PostgreSQL + Realtime)', 'Tailwind CSS', 'Zustand', 'Vitest'],
+  metricValues: ['Realtime', '3', '44'],
+  gradient: 'from-emerald-600 via-teal-600 to-cyan-700',
+  year: '2026',
+  liveUrl: 'https://live-auction1.vercel.app/',
+  image: '/images/projects/blitz-arena.jpg' as ProjectImage,
 };
 
 const PROJECTS_CONFIG: {
@@ -50,7 +54,7 @@ const PROJECTS_CONFIG: {
   gradient: string;
   year: string;
   liveUrl: string;
-  image?: { light: string; dark: string };
+  image?: ProjectImage;
 }[] = [
   { id: 'foodie',     category: 'landing',   tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS v4', 'next-intl', 'Schema.org JSON-LD'], gradient: 'from-amber-500 via-orange-500 to-red-500', year: '2025', liveUrl: 'https://foodie-brasov.vercel.app', image: { light: '/images/projects/foodie-brasov-light.jpg', dark: '/images/projects/foodie-brasov-dark.jpg' } },
   { id: 'nordshop',   category: 'ecommerce', tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Vercel'],             gradient: 'from-blue-500 via-cyan-500 to-teal-600',     year: '2024', liveUrl: '#' },
@@ -68,9 +72,9 @@ const CATEGORY_LABELS: Record<Category, string> = {
 
 // ─── Browser Mockup ───────────────────────────────────────────────────────────
 
-function BrowserMockup({ gradient, image, priority = false }: { gradient: string; image?: { light: string; dark: string }; priority?: boolean }) {
+function BrowserMockup({ gradient, image, priority = false }: { gradient: string; image?: ProjectImage; priority?: boolean }) {
   const { theme } = useTheme();
-  const src = image ? image[theme] : null;
+  const src = image ? (typeof image === 'string' ? image : image[theme]) : null;
   return (
     <div className="w-full rounded-xl overflow-hidden border border-border/40 shadow-lg">
       <div className="flex items-center gap-1.5 px-3 py-2 bg-neutral-100 dark:bg-neutral-900 border-b border-black/8 dark:border-white/8">
@@ -180,10 +184,10 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
         </div>
 
         {/* Metrics */}
-        <m.div variants={container(0.08, 0.15)} className="grid grid-cols-3 gap-3">
+        <m.div variants={container(0.08, 0.15)} className="grid grid-cols-3 gap-2 sm:gap-3">
           {project.metrics.map(({ value, label }) => (
-            <m.div key={label} variants={scaleIn} className="flex flex-col items-center gap-1 p-3 rounded-xl border border-border/40 bg-card/50 text-center">
-              <span className="text-xl font-bold text-primary tabular-nums">{value}</span>
+            <m.div key={label} variants={scaleIn} className="flex flex-col items-center gap-1 min-w-0 p-2 sm:p-3 rounded-xl border border-border/40 bg-card/50 text-center">
+              <span className={`${value.length > 4 ? 'text-sm sm:text-lg' : 'text-xl'} font-bold text-primary tabular-nums tracking-tight leading-tight [overflow-wrap:anywhere]`}>{value}</span>
               <span className="text-xs text-muted-foreground leading-snug">{label}</span>
             </m.div>
           ))}

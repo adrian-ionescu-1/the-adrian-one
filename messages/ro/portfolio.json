@@ -49,14 +49,14 @@
     },
     "projects": {
       "techstart": {
-        "title": "TechStart Platform",
-        "tagline": "Platformă SaaS multi-tenant",
-        "description": "Platformă full-stack de management de proiecte și analitics construită pentru un startup românesc. Colaborare în timp real, dashboard personalizat de raportare și workspace-uri de echipă — de la 0 la producție în 8 săptămâni.",
-        "challenge": "Proiectarea unei arhitecturi multi-tenant care suportă 50+ echipe izolate cu actualizări în timp real și un timp de încărcare al dashboard-ului sub 200ms la sarcină concurentă.",
-        "metric": "2 săpt. înainte de termen",
-        "m1Label": "Timp de lansare",
-        "m2Label": "SLA uptime",
-        "m3Label": "Echipe active"
+        "title": "Blitz Arena — Live Auction & Tournaments",
+        "tagline": "Platformă de licitații și turnee în timp real",
+        "description": "Platformă full-stack pentru comunitățile World of Tanks Blitz: drafturi prin licitație live, evenimente comunitare cu înscrieri și turnee — ligi în stil FIFA și cupe cu înscriere, cu grupe seedate și un bracket eliminatoriu care avansează automat. Adminii gestionează tot; membrii se înscriu și licitează; streamerii transmit live.",
+        "challenge": "Construirea unei licitații live corecte și sigure la concurență, cu un timer autoritativ pe server (ca să nu depindă niciodată de tab-ul de browser al adminului), plus două motoare de turnee — clasament pe grupe și un bracket cu eliminare directă care avansează automat — totul în spatele unui Postgres securizat la nivel de rând, ca serverul să rămână unica sursă de adevăr.",
+        "metric": "Realtime autoritativ pe server",
+        "m1Label": "Licitare autoritativă pe server",
+        "m2Label": "Formate licitație · ligă · cupă",
+        "m3Label": "Teste automate"
       },
       "nordshop": {
         "title": "NordShop",
