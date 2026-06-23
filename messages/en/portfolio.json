@@ -49,14 +49,14 @@
     },
     "projects": {
       "techstart": {
-        "title": "TechStart Platform",
-        "tagline": "Multi-tenant SaaS platform",
-        "description": "Full-stack project management and analytics platform built for a Romanian startup. Real-time collaboration, custom reporting dashboard, and team workspaces — from 0 to production in 8 weeks.",
-        "challenge": "Design a multi-tenant architecture supporting 50+ isolated teams with real-time updates and a sub-200ms dashboard load time under concurrent load.",
-        "metric": "2 wks ahead of schedule",
-        "m1Label": "Time to launch",
-        "m2Label": "Uptime SLA",
-        "m3Label": "Active teams"
+        "title": "Blitz Arena — Live Auction & Tournaments",
+        "tagline": "Real-time auction & tournament platform",
+        "description": "Full-stack platform for World of Tanks Blitz communities: live auction drafts, community events with sign-ups, and tournaments — FIFA-style leagues and registration cups with seeded groups and an auto-advancing knockout bracket. Admins run everything; members register and bid; streamers broadcast live.",
+        "challenge": "Build a fair, concurrency-safe live auction with a server-authoritative timer (so it never depends on the admin's browser tab), plus two tournament engines — group standings and an auto-advancing single-elimination bracket — all behind row-level-secured Postgres so the server stays the single source of truth.",
+        "metric": "Server-authoritative realtime",
+        "m1Label": "Server-authoritative bidding",
+        "m2Label": "Auction · league · cup formats",
+        "m3Label": "Automated tests"
       },
       "nordshop": {
         "title": "NordShop",
