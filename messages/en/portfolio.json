@@ -87,6 +87,12 @@
         "tagline": "Restaurant website",
         "description": "Website for a shawarma restaurant in the Old Town of Brașov — animated hero, live Google Reviews counter, bilingual RO/EN, full SEO with schema.org structured data and flash-free dark mode.",
         "metric": "Bilingual + Schema.org"
+      },
+      "shawarmania": {
+        "title": "Shawarmania by Tata Radu",
+        "tagline": "Restaurant website",
+        "description": "Landing page for the only lamb-shawarma spot in Brașov — parallax animated hero, bilingual RO/EN, category menu with prices, swipe testimonials carousel and a live \"open now\" indicator. Full SEO with schema.org structured data and flash-free light/dark mode.",
+        "metric": "Bilingual + Schema.org SEO"
       }
     }
   }
