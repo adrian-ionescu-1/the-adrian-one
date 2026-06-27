@@ -44,7 +44,7 @@ const FEATURED_CONFIG = {
   gradient: 'from-emerald-600 via-teal-600 to-cyan-700',
   year: '2026',
   liveUrl: 'https://live-auction1.vercel.app/',
-  image: '/images/projects/blitz-arena.jpg' as ProjectImage,
+  image: '/images/projects/blitz-arena.avif' as ProjectImage,
 };
 
 const PROJECTS_CONFIG: {
@@ -56,7 +56,8 @@ const PROJECTS_CONFIG: {
   liveUrl: string;
   image?: ProjectImage;
 }[] = [
-  { id: 'foodie',     category: 'landing',   tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS v4', 'next-intl', 'Schema.org JSON-LD'], gradient: 'from-amber-500 via-orange-500 to-red-500', year: '2025', liveUrl: 'https://foodie-brasov.vercel.app', image: { light: '/images/projects/foodie-brasov-light.jpg', dark: '/images/projects/foodie-brasov-dark.jpg' } },
+  { id: 'shawarmania', category: 'landing',  tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS v4', 'next-intl', 'TypeScript', 'Schema.org JSON-LD'], gradient: 'from-orange-500 via-red-500 to-rose-600', year: '2026', liveUrl: 'https://shawarmania-by-tata-radu.vercel.app/', image: { light: '/images/projects/shawarmania-by-tata-radu-light.avif', dark: '/images/projects/shawarmania-by-tata-radu-dark.avif' } },
+  { id: 'foodie',     category: 'landing',   tech: ['Next.js 16', 'Framer Motion', 'Tailwind CSS v4', 'next-intl', 'Schema.org JSON-LD'], gradient: 'from-amber-500 via-orange-500 to-red-500', year: '2026', liveUrl: 'https://foodie-brasov.vercel.app', image: { light: '/images/projects/foodie-brasov-light.avif', dark: '/images/projects/foodie-brasov-dark.avif' } },
   { id: 'nordshop',   category: 'ecommerce', tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Vercel'],             gradient: 'from-blue-500 via-cyan-500 to-teal-600',     year: '2024', liveUrl: '#' },
   { id: 'buildflow',  category: 'webapp',    tech: ['React', 'Node.js', 'GraphQL', 'Redis', 'Docker'],        gradient: 'from-emerald-500 via-green-500 to-teal-600',  year: '2023', liveUrl: '#' },
   { id: 'medconnect', category: 'api',       tech: ['Node.js', 'Express', 'PostgreSQL', 'Docker', 'AWS'],     gradient: 'from-rose-500 via-pink-500 to-red-600',       year: '2023', liveUrl: '#' },
@@ -187,7 +188,7 @@ function FeaturedCard({ project, labels }: { project: FeaturedProject; labels: F
         <m.div variants={container(0.08, 0.15)} className="grid grid-cols-3 gap-2 sm:gap-3">
           {project.metrics.map(({ value, label }) => (
             <m.div key={label} variants={scaleIn} className="flex flex-col items-center gap-1 min-w-0 p-2 sm:p-3 rounded-xl border border-border/40 bg-card/50 text-center">
-              <span className={`${value.length > 4 ? 'text-sm sm:text-lg' : 'text-xl'} font-bold text-primary tabular-nums tracking-tight leading-tight [overflow-wrap:anywhere]`}>{value}</span>
+              <span className={`${value.length > 4 ? 'text-sm sm:text-lg' : 'text-xl'} font-bold text-primary tabular-nums tracking-tight leading-tight wrap-anywhere`}>{value}</span>
               <span className="text-xs text-muted-foreground leading-snug">{label}</span>
             </m.div>
           ))}

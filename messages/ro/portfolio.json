@@ -87,6 +87,12 @@
         "tagline": "Website restaurant",
         "description": "Website pentru shaormerie în Centrul Vechi Brașov — hero animat, card Google Reviews cu counter live, bilingv RO/EN, SEO complet cu date structurate schema.org și dark mode fără flash.",
         "metric": "Bilingv + Schema.org"
+      },
+      "shawarmania": {
+        "title": "Shawarmania by Tata Radu",
+        "tagline": "Website restaurant",
+        "description": "Landing page pentru singurul loc cu shaorma de miel din Brașov — hero animat cu parallax, bilingv RO/EN, meniu pe categorii cu prețuri, carusel de testimoniale cu swipe și indicator live „deschis acum”. SEO complet cu date structurate schema.org și light/dark mode fără flash.",
+        "metric": "Bilingv + SEO Schema.org"
       }
     }
   }
