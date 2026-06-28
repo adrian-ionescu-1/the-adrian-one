@@ -58,8 +58,8 @@ function WhatsAppIcon({ size = 13 }: { size?: number }) {
 }
 
 const STATS = [
-  { to: 15, suffix: '+', labelKey: 'footer.stats.projectsLabel' },
-  { to: 5,  suffix: '+', labelKey: 'footer.stats.experienceLabel' },
+  { to: 10, suffix: '+', labelKey: 'footer.stats.projectsLabel' },
+  { to: 3,  suffix: '+', labelKey: 'footer.stats.experienceLabel' },
   { to: 100, suffix: '%', labelKey: 'footer.stats.remoteLabel' },
 ] as const;
 

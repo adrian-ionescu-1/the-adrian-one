@@ -27,7 +27,7 @@ function CountUp({ to, suffix = '' }: { to: number; suffix: string }) {
 }
 
 const STATS = [
-  { to: 15, suffix: '+', labelKey: 'stat1Label' },
+  { to: 10, suffix: '+', labelKey: 'stat1Label' },
   { to: 5,  suffix: '',  labelKey: 'stat2Label' },
   { to: 4,  suffix: '',  labelKey: 'stat3Label' },
 ] as const;
