@@ -28,8 +28,8 @@ function CountUp({ to, suffix = '' }: { to: number; suffix: string }) {
 }
 
 const STATS = [
-  { to: 15, suffix: '+', labelKey: 'hero.stat1Label' },
-  { to: 5,  suffix: '+', labelKey: 'hero.stat2Label' },
+  { to: 10, suffix: '+', labelKey: 'hero.stat1Label' },
+  { to: 3,  suffix: '+', labelKey: 'hero.stat2Label' },
   { to: 100, suffix: '%', labelKey: 'hero.stat3Label' },
 ] as const;
 

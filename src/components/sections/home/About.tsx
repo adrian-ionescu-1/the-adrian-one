@@ -54,8 +54,8 @@ export function About() {
   const [imgErr, setImgErr] = useState(false);
 
   const stats: { to: number; suffix: string; label: string }[] = [
-    { to: 15, suffix: '+', label: t('stat1Label') },
-    { to: 5,  suffix: '+', label: t('stat2Label') },
+    { to: 10, suffix: '+', label: t('stat1Label') },
+    { to: 3,  suffix: '+', label: t('stat2Label') },
     { to: 100, suffix: '%', label: t('stat3Label') },
   ];
 

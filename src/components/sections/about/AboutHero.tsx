@@ -50,12 +50,12 @@ function CountUp({ to, suffix = '' }: { to: number; suffix: string }) {
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const STATS = [
-  { to: 15, suffix: '+', labelKey: 'stat1Label' },
-  { to: 5,  suffix: '+', labelKey: 'stat2Label' },
+  { to: 10, suffix: '+', labelKey: 'stat1Label' },
+  { to: 3,  suffix: '+', labelKey: 'stat2Label' },
   { to: 4,  suffix: '',  labelKey: 'stat3Label' },
 ] as const;
 
-const SKILLS = ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Docker', 'Figma'];
+const SKILLS = ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'tRPC', 'PostgreSQL', 'Prisma', 'shadcn/ui'];
 
 const skillVariant = {
   hidden: { opacity: 0, scale: 0.8, y: 8 },
